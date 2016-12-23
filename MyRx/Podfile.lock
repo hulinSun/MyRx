@@ -7,8 +7,17 @@ PODS:
   - Moya/Core (8.0.0-beta.6):
     - Alamofire (~> 4.0)
     - Result (~> 3.0)
+  - Moya/RxSwift (8.0.0-beta.6):
+    - Moya/Core
+    - RxSwift (~> 3.0)
+  - ObjectMapper (2.2.2)
   - Result (3.1.0)
   - ReusableKit (1.1.0)
+  - RxAlamofire (3.0.2):
+    - RxAlamofire/Core (= 3.0.2)
+  - RxAlamofire/Core (3.0.2):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
   - RxCocoa (3.0.1):
     - RxSwift (~> 3.0)
   - RxDataSources (1.0.0):
@@ -25,7 +34,10 @@ DEPENDENCIES:
   - CGFloatLiteral (~> 0.2)
   - ManualLayout (~> 1.3)
   - Moya (= 8.0.0-beta.6)
+  - Moya/RxSwift
+  - ObjectMapper (~> 2.2)
   - ReusableKit (~> 1.1)
+  - RxAlamofire
   - RxCocoa (~> 3.0)
   - RxDataSources (~> 1.0)
   - RxOptional (~> 3.1)
@@ -38,8 +50,10 @@ SPEC CHECKSUMS:
   CGFloatLiteral: 5bdcd81cb54b56cd71c4e5e66a33cb86cd51ecbf
   ManualLayout: 68ac8cfa6b5f656f7a9fadec3730208b95986880
   Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
+  ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
   Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
   ReusableKit: 89e743a120bab0d95848bff27e481833c2768905
+  RxAlamofire: bc53604b29fd2d220cfaa490c736cc4500819f34
   RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
   RxDataSources: 824693e84d00781d0a5e5cedc1ff95ce9250aacd
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
@@ -47,6 +61,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
-PODFILE CHECKSUM: 742dc00282f4a1a1f86fb5994a139903df9c4d46
+PODFILE CHECKSUM: 951ffb429704d836a9edc2d3856f7e94a238c831
 
 COCOAPODS: 1.0.1
