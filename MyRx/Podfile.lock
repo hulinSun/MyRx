@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.2.0)
   - CGFloatLiteral (0.2.0)
+  - Kingfisher (3.2.4)
   - ManualLayout (1.3.0)
   - Moya (8.0.0-beta.6):
     - Moya/Core (= 8.0.0-beta.6)
@@ -32,6 +33,7 @@ PODS:
 
 DEPENDENCIES:
   - CGFloatLiteral (~> 0.2)
+  - Kingfisher (~> 3.0)
   - ManualLayout (~> 1.3)
   - Moya (= 8.0.0-beta.6)
   - Moya/RxSwift
@@ -48,6 +50,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   CGFloatLiteral: 5bdcd81cb54b56cd71c4e5e66a33cb86cd51ecbf
+  Kingfisher: 8d80f39da403cd9c9ee11984e1655f4d6a566cdb
   ManualLayout: 68ac8cfa6b5f656f7a9fadec3730208b95986880
   Moya: a29e2503a0c5067d462ba2f07cc6b6b1f3fc172d
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
@@ -61,6 +64,6 @@ SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
 
-PODFILE CHECKSUM: 951ffb429704d836a9edc2d3856f7e94a238c831
+PODFILE CHECKSUM: 5de075a9e0db73113032edaaaf398f7cbefe9085
 
 COCOAPODS: 1.0.1
