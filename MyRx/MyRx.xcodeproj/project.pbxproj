@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		49F7178906D90E965521E456 /* Pods_MyRx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE59E88E4072A808EE0F619 /* Pods_MyRx.framework */; };
+		FED2291D1E13AC380026F4DE /* BantangProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2291C1E13AC380026F4DE /* BantangProvider.swift */; };
+		FED229201E13AFA90026F4DE /* BanTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED2291F1E13AFA90026F4DE /* BanTModel.swift */; };
 		FEF828A71E0CB96F0002E09C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828A61E0CB96F0002E09C /* AppDelegate.swift */; };
 		FEF828A91E0CB96F0002E09C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828A81E0CB96F0002E09C /* ViewController.swift */; };
 		FEF828AC1E0CB96F0002E09C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEF828AA1E0CB96F0002E09C /* Main.storyboard */; };
@@ -38,6 +40,8 @@
 		42F74B4EAF2BBE52B7002C50 /* Pods-MyRx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRx.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyRx/Pods-MyRx.release.xcconfig"; sourceTree = "<group>"; };
 		6CE59E88E4072A808EE0F619 /* Pods_MyRx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyRx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		838C51FC2269DB5BF654EF8C /* Pods-MyRx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRx/Pods-MyRx.debug.xcconfig"; sourceTree = "<group>"; };
+		FED2291C1E13AC380026F4DE /* BantangProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BantangProvider.swift; sourceTree = "<group>"; };
+		FED2291F1E13AFA90026F4DE /* BanTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanTModel.swift; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828A61E0CB96F0002E09C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEF828A81E0CB96F0002E09C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			children = (
 				FEF828A61E0CB96F0002E09C /* AppDelegate.swift */,
 				FEF828A81E0CB96F0002E09C /* ViewController.swift */,
+				FED2291C1E13AC380026F4DE /* BantangProvider.swift */,
+				FED2291F1E13AFA90026F4DE /* BanTModel.swift */,
 				FEF828AA1E0CB96F0002E09C /* Main.storyboard */,
 				FEF828AD1E0CB96F0002E09C /* Assets.xcassets */,
 				FEF828AF1E0CB96F0002E09C /* LaunchScreen.storyboard */,
@@ -337,8 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FED229201E13AFA90026F4DE /* BanTModel.swift in Sources */,
 				FEF828A91E0CB96F0002E09C /* ViewController.swift in Sources */,
 				FEF828A71E0CB96F0002E09C /* AppDelegate.swift in Sources */,
+				FED2291D1E13AC380026F4DE /* BantangProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
