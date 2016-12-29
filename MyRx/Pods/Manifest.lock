@@ -29,6 +29,7 @@ PODS:
   - RxSwift (3.1.0)
   - SnapKit (3.1.2)
   - Then (2.1.0)
+  - UIColor_Hex_Swift (3.0.2)
 
 DEPENDENCIES:
   - HandyJSON (~> 1.4.0)
@@ -44,6 +45,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SnapKit (~> 3.0)
   - Then (~> 2.1)
+  - UIColor_Hex_Swift (~> 3.0.2)
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
@@ -60,7 +62,8 @@ SPEC CHECKSUMS:
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
+  UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: dbcfb6a1bc3dba54b12f66fe7ebd2241ba76883e
+PODFILE CHECKSUM: 5a0b4f62d1b4f808f792ffff70e9fb7ded14fed3
 
 COCOAPODS: 1.0.1

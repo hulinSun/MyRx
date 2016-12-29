@@ -19,6 +19,7 @@ target 'MyRx' do
   # UI
   pod 'SnapKit', '~> 3.0'
   pod 'ManualLayout', '~> 1.3'
+  pod 'UIColor_Hex_Swift', '~> 3.0.2'
 
   # Misc.
   pod 'Then', '~> 2.1'
