@@ -7,29 +7,27 @@
 //
 
 import UIKit
-import ObjectMapper
 import HandyJSON
 
-class BanTJSON: Mappable,HandyJSON {
+class BanTJSON: HandyJSON {
     var status: Int?
     var msg: String?
     var ts: Int?
     var  data: BanTModel?
     
-    required init?(map: Map) {}
-    
      required init() {}
+    
     // Mappable
-    func mapping(map: Map) {
-        status    <- map["status"]
-        msg         <- map["msg"]
-        ts      <- map["data"]
-        data       <- map["data"]
-
-    }
+//    required init?(map: Map) {}
+//    func mapping(map: Map) {
+//        status    <- map["status"]
+//        msg         <- map["msg"]
+//        ts      <- map["data"]
+//        data       <- map["data"]
+//    }
     
 }
-class BanTUser : Mappable , HandyJSON{
+class BanTUser :  HandyJSON{
     var user_id: String?
     var nickname: String?
     var avatar: String?
@@ -38,20 +36,21 @@ class BanTUser : Mappable , HandyJSON{
     var post_count: String?
     
     required init() {}
-    required init?(map: Map) {}
     
     // Mappable
-    func mapping(map: Map) {
-        user_id    <- map["user_id"]
-        nickname         <- map["nickname"]
-        avatar      <- map["avatar"]
-        is_official       <- map["is_official"]
-        article_topic_count  <- map["article_topic_count"]
-        post_count  <- map["post_count"]
-    }
+    
+//    required init?(map: Map) {}
+//    func mapping(map: Map) {
+//        user_id    <- map["user_id"]
+//        nickname         <- map["nickname"]
+//        avatar      <- map["avatar"]
+//        is_official       <- map["is_official"]
+//        article_topic_count  <- map["article_topic_count"]
+//        post_count  <- map["post_count"]
+//    }
 }
 
-class BanTModel: Mappable ,HandyJSON{
+class BanTModel: HandyJSON{
     
     var  id: String?
     var title:String?
@@ -70,26 +69,29 @@ class BanTModel: Mappable ,HandyJSON{
     var user: BanTUser?
     
     required init() {}
-    required init?(map: Map) {}
+    
+    
     
     // Mappable
-    func mapping(map: Map) {
-        id    <- map["id"]
-        title         <- map["title"]
-        desc      <- map["desc"]
-        type       <- map["type"]
-        share_url  <- map["share_url"]
-        category  <- map["category"]
-        share_pic  <- map["share_pic"]
-        pic  <- map["pic"]
-        islike  <- map["islike"]
-        likes  <- map["likes"]
-        is_show_like  <- map["is_show_like"]
-        iscomment  <- map["iscomment"]
-        comments  <- map["comments"]
-        article_content  <- map["article_content"]
-        user  <- map["user"]
-    }
+    
+//    required init?(map: Map) {}
+//    func mapping(map: Map) {
+//        id    <- map["id"]
+//        title         <- map["title"]
+//        desc      <- map["desc"]
+//        type       <- map["type"]
+//        share_url  <- map["share_url"]
+//        category  <- map["category"]
+//        share_pic  <- map["share_pic"]
+//        pic  <- map["pic"]
+//        islike  <- map["islike"]
+//        likes  <- map["likes"]
+//        is_show_like  <- map["is_show_like"]
+//        iscomment  <- map["iscomment"]
+//        comments  <- map["comments"]
+//        article_content  <- map["article_content"]
+//        user  <- map["user"]
+//    }
     
 
 }
