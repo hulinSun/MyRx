@@ -63,6 +63,7 @@ extension MatchService: TargetType {
         return nil
     }
     
+    /// 单元测试用
     var sampleData: Data {
         return "".utf8Encoded
     }

@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import HandyJSON
 import Moya
 
 /// 首页的火柴控制器
@@ -21,19 +22,16 @@ class MatchViewController: UIViewController {
         
         let provider = RxMoyaProvider<MatchService>()
         provider.request(.likemomentsad).subscribe { (e) in
-//            guard let response = e.element else { return }
-//            if let m = response.mapObject(<#T##type: T.Type##T.Type#>){
-//            }
             print(e)
         }.addDisposableTo(bag)
         
-        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
-        
-        if let data = try? Data(contentsOf: URL(fileURLWithPath: s!)){
-            if let str = String(data: data, encoding: .utf8){
-                print(str)
-            }
-        }
+//        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
+//        
+//        guard let data = try? Data(contentsOf: URL(fileURLWithPath: s!))
+//            , let str = String(data: data, encoding: .utf8) else{ return }
+//        if let model = JSONDeserializer<Topic>.deserializeModelArrayFrom(json: str, designatedPath: "data")  {
+//            print(model)
+//        }
     }
 
     override func didReceiveMemoryWarning() {
