@@ -4,17 +4,20 @@
       "orientation" : "portrait",
       "idiom" : "iphone",
       "extent" : "full-screen",
+      "filename" : "LaunchImage-700@2x.png",
       "scale" : "1x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "LaunchImage-700@2x.png",
       "extent" : "full-screen",
       "scale" : "2x"
     },
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
+      "filename" : "LaunchImage-700@2x.png",
       "extent" : "full-screen",
       "subtype" : "retina4",
       "scale" : "2x"
@@ -33,6 +36,7 @@
       "idiom" : "iphone",
       "extent" : "full-screen",
       "minimum-system-version" : "8.0",
+      "filename" : "LaunchImage-700@2x.png",
       "subtype" : "736h",
       "scale" : "3x"
     },

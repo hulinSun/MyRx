@@ -15,7 +15,6 @@
 		FE2134421E14E0CF00C056F5 /* BanTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21343A1E14E0CF00C056F5 /* BanTModel.swift */; };
 		FE2134431E14E0CF00C056F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21343B1E14E0CF00C056F5 /* ViewController.swift */; };
 		FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE21343D1E14E0CF00C056F5 /* Assets.xcassets */; };
-		FE2134491E14E1BD00C056F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2134451E14E1BD00C056F5 /* LaunchScreen.storyboard */; };
 		FE21344A1E14E1BD00C056F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2134471E14E1BD00C056F5 /* Main.storyboard */; };
 		FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */; };
 		FE21344E1E14E22500C056F5 /* RxOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344D1E14E22500C056F5 /* RxOperators.swift */; };
@@ -52,7 +51,6 @@
 		FE21343A1E14E0CF00C056F5 /* BanTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanTModel.swift; sourceTree = "<group>"; };
 		FE21343B1E14E0CF00C056F5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE21343D1E14E0CF00C056F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE2134461E14E1BD00C056F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE2134481E14E1BD00C056F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		FE21344D1E14E22500C056F5 /* RxOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxOperators.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 		FE2134341E14E0CF00C056F5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FE2134451E14E1BD00C056F5 /* LaunchScreen.storyboard */,
 				FE2134471E14E1BD00C056F5 /* Main.storyboard */,
 				FE2134351E14E0CF00C056F5 /* AppDelegate.swift */,
 				FE2134361E14E0CF00C056F5 /* Info.plist */,
@@ -345,7 +342,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE2134491E14E1BD00C056F5 /* LaunchScreen.storyboard in Resources */,
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
@@ -464,14 +460,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		FE2134451E14E1BD00C056F5 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE2134461E14E1BD00C056F5 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		FE2134471E14E1BD00C056F5 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -579,6 +567,7 @@
 			baseConfigurationReference = 838C51FC2269DB5BF654EF8C /* Pods-MyRx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 28J88G3NGL;
 				INFOPLIST_FILE = "$(SRCROOT)/MyRx/Classes/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -593,6 +582,7 @@
 			baseConfigurationReference = 42F74B4EAF2BBE52B7002C50 /* Pods-MyRx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 28J88G3NGL;
 				INFOPLIST_FILE = "$(SRCROOT)/MyRx/Classes/Main/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
