@@ -12,8 +12,9 @@ import Moya
 import RxAlamofire
 import RxSwift
 import RxCocoa
-//import Moya_ObjectMapper
+import Then
 import HandyJSON
+import ManualLayout
 
 class ViewController: UIViewController {
 
@@ -22,10 +23,26 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        then()
         moyaTest()
         
     }
     
+    
+    func then() {
+        
+        let i = UILabel().then{
+            $0.font = UIFont.systemFont(ofSize: 16)
+            $0.backgroundColor = .red
+            $0.numberOfLines = 1
+            $0.textColor = .blue
+            $0.frame = CGRect(x: 100, y: 100, width: 200, height: 60)
+            $0.text = "I Love Hony"
+            $0.textAlignment = .center
+        }
+        view.addSubview(i)
+        
+    }
     
     /// rxAlamofire Demo
     func rxAlamofire()  {

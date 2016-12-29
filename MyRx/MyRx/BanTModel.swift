@@ -93,5 +93,4 @@ class BanTModel: HandyJSON{
 //        user  <- map["user"]
 //    }
     
-
 }
