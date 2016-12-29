@@ -21,6 +21,7 @@
 		FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134541E14EE6600C056F5 /* MainTabbarController.swift */; };
 		FE2134571E14EE8500C056F5 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134561E14EE8500C056F5 /* MainNavigationController.swift */; };
 		FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134581E14EEAE00C056F5 /* Appdelegate+Extension.swift */; };
+		FE21345B1E14F04700C056F5 /* UIColor+random.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21345A1E14F04700C056F5 /* UIColor+random.swift */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +60,7 @@
 		FE2134541E14EE6600C056F5 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		FE2134561E14EE8500C056F5 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		FE2134581E14EEAE00C056F5 /* Appdelegate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Extension.swift"; sourceTree = "<group>"; };
+		FE21345A1E14F04700C056F5 /* UIColor+random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+random.swift"; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				FE21344D1E14E22500C056F5 /* RxOperators.swift */,
 				FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */,
 				FE2134321E14E0CF00C056F5 /* Response+HandyJSON.swift */,
+				FE21345A1E14F04700C056F5 /* UIColor+random.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */,
+				FE21345B1E14F04700C056F5 /* UIColor+random.swift in Sources */,
 				FE2134571E14EE8500C056F5 /* MainNavigationController.swift in Sources */,
 				FE2134431E14E0CF00C056F5 /* ViewController.swift in Sources */,
 				FE2134421E14E0CF00C056F5 /* BanTModel.swift in Sources */,
