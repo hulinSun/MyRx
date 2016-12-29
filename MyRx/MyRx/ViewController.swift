@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        moyaTest()
         
     }
     
@@ -80,6 +81,10 @@ class ViewController: UIViewController {
                 // HandyJSON
                 if let model = value.mapObject(BanTJSON.self){
                     print(model.data?.user?.avatar ?? "xxx")
+                }
+                
+                if let m = value.mapObject(BanTUser.self, designatedPath: "data.user"){
+                    print(m.nickname ?? "xxxx")
                 }
 
                 // ObjectMapper
