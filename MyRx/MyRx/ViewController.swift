@@ -13,7 +13,7 @@ import RxAlamofire
 import RxSwift
 import RxCocoa
 import Moya_ObjectMapper
-
+import HandyJSON
 
 class ViewController: UIViewController {
 
@@ -33,14 +33,19 @@ class ViewController: UIViewController {
             switch res{
             case let .success(value):
                 
-                if let s = try? value.mapObject(BanTJSON.self){print(s)}
-                print(value)
-                if let ss = try? JSONSerialization.jsonObject(with: value.data, options: .mutableLeaves){
-                    print(ss)
+//                if let s = try? value.mapObject(BanTJSON.self){print(s)}
+//                print(value)
+//                if let ss = try? JSONSerialization.jsonObject(with: value.data, options: .mutableLeaves){
+//                    print(ss)
+//                }
+                
+                guard let str = String(data: value.data, encoding: .utf8) else{ return}
+                if let model = JSONDeserializer<BanTJSON>.deserializeFrom(json: str) {
+                    print(model.data?.user?.nickname ?? "xixi")
                 }
                 
-                if let str = String.init(data: value.data, encoding: .utf8){
-                    print("string = \(str)")
+                if let s = JSONDeserializer<BanTModel>.deserializeFrom(json: str, designatedPath: "data"){
+                    print(s.comments ?? "haha")
                 }
                 
             case let .failure(error):

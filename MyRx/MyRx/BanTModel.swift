@@ -8,8 +8,9 @@
 
 import UIKit
 import ObjectMapper
+import HandyJSON
 
-class BanTJSON: Mappable {
+class BanTJSON: Mappable,HandyJSON {
     var status: Int?
     var msg: String?
     var ts: Int?
@@ -17,6 +18,7 @@ class BanTJSON: Mappable {
     
     required init?(map: Map) {}
     
+     required init() {}
     // Mappable
     func mapping(map: Map) {
         status    <- map["status"]
@@ -27,7 +29,7 @@ class BanTJSON: Mappable {
     }
     
 }
-class BanTUser : Mappable{
+class BanTUser : Mappable , HandyJSON{
     var user_id: String?
     var nickname: String?
     var avatar: String?
@@ -35,6 +37,7 @@ class BanTUser : Mappable{
     var article_topic_count: String?
     var post_count: String?
     
+    required init() {}
     required init?(map: Map) {}
     
     // Mappable
@@ -48,7 +51,7 @@ class BanTUser : Mappable{
     }
 }
 
-class BanTModel: Mappable {
+class BanTModel: Mappable ,HandyJSON{
     
     var  id: String?
     var title:String?
@@ -66,6 +69,7 @@ class BanTModel: Mappable {
     var article_content:String?
     var user: BanTUser?
     
+    required init() {}
     required init?(map: Map) {}
     
     // Mappable
