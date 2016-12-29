@@ -7,18 +7,37 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import Moya
 
 /// 首页的火柴控制器
 class MatchViewController: UIViewController {
 
+    let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let provider = RxMoyaProvider<MatchService>()
+        provider.request(.likemomentsad).subscribe { (e) in
+//            guard let response = e.element else { return }
+//            if let m = response.mapObject(<#T##type: T.Type##T.Type#>){
+//            }
+            print(e)
+        }.addDisposableTo(bag)
+        
+        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
+        
+        if let data = try? Data(contentsOf: URL(fileURLWithPath: s!)){
+            if let str = String(data: data, encoding: .utf8){
+                print(str)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 

@@ -27,6 +27,9 @@
 		FE2134761E14F9C800C056F5 /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134751E14F9C800C056F5 /* TopicViewController.swift */; };
 		FE2134781E14F9DF00C056F5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134771E14F9DF00C056F5 /* ProfileViewController.swift */; };
 		FE21347A1E14F9F600C056F5 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134791E14F9F600C056F5 /* MessageViewController.swift */; };
+		FE21347C1E1505D500C056F5 /* MatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21347B1E1505D500C056F5 /* MatchService.swift */; };
+		FE2134801E150A3500C056F5 /* momentsad in Resources */ = {isa = PBXBuildFile; fileRef = FE21347F1E150A3500C056F5 /* momentsad */; };
+		FE2134841E150AB100C056F5 /* likemomentsad in Resources */ = {isa = PBXBuildFile; fileRef = FE2134831E150AB100C056F5 /* likemomentsad */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -71,6 +74,9 @@
 		FE2134751E14F9C800C056F5 /* TopicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
 		FE2134771E14F9DF00C056F5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FE2134791E14F9F600C056F5 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		FE21347B1E1505D500C056F5 /* MatchService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchService.swift; sourceTree = "<group>"; };
+		FE21347F1E150A3500C056F5 /* momentsad */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = momentsad; sourceTree = "<group>"; };
+		FE2134831E150AB100C056F5 /* likemomentsad */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = likemomentsad; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -203,6 +209,8 @@
 				FE2134361E14E0CF00C056F5 /* Info.plist */,
 				FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */,
 				FE21343D1E14E0CF00C056F5 /* Assets.xcassets */,
+				FE21347F1E150A3500C056F5 /* momentsad */,
+				FE2134831E150AB100C056F5 /* likemomentsad */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -393,6 +401,7 @@
 		FE2134701E14F92500C056F5 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				FE21347B1E1505D500C056F5 /* MatchService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -559,8 +568,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
+				FE2134801E150A3500C056F5 /* momentsad in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
+				FE2134841E150AB100C056F5 /* likemomentsad in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -643,6 +654,7 @@
 				FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */,
 				FE2134721E14F99700C056F5 /* BoxViewController.swift in Sources */,
 				FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */,
+				FE21347C1E1505D500C056F5 /* MatchService.swift in Sources */,
 				FE21347A1E14F9F600C056F5 /* MessageViewController.swift in Sources */,
 				FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */,
 				FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */,

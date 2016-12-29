@@ -34,7 +34,6 @@ class MainTabbarController: UITabBarController {
         tabBar.backgroundColor = .white
         tabBar.backgroundImage = UIImage()
         items.forEach { self.addChildController(with: $0) }
-        
     }
     
     init() {
@@ -48,7 +47,6 @@ class MainTabbarController: UITabBarController {
     private func addChildController(with model:TabbarItemModel){
         
         guard let nameClass = NSClassFromString(nameSpace + "." + model.className)else{ return }
-        
         let vcClass = nameClass as! UIViewController.Type
         let vc = vcClass.init()
         vc.navigationItem.title = model.name
