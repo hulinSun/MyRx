@@ -1,5 +1,5 @@
 //
-//  MainNavigationController.swift
+//  MessageViewController.swift
 //  MyRx
 //
 //  Created by Hony on 2016/12/29.
@@ -8,11 +8,13 @@
 
 import UIKit
 
-class MainNavigationController: UINavigationController {
+/// 消息控制器
+class MessageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

@@ -11,10 +11,12 @@ import UIKit
 extension AppDelegate{
     
     func configWindow()  {
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = MainTabbarController()
+        
     }
 }
 

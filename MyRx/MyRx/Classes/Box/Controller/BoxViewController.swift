@@ -1,5 +1,5 @@
 //
-//  MainNavigationController.swift
+//  BoxViewController.swift
 //  MyRx
 //
 //  Created by Hony on 2016/12/29.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MainNavigationController: UINavigationController {
+/// 盒子控制器
+class BoxViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func didReceiveMemoryWarning() {
