@@ -39,5 +39,4 @@ class MatchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
 }
