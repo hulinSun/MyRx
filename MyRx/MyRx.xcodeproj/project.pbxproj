@@ -19,6 +19,7 @@
 		FE21344A1E14E1BD00C056F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2134471E14E1BD00C056F5 /* Main.storyboard */; };
 		FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */; };
 		FE21344E1E14E22500C056F5 /* RxOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344D1E14E22500C056F5 /* RxOperators.swift */; };
+		FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		FE2134481E14E1BD00C056F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		FE21344D1E14E22500C056F5 /* RxOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxOperators.swift; sourceTree = "<group>"; };
+		FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = welcomeVideo.mp4; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		FE21343C1E14E0CF00C056F5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */,
 				FE21343D1E14E0CF00C056F5 /* Assets.xcassets */,
 			);
 			path = Resource;
@@ -345,6 +348,7 @@
 				FE2134491E14E1BD00C056F5 /* LaunchScreen.storyboard in Resources */,
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
+				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
 				FE21344A1E14E1BD00C056F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
