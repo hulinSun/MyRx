@@ -70,10 +70,7 @@ class BanTModel: HandyJSON{
     
     required init() {}
     
-    
-    
     // Mappable
-    
 //    required init?(map: Map) {}
 //    func mapping(map: Map) {
 //        id    <- map["id"]
@@ -92,5 +89,4 @@ class BanTModel: HandyJSON{
 //        article_content  <- map["article_content"]
 //        user  <- map["user"]
 //    }
-    
 }

@@ -20,12 +20,11 @@ class ViewController: UIViewController {
 
     private let bag = DisposeBag()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         then()
         moyaTest()
-        
     }
     
     
@@ -127,7 +126,7 @@ class ViewController: UIViewController {
     }
     
     func huochaihe() {
-        // MARK: 今天的日子好像 好特别 (BREAK UP,DONT FORGIVE)
+        // MARK: TODAY IS A SPECIAL DAY (BREAK UP,DONT FORGIVE)
     }
 
     override func didReceiveMemoryWarning() {
