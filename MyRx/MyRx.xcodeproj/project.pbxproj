@@ -15,10 +15,12 @@
 		FE2134421E14E0CF00C056F5 /* BanTModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21343A1E14E0CF00C056F5 /* BanTModel.swift */; };
 		FE2134431E14E0CF00C056F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21343B1E14E0CF00C056F5 /* ViewController.swift */; };
 		FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE21343D1E14E0CF00C056F5 /* Assets.xcassets */; };
-		FE21344A1E14E1BD00C056F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE2134471E14E1BD00C056F5 /* Main.storyboard */; };
 		FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */; };
 		FE21344E1E14E22500C056F5 /* RxOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE21344D1E14E22500C056F5 /* RxOperators.swift */; };
 		FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */; };
+		FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134541E14EE6600C056F5 /* MainTabbarController.swift */; };
+		FE2134571E14EE8500C056F5 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134561E14EE8500C056F5 /* MainNavigationController.swift */; };
+		FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134581E14EEAE00C056F5 /* Appdelegate+Extension.swift */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -46,15 +48,17 @@
 		838C51FC2269DB5BF654EF8C /* Pods-MyRx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyRx.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyRx/Pods-MyRx.debug.xcconfig"; sourceTree = "<group>"; };
 		FE2134321E14E0CF00C056F5 /* Response+HandyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+HandyJSON.swift"; sourceTree = "<group>"; };
 		FE2134351E14E0CF00C056F5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE2134361E14E0CF00C056F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE2134361E14E0CF00C056F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Main/Info.plist; sourceTree = "<group>"; };
 		FE2134391E14E0CF00C056F5 /* BantangProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BantangProvider.swift; sourceTree = "<group>"; };
 		FE21343A1E14E0CF00C056F5 /* BanTModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BanTModel.swift; sourceTree = "<group>"; };
 		FE21343B1E14E0CF00C056F5 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FE21343D1E14E0CF00C056F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FE2134481E14E1BD00C056F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE21344B1E14E20100C056F5 /* String+BoundingRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+BoundingRect.swift"; sourceTree = "<group>"; };
 		FE21344D1E14E22500C056F5 /* RxOperators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxOperators.swift; sourceTree = "<group>"; };
 		FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = welcomeVideo.mp4; sourceTree = "<group>"; };
+		FE2134541E14EE6600C056F5 /* MainTabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
+		FE2134561E14EE8500C056F5 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		FE2134581E14EEAE00C056F5 /* Appdelegate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Appdelegate+Extension.swift"; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -147,9 +151,11 @@
 		FE2134341E14E0CF00C056F5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				FE2134471E14E1BD00C056F5 /* Main.storyboard */,
+				FE2134511E14EE4800C056F5 /* Controller */,
+				FE2134521E14EE4800C056F5 /* Model */,
+				FE2134531E14EE4800C056F5 /* View */,
 				FE2134351E14E0CF00C056F5 /* AppDelegate.swift */,
-				FE2134361E14E0CF00C056F5 /* Info.plist */,
+				FE2134581E14EEAE00C056F5 /* Appdelegate+Extension.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -175,10 +181,34 @@
 		FE21343C1E14E0CF00C056F5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				FE2134361E14E0CF00C056F5 /* Info.plist */,
 				FE21344F1E14E28E00C056F5 /* welcomeVideo.mp4 */,
 				FE21343D1E14E0CF00C056F5 /* Assets.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		FE2134511E14EE4800C056F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE2134541E14EE6600C056F5 /* MainTabbarController.swift */,
+				FE2134561E14EE8500C056F5 /* MainNavigationController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FE2134521E14EE4800C056F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FE2134531E14EE4800C056F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FEF8289A1E0CB96F0002E09C = {
@@ -345,7 +375,6 @@
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
-				FE21344A1E14E1BD00C056F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,8 +447,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */,
+				FE2134571E14EE8500C056F5 /* MainNavigationController.swift in Sources */,
 				FE2134431E14E0CF00C056F5 /* ViewController.swift in Sources */,
 				FE2134421E14E0CF00C056F5 /* BanTModel.swift in Sources */,
+				FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */,
 				FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */,
 				FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */,
 				FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */,
@@ -458,17 +490,6 @@
 			targetProxy = FEF828C31E0CB96F0002E09C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		FE2134471E14E1BD00C056F5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FE2134481E14E1BD00C056F5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FEF828C91E0CB96F0002E09C /* Debug */ = {
