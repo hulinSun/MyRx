@@ -63,9 +63,14 @@ extension MatchService: TargetType {
         return nil
     }
     
-    /// 单元测试用
+    /// 模拟假数据用
     var sampleData: Data {
-        return "".utf8Encoded
+        
+        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: s!))else{
+            return "".utf8Encoded
+        }
+        return data
     }
     
     var task: Task {

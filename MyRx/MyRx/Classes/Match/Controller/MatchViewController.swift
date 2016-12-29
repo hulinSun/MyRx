@@ -17,36 +17,27 @@ class MatchViewController: UIViewController {
 
     let bag = DisposeBag()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let provider = RxMoyaProvider<MatchService>()
-        provider.request(.likemomentsad).subscribe { (e) in
-            print(e)
-        }.addDisposableTo(bag)
+        let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
         
-//        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
-//        
-//        guard let data = try? Data(contentsOf: URL(fileURLWithPath: s!))
-//            , let str = String(data: data, encoding: .utf8) else{ return }
-//        if let model = JSONDeserializer<Topic>.deserializeModelArrayFrom(json: str, designatedPath: "data")  {
-//            print(model)
-//        }
+        provider
+            .request(.likemomentsad)
+            .filterSuccessfulStatusCodes()
+            .observeOn(MainScheduler.instance)
+            .subscribe { (e) in
+                guard let response = e.element else{ return }
+                if let m = response.mapArray(Topic.self, designatedPath: "data"){
+                    print(m.count)
+                }
+            }.addDisposableTo(bag)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
