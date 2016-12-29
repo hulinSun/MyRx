@@ -21,34 +21,46 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         test()
 //        rxAlam()
     }
     
     func test()  {
         
-//        let provider = MoyaProvider<BanTService>()
-//        provider.request(.newInfo) { (res) in
-//            switch res{
-//            case let .success(value):
-//                print(value)
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
+        let provider = MoyaProvider<BanTService>()
+        provider.request(.newInfo) { (res) in
+            switch res{
+            case let .success(value):
+                
+                if let s = try? value.mapObject(BanTJSON.self){print(s)}
+                print(value)
+                if let ss = try? JSONSerialization.jsonObject(with: value.data, options: .mutableLeaves){
+                    print(ss)
+                }
+                
+                if let str = String.init(data: value.data, encoding: .utf8){
+                    print("string = \(str)")
+                }
+                
+            case let .failure(error):
+                print(error)
+            }
+        }
         
         let rxp = RxMoyaProvider<BanTService>()
         rxp.request(.newInfo).subscribe { (response) in
-            guard let resp = response.element else{return}
-            do{
-//                let s = try resp.mapString()
-                let s = try resp.mapObject(BanTJSON.self)
+            guard let resp = response.element else { return }
+//            do{
+//                let s = try resp.mapObject(BanTJSON.self)
+//                print(s.data?.user?.nickname ?? "😝")
+//                print(s)
+//            }catch{
+//                print(error)
+//            }
+            
+            if let s = try? resp.mapObject(BanTJSON.self){
                 print(s.data?.user?.nickname ?? "😝")
-                print(s)
-            }catch{
-                print(error)
             }
         }.addDisposableTo(bag)
         
@@ -107,9 +119,6 @@ class ViewController: UIViewController {
             "token_key": "MTI0ODkzMizmiafov7dfLCw2ZGFmMzs5YWMwNmU0OWM0OWY5MTgzNjc0MGVlZTA5Njk5ZDBhYg=="
         ]
         
-        
-        //
-        
         Alamofire.request( "https://soa.ihuochaihe.com:442/v1/thread/momentsad", method: .post, parameters: param).responseString { (rsp) in
             print("-----")
             print(rsp)
@@ -119,7 +128,6 @@ class ViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        
     }
     
 }

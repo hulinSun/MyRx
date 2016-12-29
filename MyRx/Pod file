@@ -16,6 +16,7 @@ target 'MyRx' do
   pod 'RxAlamofire'
   pod 'ObjectMapper', '~> 2.2'
   pod 'Kingfisher', '~> 3.0'
+  pod 'HandyJSON', '~> 1.4.0'
 
   # UI
   pod 'SnapKit', '~> 3.0'

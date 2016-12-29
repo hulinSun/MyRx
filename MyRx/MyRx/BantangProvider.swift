@@ -80,6 +80,7 @@ extension BanTService: TargetType {
 
 // MARK: - Helpers
 private extension String {
+    
     var urlEscaped: String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
