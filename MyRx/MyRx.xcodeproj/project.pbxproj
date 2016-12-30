@@ -32,6 +32,8 @@
 		FE2134841E150AB100C056F5 /* likemomentsad in Resources */ = {isa = PBXBuildFile; fileRef = FE2134831E150AB100C056F5 /* likemomentsad */; };
 		FE2134861E150C8500C056F5 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134851E150C8500C056F5 /* MatchModel.swift */; };
 		FEC9B4131E151E1B00D076EF /* JSONTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B4121E151E1B00D076EF /* JSONTool.swift */; };
+		FEED49741E16094D0043DB83 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49731E16094D0043DB83 /* TopicService.swift */; };
+		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +83,8 @@
 		FE2134831E150AB100C056F5 /* likemomentsad */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = likemomentsad; sourceTree = "<group>"; };
 		FE2134851E150C8500C056F5 /* MatchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		FEC9B4121E151E1B00D076EF /* JSONTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTool.swift; sourceTree = "<group>"; };
+		FEED49731E16094D0043DB83 /* TopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
+		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -216,6 +220,7 @@
 				FE21343D1E14E0CF00C056F5 /* Assets.xcassets */,
 				FE21347F1E150A3500C056F5 /* momentsad */,
 				FE2134831E150AB100C056F5 /* likemomentsad */,
+				FEED49751E160A570043DB83 /* index */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				FE21347B1E1505D500C056F5 /* MatchService.swift */,
+				FEED49731E16094D0043DB83 /* TopicService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134801E150A3500C056F5 /* momentsad in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
+				FEED49761E160A570043DB83 /* index in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
 				FE2134841E150AB100C056F5 /* likemomentsad in Resources */,
 			);
@@ -667,6 +674,7 @@
 				FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */,
 				FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */,
 				FE2134781E14F9DF00C056F5 /* ProfileViewController.swift in Sources */,
+				FEED49741E16094D0043DB83 /* TopicService.swift in Sources */,
 				FE2134411E14E0CF00C056F5 /* BantangProvider.swift in Sources */,
 				FE21344E1E14E22500C056F5 /* RxOperators.swift in Sources */,
 			);
