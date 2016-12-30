@@ -9,9 +9,15 @@
 import UIKit
 
 
+
 class JSONTool: NSObject {
     
     class func dataWith(name: String) -> Data{
+        let s = Bundle.main.path(forResource: name, ofType: nil)
+        guard let data = try? Data(contentsOf: URL(fileURLWithPath: s!))else{
+            return Data()
+        }
+        return data
     }
 
 }

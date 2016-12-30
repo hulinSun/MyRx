@@ -34,10 +34,12 @@ import Moya
 
 /// 主页火柴service
 
-enum MatchService {
+enum MatchService: String {
     
     case momentsad //好友界面
     case likemomentsad //欢喜界面
+    
+    
 }
 
 
@@ -66,11 +68,7 @@ extension MatchService: TargetType {
     /// 模拟假数据用
     var sampleData: Data {
         
-        let s = Bundle.main.path(forResource: "momentsad", ofType: nil)
-        guard let data = try? Data(contentsOf: URL(fileURLWithPath: s!))else{
-            return "".utf8Encoded
-        }
-        return data
+        return JSONTool.dataWith(name: self.rawValue)
     }
     
     var task: Task {

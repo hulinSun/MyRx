@@ -30,7 +30,7 @@ class MatchViewController: UIViewController {
             .subscribe { (e) in
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
-                    print(m.count)
+                    print(m.first??.info?.avatar ?? "😝")
                 }
             }.addDisposableTo(bag)
     }
