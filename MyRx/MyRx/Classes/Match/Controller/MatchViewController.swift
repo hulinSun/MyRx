@@ -51,7 +51,7 @@ class MatchViewController: UIViewController {
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
 //                    print(m.flatMap{ $0?.info?.content })
-                    print(m)
+                    print(m.count)
                 }
         }.addDisposableTo(bag)
     }
