@@ -36,6 +36,8 @@
 		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
 		FEED49781E160E0D0043DB83 /* Observer+schedulerl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49771E160E0D0043DB83 /* Observer+schedulerl.swift */; };
 		FEED497A1E162F9B0043DB83 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49791E162F9B0043DB83 /* TopicList.swift */; };
+		FEED497D1E1634950043DB83 /* TopicTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED497B1E1634950043DB83 /* TopicTitleCell.swift */; };
+		FEED497E1E1634950043DB83 /* TopicTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEED497C1E1634950043DB83 /* TopicTitleCell.xib */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
 		FEED49771E160E0D0043DB83 /* Observer+schedulerl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observer+schedulerl.swift"; sourceTree = "<group>"; };
 		FEED49791E162F9B0043DB83 /* TopicList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
+		FEED497B1E1634950043DB83 /* TopicTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTitleCell.swift; sourceTree = "<group>"; };
+		FEED497C1E1634950043DB83 /* TopicTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicTitleCell.xib; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -411,6 +415,8 @@
 		FE21346F1E14F62100C056F5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FEED497B1E1634950043DB83 /* TopicTitleCell.swift */,
+				FEED497C1E1634950043DB83 /* TopicTitleCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEED497E1E1634950043DB83 /* TopicTitleCell.xib in Resources */,
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134801E150A3500C056F5 /* momentsad in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
@@ -676,6 +683,7 @@
 				FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */,
 				FE2134721E14F99700C056F5 /* BoxViewController.swift in Sources */,
 				FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */,
+				FEED497D1E1634950043DB83 /* TopicTitleCell.swift in Sources */,
 				FE21347C1E1505D500C056F5 /* MatchService.swift in Sources */,
 				FE21347A1E14F9F600C056F5 /* MessageViewController.swift in Sources */,
 				FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */,
