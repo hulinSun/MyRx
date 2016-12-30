@@ -53,6 +53,7 @@ class TopicViewController: UIViewController {
         tableView.rx.setDelegate(self).addDisposableTo(bag)
         dataSource.configureCell = { (_, tv, indexPath, element) in
             let cell = tv.dequeue(Reuse.cell, for: indexPath)
+            cell.selectionStyle = .none
             cell.config(element)
             return cell
         }
@@ -65,6 +66,7 @@ class TopicViewController: UIViewController {
         viewModel.sections
             .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(bag)
+        
         viewModel.navigationBarTitle
             .drive(self.navigationItem.rx.title)
             .addDisposableTo(bag)
