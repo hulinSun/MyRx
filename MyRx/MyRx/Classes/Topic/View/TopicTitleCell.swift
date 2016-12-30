@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReusableKit
 
 class TopicTitleCell: UITableViewCell {
 
@@ -18,6 +19,11 @@ class TopicTitleCell: UITableViewCell {
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var topicMemoLabel: UILabel!
     @IBOutlet weak var topicTitleLale: UILabel!
+    
+    func config(_ model: TopicInfo) {
+        topicTitleLale.text = model.topic_name ?? "😝"
+        topicMemoLabel.text = model.view ?? "😝"
+    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
