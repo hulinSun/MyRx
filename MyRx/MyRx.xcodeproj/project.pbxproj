@@ -35,6 +35,7 @@
 		FEED49741E16094D0043DB83 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49731E16094D0043DB83 /* TopicService.swift */; };
 		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
 		FEED49781E160E0D0043DB83 /* Observer+schedulerl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49771E160E0D0043DB83 /* Observer+schedulerl.swift */; };
+		FEED497A1E162F9B0043DB83 /* TopicList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49791E162F9B0043DB83 /* TopicList.swift */; };
 		FEF828BC1E0CB96F0002E09C /* MyRxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */; };
 		FEF828C71E0CB96F0002E09C /* MyRxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF828C61E0CB96F0002E09C /* MyRxUITests.swift */; };
 /* End PBXBuildFile section */
@@ -87,6 +88,7 @@
 		FEED49731E16094D0043DB83 /* TopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
 		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
 		FEED49771E160E0D0043DB83 /* Observer+schedulerl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observer+schedulerl.swift"; sourceTree = "<group>"; };
+		FEED49791E162F9B0043DB83 /* TopicList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicList.swift; sourceTree = "<group>"; };
 		FEF828A31E0CB96F0002E09C /* MyRx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyRx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828B71E0CB96F0002E09C /* MyRxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyRxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEF828BB1E0CB96F0002E09C /* MyRxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRxTests.swift; sourceTree = "<group>"; };
@@ -401,6 +403,7 @@
 		FE21346E1E14F62100C056F5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FEED49791E162F9B0043DB83 /* TopicList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -663,6 +666,7 @@
 				FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */,
 				FE2134741E14F9B000C056F5 /* MatchViewController.swift in Sources */,
 				FE21345B1E14F04700C056F5 /* UIColor+random.swift in Sources */,
+				FEED497A1E162F9B0043DB83 /* TopicList.swift in Sources */,
 				FE2134571E14EE8500C056F5 /* MainNavigationController.swift in Sources */,
 				FE2134431E14E0CF00C056F5 /* ViewController.swift in Sources */,
 				FEC9B4131E151E1B00D076EF /* JSONTool.swift in Sources */,

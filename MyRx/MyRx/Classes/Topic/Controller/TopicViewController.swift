@@ -26,10 +26,10 @@ class TopicViewController: UIViewController {
             .filterSuccessfulStatusCodes()
             .observeOn(.main)
             .subscribe { (e) in
-            guard let response = e.element else { return }
-            if let r = try? response.mapString(){
-                print(r)
-            }
+                guard let response = e.element else { return }
+                if let model = response.mapObject(TopicList.self, designatedPath: "data.list"){
+                    print(model)
+                }
         }.addDisposableTo(DisposeBag())
     }
 

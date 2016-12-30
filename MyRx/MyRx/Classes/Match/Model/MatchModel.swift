@@ -46,6 +46,8 @@ class TopicInfo: HandyJSON {
     var isself: String?
     var is_fav: String?
     var is_like: String?
+    var is_follow: Bool?
+    
     
     required init() {}
 }
