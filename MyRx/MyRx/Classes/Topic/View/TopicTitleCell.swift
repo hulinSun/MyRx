@@ -18,7 +18,11 @@ class TopicTitleCell: UITableViewCell {
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var topicMemoLabel: UILabel!
-    @IBOutlet weak var topicTitleLale: UILabel!
+    @IBOutlet weak var topicTitleLale: UILabel!{
+        didSet{
+            topicTitleLale.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 40
+        }
+    }
     
     func config(_ model: TopicInfo) {
         topicTitleLale.text = model.topic_name ?? "😝"
