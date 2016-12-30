@@ -20,7 +20,7 @@ class TopicTitleCell: UITableViewCell {
     @IBOutlet weak var topicMemoLabel: UILabel!
     @IBOutlet weak var topicTitleLale: UILabel!{
         didSet{
-            topicTitleLale.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 40
+            topicTitleLale.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 55
         }
     }
     
