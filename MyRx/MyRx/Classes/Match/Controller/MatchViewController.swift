@@ -17,6 +17,7 @@ class MatchViewController: UIViewController {
 
     let bag = DisposeBag()
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,7 +26,7 @@ class MatchViewController: UIViewController {
         provider
             .request(.likemomentsad)
             .filterSuccessfulStatusCodes()
-            .observeOn(MainScheduler.instance)
+            .observeOn(.main)
             .subscribe { (e) in
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
@@ -45,7 +46,7 @@ class MatchViewController: UIViewController {
         provider
             .request(.momentsad)
             .filterSuccessfulStatusCodes()
-            .observeOn(MainScheduler.instance)
+            .observeOn(.main)
             .subscribe { (e) in
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){

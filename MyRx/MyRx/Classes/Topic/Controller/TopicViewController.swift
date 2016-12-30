@@ -24,7 +24,7 @@ class TopicViewController: UIViewController {
         provider
             .request(.index)
             .filterSuccessfulStatusCodes()
-            .observeOn(MainScheduler.instance)
+            .observeOn(.main)
             .subscribe { (e) in
             guard let response = e.element else { return }
             if let r = try? response.mapString(){
