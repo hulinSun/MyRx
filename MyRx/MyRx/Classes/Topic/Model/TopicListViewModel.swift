@@ -9,16 +9,45 @@
 import UIKit
 import RxSwift
 import Moya
+import RxCocoa
+import RxDataSources
 
-class TopicListViewModel {
+typealias TopicListSection = SectionModel<TopicGroup, TopicInfo>
+
+protocol TopicListViewModelType {
     
-    let elements = Variable(TopicList())
+    // Input
+    var creatTopicButtonDidTap: PublishSubject<Void> { get }
+    var categoryButtonDidTap: PublishSubject<Void> { get }
+    var searchDidTap: PublishSubject<String> { get }
+    
+    // Output
+    var navigationBarTitle: Driver<String?> { get }
+//    var sections: Driver<[TopicListSection]> { get }
+}
+
+
+class TopicListViewModel: TopicListViewModelType {
     let bag = DisposeBag()
     
+    // MARK: Input
+    
+    let creatTopicButtonDidTap = PublishSubject<Void>()
+    let categoryButtonDidTap = PublishSubject<Void>()
+    var searchDidTap = PublishSubject<String>()
+    
+    
+    // MARK: Output
+
+    let navigationBarTitle: Driver<String?>
+//    let sections: Driver<[TopicListSection]>
+    
     init() {
-        requestData()
+        self.navigationBarTitle = Observable.of("火柴盒").asDriver(onErrorJustReturn: "")
     }
     
+    
+    let elements = Variable(TopicList())
     private func requestData(){
         let provider = RxMoyaProvider<TopicService>(stubClosure: MoyaProvider.immediatelyStub)
         provider

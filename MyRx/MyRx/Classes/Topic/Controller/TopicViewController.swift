@@ -23,7 +23,8 @@ class TopicViewController: UIViewController {
     let bag = DisposeBag()
     let viewModel = TopicListViewModel()
     
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<TopicGroup, TopicInfo>>()
+    
+    let dataSource = RxTableViewSectionedReloadDataSource<TopicListSection>()
     
     struct Reuse {
         static let cell = ReusableCell<TopicTitleCell>()
