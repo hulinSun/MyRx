@@ -7,14 +7,10 @@
 //
 
 import UIKit
-
 import RxCocoa
 import RxSwift
-import HandyJSON
 import SnapKit
 import ReusableKit
-import Moya
-import RxOptional
 import RxDataSources
 
 /// 话题控制器
@@ -35,6 +31,23 @@ class TopicViewController: UIViewController {
         return i
     }()
     
+    fileprivate lazy var leftBtn: UIButton = {
+        let i = UIButton()
+        i.setTitle("创建话题", for: .normal)
+        i.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        i.setTitleColor(.red, for: .normal)
+        return i
+    }()
+    
+    fileprivate lazy var rightBtn: UIButton = {
+        let i = UIButton()
+        i.setTitle("分类", for: .normal)
+        i.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+        i.setTitleColor(.blue, for: .normal)
+        return i
+    }()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +56,19 @@ class TopicViewController: UIViewController {
     
     
     private func setupUI(){
+        
+        leftBtn.rx.controlEvent(.touchUpInside).subscribe { _ in
+            print("点击了按钮")
+        }.addDisposableTo(bag)
+        
+        leftBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 60, height: 20))
+        }
+        rightBtn.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: 45, height: 20))
+        }
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
@@ -80,7 +106,7 @@ extension TopicViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel(frame: CGRect.zero)
         label.text = "-----\(dataSource[section].model.name)"
-        label.backgroundColor = .red
+        label.backgroundColor = .random()
         return label
     }
     
