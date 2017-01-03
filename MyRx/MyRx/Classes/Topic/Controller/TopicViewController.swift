@@ -21,11 +21,14 @@ class TopicViewController: UIViewController {
     let dataSource = RxTableViewSectionedReloadDataSource<TopicListSection>()
     struct Reuse {
         static let cell = ReusableCell<TopicTitleCell>(nibName: "TopicTitleCell")
+        static let header = ReusableView<TopicSectionHeaderView>(nibName: "TopicSectionHeaderView")
+        
     }
 
     fileprivate lazy var tableView: UITableView = {
         let i = UITableView(frame: CGRect.zero, style: .grouped)
         i.register(Reuse.cell)
+        i.register(Reuse.header)
         i.estimatedRowHeight = 50
         i.rowHeight = UITableViewAutomaticDimension
         return i
@@ -104,14 +107,13 @@ class TopicViewController: UIViewController {
 extension TopicViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label = UILabel(frame: CGRect.zero)
-        label.text = "-----\(dataSource[section].model.name)"
-        label.backgroundColor = .random()
-        return label
+        let sectionHeader = tableView.dequeue(Reuse.header)
+        sectionHeader?.config(group: dataSource[section].model)
+        return sectionHeader
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 50
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
