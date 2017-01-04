@@ -59,10 +59,10 @@ class TopicViewController: UIViewController {
     
     
     private func setupUI(){
-        
-        leftBtn.rx.controlEvent(.touchUpInside).subscribe { _ in
-            print("点击了按钮")
-        }.addDisposableTo(bag)
+    
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
+        view.addSubview(tableView)
         
         leftBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 60, height: 20))
@@ -70,15 +70,12 @@ class TopicViewController: UIViewController {
         rightBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 45, height: 20))
         }
-        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
-        view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
+        
         tableView.delegate = nil
         tableView.dataSource = nil
-        
         tableView.rx.setDelegate(self).addDisposableTo(bag)
         dataSource.configureCell = { (_, tv, indexPath, element) in
             let cell = tv.dequeue(Reuse.cell, for: indexPath)
@@ -99,6 +96,14 @@ class TopicViewController: UIViewController {
         viewModel.navigationBarTitle
             .drive(self.navigationItem.rx.title)
             .addDisposableTo(bag)
+        
+        leftBtn.rx.tap
+            .bindTo(viewModel.creatTopicButtonDidTap)
+            .addDisposableTo(bag)
+        
+        leftBtn.rx.controlEvent(.touchUpInside).subscribe { _ in
+            print("点击了按钮")
+            }.addDisposableTo(bag)
     }
 }
 

@@ -31,10 +31,8 @@ class TopicGroup: HandyJSON {
 }
 
 class TopicList: HandyJSON {
-    
     var banner: [TopicBanner]?
     var topic_group_list: [TopicGroup]?
-    
     required init() {}
 }
 

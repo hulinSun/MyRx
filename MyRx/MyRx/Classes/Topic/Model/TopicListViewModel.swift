@@ -16,12 +16,12 @@ typealias TopicListSection = SectionModel<TopicGroup, TopicInfo>
 
 protocol TopicListViewModelType {
     
-    // Input
+    // Input (从外面传进来的信号。让里面知道的)
     var creatTopicButtonDidTap: PublishSubject<Void> { get }
     var categoryButtonDidTap: PublishSubject<Void> { get }
     var searchDidTap: PublishSubject<String> { get }
     
-    // Output
+    // Output (从里面传出去的信号。让外面知道)
     var navigationBarTitle: Driver<String?> { get }
     var sections: Driver<[TopicListSection]> { get }
 }
@@ -42,7 +42,6 @@ class TopicListViewModel: TopicListViewModelType {
     
     
     // MARK: Output
-
     let navigationBarTitle: Driver<String?>
     let sections: Driver<[TopicListSection]>
     
@@ -64,6 +63,11 @@ class TopicListViewModel: TopicListViewModelType {
            return TopicListSection(model: gp, items: gp.topic_list!)
         }
         self.sections = Observable.of(sections).asDriver(onErrorJustReturn: [])
+        
+        creatTopicButtonDidTap.asObserver().subscribe { (e) in
+            print("在viewModel Li知道了点击")
+        }.addDisposableTo(bag)
+        
     }
     
     
