@@ -29,17 +29,32 @@ class MatchViewController: UIViewController {
         let i = MatchSegmentedControl(items: ["好友","欢喜"])
         return i
     }()
+    
+    fileprivate lazy var scrollView: UIScrollView = {
+        let i = UIScrollView()
+        i.contentSize = CGSize(width: 2 * UIConst.screenWidth, height: UIConst.screenHeight)
+        i.showsVerticalScrollIndicator = false
+        i.showsHorizontalScrollIndicator = false
+        i.backgroundColor = .random()
+        return i
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-
+    
     func setupUI()  {
+        
+        view.addSubview(scrollView)
+        scrollView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
+        // 添加自控制器
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "topicSegmentSearch", target: self,  action: "searchClick")
-        
         leftBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 40, height: 20))
         }
@@ -68,6 +83,8 @@ class MatchViewController: UIViewController {
     func searchClick() {
         print("点击了搜索")
     }
+    
+    
     func setupData() {
         
         let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)

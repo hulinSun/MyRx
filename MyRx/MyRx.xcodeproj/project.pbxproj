@@ -37,6 +37,7 @@
 		FE9C367C1E1CA6D5000E73C2 /* MatchADView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C367B1E1CA6D5000E73C2 /* MatchADView.swift */; };
 		FE9C367E1E1CD0BC000E73C2 /* MatchSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C367D1E1CD0BC000E73C2 /* MatchSegmentedControl.swift */; };
 		FE9C36801E1CD59A000E73C2 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C367F1E1CD59A000E73C2 /* UIImage+Extension.swift */; };
+		FE9C36821E1CEC44000E73C2 /* MatchTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */; };
 		FEC9B4131E151E1B00D076EF /* JSONTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B4121E151E1B00D076EF /* JSONTool.swift */; };
 		FEED49741E16094D0043DB83 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49731E16094D0043DB83 /* TopicService.swift */; };
 		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
@@ -105,6 +106,7 @@
 		FE9C367B1E1CA6D5000E73C2 /* MatchADView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchADView.swift; sourceTree = "<group>"; };
 		FE9C367D1E1CD0BC000E73C2 /* MatchSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchSegmentedControl.swift; sourceTree = "<group>"; };
 		FE9C367F1E1CD59A000E73C2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTopicController.swift; sourceTree = "<group>"; };
 		FEC9B4121E151E1B00D076EF /* JSONTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTool.swift; sourceTree = "<group>"; };
 		FEED49731E16094D0043DB83 /* TopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
 		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				FE2134731E14F9B000C056F5 /* MatchViewController.swift */,
+				FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				FE2134781E14F9DF00C056F5 /* ProfileViewController.swift in Sources */,
 				FEED49741E16094D0043DB83 /* TopicService.swift in Sources */,
 				FEED49781E160E0D0043DB83 /* Observer+schedulerl.swift in Sources */,
+				FE9C36821E1CEC44000E73C2 /* MatchTopicController.swift in Sources */,
 				FE2134411E14E0CF00C056F5 /* BantangProvider.swift in Sources */,
 				FE21344E1E14E22500C056F5 /* RxOperators.swift in Sources */,
 			);
