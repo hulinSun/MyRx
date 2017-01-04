@@ -56,6 +56,11 @@ class MatchViewController: UIViewController {
             make.size.equalTo(CGSize(width: 130, height: 28))
         }
         
+        // MARK : TARGET-ACTION 机制
+        matchSeg.rx.controlEvent(.valueChanged).subscribe { (e) in
+            print("-------\(self.matchSeg.selectedIndex)")
+        }.addDisposableTo(bag)
+        
     }
     
     

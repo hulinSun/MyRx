@@ -23,6 +23,7 @@ import RxSwift
         return titles.count
     }
     
+    
     var selectedIndex: Int{
         set{
             if newValue > numberOfSegments { return }
@@ -42,6 +43,7 @@ import RxSwift
      init(items: [String]?) {
         
         titles = items
+        
         super.init(frame: .zero)
         for i in 0..<titles.count{
             // 创建按钮
@@ -62,11 +64,19 @@ import RxSwift
     }
     
     func tapBtn(_ btn: UIButton) {
+        
+        
+        /// 去掉相同的情况
+        if let selBtn = self.selectedBtn, selBtn.tag == btn.tag {
+            return
+        }
+        
         btn.isSelected = true
         if self.selectedBtn != nil {
             self.selectedBtn.isSelected = false
         }
         self.selectedBtn = btn
+        self.sendActions(for: .valueChanged)
         
     }
     override func layoutSubviews() {
