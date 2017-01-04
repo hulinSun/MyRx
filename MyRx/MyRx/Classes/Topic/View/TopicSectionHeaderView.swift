@@ -39,8 +39,16 @@ class TopicSectionHeaderView: UITableViewHeaderFooterView {
     @IBOutlet weak var groupTypeButton: UIButton!{
         didSet{
             groupTypeButton.rx
-                .tap.subscribe { (e) in
-                    
+                .tap.subscribe {[weak self] (e)  in
+                    if let strongSelf = self{
+                       if strongSelf.groupTypeButton.currentTitle == "换一换"{
+                            UIView.animate(withDuration: 0.5, animations: {
+                                strongSelf.groupTypeButton.imageView?.transform = (strongSelf.groupTypeButton.imageView?.transform.rotated(by: (CGFloat.pi)))!
+                            })
+                       }else{ // 更多
+                        print("点击了更多")
+                        }
+                    }
                 }.addDisposableTo(bag)
         }
     }
@@ -56,8 +64,12 @@ class TopicSectionHeaderView: UITableViewHeaderFooterView {
     
     func config(group: TopicGroup) {
         
-        topicTitleLabel.text = group.name
+        // MARK: 这里有点显得做作啦。只是自己熟悉Rx的写法，直接赋值也可以。
         guard let type = TopicSectionHeadType(rawValue: group.type!.subString(from: 6))else { return }
+        
+        Observable.of(group.name)
+            .bindTo(topicTitleLabel.rx.text)
+            .addDisposableTo(bag)
         
         Observable.of(type)
             .bindTo(groupTypeButton.rx.sectionType)
