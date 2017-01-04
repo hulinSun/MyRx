@@ -10,11 +10,16 @@ import UIKit
 import RxCocoa
 import RxSwift
 
- class MatchSegmentedControl: UIControl {
+
+// 只是简单的做一个小封装。基本够用,细节方面没有做过多的把控
+class MatchSegmentedControl: UIControl {
     
     private let bag = DisposeBag()
     
     private var selectedBtn: UIButton!
+    
+    // 这样，就可以事件传出去了。不在以来代理这些东西
+    let indexChanged: Variable<Int> = Variable(0)
     
     let i = UISegmentedControl()
     var titles: [String]!
@@ -77,6 +82,9 @@ import RxSwift
         }
         self.selectedBtn = btn
         self.sendActions(for: .valueChanged)
+        
+        /// change the value then output
+        indexChanged.value = self.selectedIndex
         
     }
     override func layoutSubviews() {

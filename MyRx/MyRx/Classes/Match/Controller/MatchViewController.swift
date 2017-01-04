@@ -25,16 +25,6 @@ class MatchViewController: UIViewController {
         return i
     }()
     
-    
-    fileprivate lazy var seg: UISegmentedControl = {
-        let i = UISegmentedControl(items: ["好友","欢喜"])
-        i.layer.cornerRadius = 14
-        i.clipsToBounds = true
-        i.tintColor = UIConst.themeColor
-        return i
-    }()
-    
-    
     fileprivate lazy var matchSeg: MatchSegmentedControl = {
         let i = MatchSegmentedControl(items: ["好友","欢喜"])
         return i
@@ -48,6 +38,8 @@ class MatchViewController: UIViewController {
     func setupUI()  {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "topicSegmentSearch", target: self,  action: "searchClick")
+        
         leftBtn.snp.makeConstraints { (make) in
             make.size.equalTo(CGSize(width: 40, height: 20))
         }
@@ -57,13 +49,25 @@ class MatchViewController: UIViewController {
         }
         
         // MARK : TARGET-ACTION 机制
-        matchSeg.rx.controlEvent(.valueChanged).subscribe { (e) in
-            print("-------\(self.matchSeg.selectedIndex)")
+        matchSeg.rx
+            .controlEvent(.valueChanged)
+            .subscribe { (e) in
+                print("-------\(self.matchSeg.selectedIndex)")
         }.addDisposableTo(bag)
+        
+        // 信号机制. 里面的任何改变。在外面都能订阅到
+        matchSeg.indexChanged
+            .asObservable()
+            .subscribe { (e) in
+                print("\(e.element ) +++++")
+            }.addDisposableTo(bag)
         
     }
     
     
+    func searchClick() {
+        print("点击了搜索")
+    }
     func setupData() {
         
         let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
