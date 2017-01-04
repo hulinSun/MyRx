@@ -92,7 +92,6 @@ public class MatchADView<ImageType>: UIView , UIScrollViewDelegate{
         
         //设置页数
         pageControl.currentPage = currentPage
-        print("currentPage = \(currentPage)")
         //根据当前页取出图片
         getDisplayImagesWithCurpage()
         //从scrollView上移除所有的subview
