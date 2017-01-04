@@ -20,7 +20,7 @@ class TopicTopView: UIView {
     
     @IBOutlet weak var rightBtn: UIButton!
 
-    func awakeFromNib() {
+    override func awakeFromNib() {
         
     }
 }
