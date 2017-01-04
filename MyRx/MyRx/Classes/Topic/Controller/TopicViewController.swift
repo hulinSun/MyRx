@@ -12,6 +12,7 @@ import RxSwift
 import SnapKit
 import ReusableKit
 import RxDataSources
+import Kingfisher
 import Moya
 
 /// 话题控制器
@@ -19,7 +20,7 @@ class TopicViewController: UIViewController {
 
     let bag = DisposeBag()
     var sections: Driver<[TopicListSection]>!
-    var banners: Driver<[TopicBanner]>!
+    var banners: Variable<[TopicBanner]>!
     
     let dataSource = RxTableViewSectionedReloadDataSource<TopicListSection>()
     struct Reuse {
@@ -52,17 +53,29 @@ class TopicViewController: UIViewController {
         return i
     }()
     
-    
-    
+    fileprivate lazy var adView: MatchADView = { () -> MatchADView<TopicBanner> in
+        let i = MatchADView<TopicBanner>(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 175))
+        return i
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupData()
         setupUI()
     }
     
-    
     private func setupUI(){
     
+        tableView.tableHeaderView = adView
+        adView.images = banners.value
+        banners.asObservable()
+            .bindTo(adView.rx.banners)
+            .addDisposableTo(bag)
+        
+        adView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize(width: UIConst.screenWidth, height: 175))
+        }
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: rightBtn)
         view.addSubview(tableView)
@@ -104,6 +117,7 @@ class TopicViewController: UIViewController {
     
     func setupData()  {
         
+        banners = Variable([TopicBanner]())
         let elems = Variable([TopicGroup]())
         let provider = RxMoyaProvider<TopicService>(stubClosure: MoyaProvider.immediatelyStub)
         provider
@@ -114,9 +128,10 @@ class TopicViewController: UIViewController {
                 guard let response = e.element else { return }
                 if let model = response.mapObject(TopicList.self, designatedPath: "data.list"){
                     elems.value = model.topic_group_list!
-                    self.banners = Observable.of(model.banner!).asDriver(onErrorJustReturn: [])
+                    self.banners.value = model.banner!
                 }
             }.addDisposableTo(bag)
+        
         
         let sections = elems.value.map { (gp) -> TopicListSection  in
             return TopicListSection(model: gp, items: gp.topic_list!)
