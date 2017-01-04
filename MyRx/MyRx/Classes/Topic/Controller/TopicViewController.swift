@@ -12,17 +12,17 @@ import RxSwift
 import SnapKit
 import ReusableKit
 import RxDataSources
+import Moya
 
 /// 话题控制器
 class TopicViewController: UIViewController {
 
     let bag = DisposeBag()
-    let viewModel = TopicListViewModel()
+    var sections: Driver<[TopicListSection]>!
     let dataSource = RxTableViewSectionedReloadDataSource<TopicListSection>()
     struct Reuse {
         static let cell = ReusableCell<TopicTitleCell>(nibName: "TopicTitleCell")
         static let header = ReusableView<TopicSectionHeaderView>(nibName: "TopicSectionHeaderView")
-        
     }
 
     fileprivate lazy var tableView: UITableView = {
@@ -54,6 +54,7 @@ class TopicViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupData()
         setupUI()
     }
     
@@ -89,23 +90,34 @@ class TopicViewController: UIViewController {
                 print("点击了 \(indexPath.row) 行")
         }).addDisposableTo(bag)
         
-        // MARK: 本来尝试着用MVVM写一下。无奈思想层面不够。加上再把事件抽离信号，脑子很混乱。所以暂时使用MVC 的方式。 以后再尝试着改一下
         
-        viewModel.sections
+        sections
             .drive(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(bag)
-        
-        viewModel.navigationBarTitle
-            .drive(self.navigationItem.rx.title)
-            .addDisposableTo(bag)
-        
-        leftBtn.rx.tap
-            .bindTo(viewModel.creatTopicButtonDidTap)
             .addDisposableTo(bag)
         
         leftBtn.rx.controlEvent(.touchUpInside).subscribe { _ in
             print("点击了按钮")
             }.addDisposableTo(bag)
+    }
+    
+    
+    func setupData()  {
+        
+        let elems = Variable([TopicGroup]())
+        let provider = RxMoyaProvider<TopicService>(stubClosure: MoyaProvider.immediatelyStub)
+        provider
+            .request(.index)
+            .filterSuccessfulStatusCodes()
+            .observeOn(.main)
+            .subscribe { (e) in
+                guard let response = e.element else { return }
+                if let model = response.mapObject(TopicList.self, designatedPath: "data.list"){ elems.value = model.topic_group_list! }
+            }.addDisposableTo(bag)
+        
+        let sections = elems.value.map { (gp) -> TopicListSection  in
+            return TopicListSection(model: gp, items: gp.topic_list!)
+        }
+        self.sections = Observable.of(sections).asDriver(onErrorJustReturn: [])
     }
 }
 
@@ -120,7 +132,7 @@ extension TopicViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 44
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

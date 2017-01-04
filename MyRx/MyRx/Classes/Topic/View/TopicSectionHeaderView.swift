@@ -50,11 +50,13 @@ class TopicSectionHeaderView: UITableViewHeaderFooterView {
                         }
                     }
                 }.addDisposableTo(bag)
+            groupTypeButton.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         }
     }
     @IBOutlet weak var topicTitleLabel: UILabel!{
         didSet{
             topicTitleLabel.textColor = UIColor("#7a7a7a")
+            topicTitleLabel.font = UIFont.systemFont(ofSize: 15)
         }
     }
     

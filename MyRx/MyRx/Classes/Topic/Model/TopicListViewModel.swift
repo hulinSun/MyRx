@@ -29,7 +29,10 @@ protocol TopicListViewModelType {
 
 
 
+// TODO: 废弃，不用了
 class TopicListViewModel: TopicListViewModelType {
+    
+    // MARK: 本来尝试着用MVVM写一下。无奈思想层面不够。加上再把事件抽离信号，脑子很混乱。所以暂时使用MVC 的方式。 以后再尝试着改一下
     
     let elements: Variable<[TopicGroup]>
     private let bag = DisposeBag()
