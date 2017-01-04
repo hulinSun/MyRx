@@ -30,29 +30,32 @@ class MatchViewController: UIViewController {
         return i
     }()
     
-    fileprivate lazy var scrollView: UIScrollView = {
-        let i = UIScrollView()
-        i.contentSize = CGSize(width: 2 * UIConst.screenWidth, height: UIConst.screenHeight)
-        i.showsVerticalScrollIndicator = false
-        i.showsHorizontalScrollIndicator = false
-        i.backgroundColor = .random()
+    
+    fileprivate lazy var pageController: UIPageViewController = {
+        let i = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         return i
     }()
-
+    
+    let arr = [MatchTopicController()]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        addPageController()
         setupUI()
     }
     
+    
+    
+    func addPageController() {
+        pageController.delegate = self
+        pageController.dataSource = self
+        pageController.setViewControllers(arr, direction: .reverse, animated: false, completion: nil)
+        pageController.view.frame = self.view.bounds
+        view.addSubview(pageController.view)
+        addChildViewController(pageController)
+    }
+    
     func setupUI()  {
-        
-        view.addSubview(scrollView)
-        scrollView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-
-        // 添加自控制器
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "topicSegmentSearch", target: self,  action: "searchClick")
         leftBtn.snp.makeConstraints { (make) in
@@ -121,4 +124,37 @@ class MatchViewController: UIViewController {
                 }
             }.addDisposableTo(bag)
     }
+    
+    fileprivate  func viewControllerAtIndex(index: Int) -> MatchTopicController?{
+        if  index > arr.count{ return nil }
+        return arr[index]
+    }
+    
+    fileprivate func indexOfViewController(controller: MatchTopicController) -> Int?{
+        return arr.index(of: controller)
+    }
+}
+
+
+extension MatchViewController: UIPageViewControllerDelegate , UIPageViewControllerDataSource{
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+       
+        guard  var idx = self.indexOfViewController(controller: viewController as! MatchTopicController) else {return nil }
+        
+        if idx == 0 || idx == NSNotFound{ return nil }
+        idx -= 1
+        return self.viewControllerAtIndex(index: idx)!
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        guard  var idx = self.indexOfViewController(controller: viewController as! MatchTopicController) else { return nil }
+        if idx == NSNotFound { return nil }
+        idx += 1
+        if idx == arr.count{ return nil }
+        return self.viewControllerAtIndex(index: idx)
+    }
+    
+
 }
