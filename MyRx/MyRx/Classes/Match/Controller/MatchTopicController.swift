@@ -15,6 +15,15 @@ class MatchTopicController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .random()
     }
+    
+    var content: String?{
+        didSet{
+            //            let l = UILabel(frame: CGRect(x: 0, y: 100, width: 300, height: 66))
+            //            l.backgroundColor = .random()
+            //            l.text = content
+            //            view.addSubview(l)
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

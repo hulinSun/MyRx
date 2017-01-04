@@ -17,6 +17,7 @@ class MatchViewController: UIViewController {
 
     let bag = DisposeBag()
     
+ 
     fileprivate lazy var leftBtn: UIButton = {
         let i = UIButton()
         i.setTitle("发帖", for: .normal)
@@ -30,13 +31,16 @@ class MatchViewController: UIViewController {
         return i
     }()
     
-    
     fileprivate lazy var pageController: UIPageViewController = {
         let i = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
         return i
     }()
     
-    let arr = [MatchTopicController()]
+    fileprivate lazy var pageArr: [String] = {
+        let i = ["1111","2222","3333","4444","5555","6666","7777","888888","99999"]
+        return i
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +53,8 @@ class MatchViewController: UIViewController {
     func addPageController() {
         pageController.delegate = self
         pageController.dataSource = self
-        pageController.setViewControllers(arr, direction: .reverse, animated: false, completion: nil)
+        guard let matchVC = viewControllerAtIndex(idx: 0) else {return}
+        pageController.setViewControllers([matchVC], direction: .reverse, animated: false, completion: nil)
         pageController.view.frame = self.view.bounds
         view.addSubview(pageController.view)
         addChildViewController(pageController)
@@ -125,36 +130,40 @@ class MatchViewController: UIViewController {
             }.addDisposableTo(bag)
     }
     
-    fileprivate  func viewControllerAtIndex(index: Int) -> MatchTopicController?{
-        if  index > arr.count{ return nil }
-        return arr[index]
-    }
-    
-    fileprivate func indexOfViewController(controller: MatchTopicController) -> Int?{
-        return arr.index(of: controller)
-    }
 }
 
 
 extension MatchViewController: UIPageViewControllerDelegate , UIPageViewControllerDataSource{
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-       
-        guard  var idx = self.indexOfViewController(controller: viewController as! MatchTopicController) else {return nil }
+    fileprivate func viewControllerAtIndex(idx: Int)-> MatchTopicController?{
         
-        if idx == 0 || idx == NSNotFound{ return nil }
+        if pageArr.isEmpty || idx >= pageArr.count { return nil }
+        let vc = MatchTopicController()
+        vc.content = self.pageArr[idx]
+        return vc
+    }
+    
+    fileprivate func indexOfViewController(controller: MatchTopicController) -> Int?{
+        return pageArr.index(of: controller.content!)
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        guard var idx = indexOfViewController(controller: viewController as! MatchTopicController) else { return nil }
+        if idx == 0 || idx == NSNotFound { return nil }
         idx -= 1
-        return self.viewControllerAtIndex(index: idx)!
+        return viewControllerAtIndex(idx: idx)
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
-        guard  var idx = self.indexOfViewController(controller: viewController as! MatchTopicController) else { return nil }
-        if idx == NSNotFound { return nil }
+        guard var idx = indexOfViewController(controller: viewController as! MatchTopicController)else { return nil }
+        if  idx == NSNotFound { return nil }
         idx += 1
-        if idx == arr.count{ return nil }
-        return self.viewControllerAtIndex(index: idx)
+        if  idx == pageArr.count { return nil }
+        return viewControllerAtIndex(idx: idx)
     }
+    
     
 
 }
