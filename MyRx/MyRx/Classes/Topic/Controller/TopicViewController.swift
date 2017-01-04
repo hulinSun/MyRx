@@ -19,6 +19,8 @@ class TopicViewController: UIViewController {
 
     let bag = DisposeBag()
     var sections: Driver<[TopicListSection]>!
+    var banners: Driver<[TopicBanner]>!
+    
     let dataSource = RxTableViewSectionedReloadDataSource<TopicListSection>()
     struct Reuse {
         static let cell = ReusableCell<TopicTitleCell>(nibName: "TopicTitleCell")
@@ -38,7 +40,7 @@ class TopicViewController: UIViewController {
         let i = UIButton()
         i.setTitle("创建话题", for: .normal)
         i.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        i.setTitleColor(.red, for: .normal)
+        i.setTitleColor(UIColor("#687880"), for: .normal)
         return i
     }()
     
@@ -46,7 +48,7 @@ class TopicViewController: UIViewController {
         let i = UIButton()
         i.setTitle("分类", for: .normal)
         i.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        i.setTitleColor(.blue, for: .normal)
+        i.setTitleColor(UIColor("#3daafc"), for: .normal)
         return i
     }()
     
@@ -90,7 +92,6 @@ class TopicViewController: UIViewController {
                 print("点击了 \(indexPath.row) 行")
         }).addDisposableTo(bag)
         
-        
         sections
             .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(bag)
@@ -111,7 +112,10 @@ class TopicViewController: UIViewController {
             .observeOn(.main)
             .subscribe { (e) in
                 guard let response = e.element else { return }
-                if let model = response.mapObject(TopicList.self, designatedPath: "data.list"){ elems.value = model.topic_group_list! }
+                if let model = response.mapObject(TopicList.self, designatedPath: "data.list"){
+                    elems.value = model.topic_group_list!
+                    self.banners = Observable.of(model.banner!).asDriver(onErrorJustReturn: [])
+                }
             }.addDisposableTo(bag)
         
         let sections = elems.value.map { (gp) -> TopicListSection  in
@@ -119,6 +123,7 @@ class TopicViewController: UIViewController {
         }
         self.sections = Observable.of(sections).asDriver(onErrorJustReturn: [])
     }
+    
 }
 
 
