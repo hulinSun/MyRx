@@ -17,7 +17,6 @@ class MatchViewController: UIViewController {
 
     let bag = DisposeBag()
     
- 
     fileprivate lazy var leftBtn: UIButton = {
         let i = UIButton()
         i.setTitle("发帖", for: .normal)
@@ -37,7 +36,7 @@ class MatchViewController: UIViewController {
     }()
     
     fileprivate lazy var pageArr: [String] = {
-        let i = ["1111","2222","3333","4444","5555","6666","7777","888888","99999"]
+        let i = ["0","1"]
         return i
     }()
     
@@ -51,6 +50,7 @@ class MatchViewController: UIViewController {
     
     
     func addPageController() {
+        self.automaticallyAdjustsScrollViewInsets = false
         pageController.delegate = self
         pageController.dataSource = self
         guard let matchVC = viewControllerAtIndex(idx: 0) else {return}
@@ -68,22 +68,24 @@ class MatchViewController: UIViewController {
         }
         navigationItem.titleView = matchSeg
         matchSeg.snp.makeConstraints { (make) in
-            make.size.equalTo(CGSize(width: 130, height: 28))
+            make.size.equalTo(CGSize(width: 124, height: 26))
         }
         
         // MARK : TARGET-ACTION 机制
         matchSeg.rx
             .controlEvent(.valueChanged)
-            .subscribe { (e) in
-                print("-------\(self.matchSeg.selectedIndex)")
-        }.addDisposableTo(bag)
+            .subscribe { [weak self](e) in
+                if let strongSelf = self{
+                    guard let matchVC = strongSelf.viewControllerAtIndex(idx: strongSelf.matchSeg.selectedIndex) else {return}
+                    let direc: UIPageViewControllerNavigationDirection = strongSelf.matchSeg.selectedIndex == 0 ? .reverse : .forward
+                    strongSelf.pageController.setViewControllers([matchVC], direction: direc, animated: true, completion: nil)
+                }
+            }.addDisposableTo(bag)
         
         // 信号机制. 里面的任何改变。在外面都能订阅到
         matchSeg.indexChanged
             .asObservable()
-            .subscribe { (e) in
-                print("\(e.element ) +++++")
-            }.addDisposableTo(bag)
+            .subscribe { _ in }.addDisposableTo(bag)
         
     }
     
@@ -147,6 +149,7 @@ extension MatchViewController: UIPageViewControllerDelegate , UIPageViewControll
         return pageArr.index(of: controller.content!)
     }
     
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard var idx = indexOfViewController(controller: viewController as! MatchTopicController) else { return nil }
@@ -156,7 +159,6 @@ extension MatchViewController: UIPageViewControllerDelegate , UIPageViewControll
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
         guard var idx = indexOfViewController(controller: viewController as! MatchTopicController)else { return nil }
         if  idx == NSNotFound { return nil }
         idx += 1
@@ -164,6 +166,12 @@ extension MatchViewController: UIPageViewControllerDelegate , UIPageViewControll
         return viewControllerAtIndex(idx: idx)
     }
     
-    
-
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            guard let pre = previousViewControllers.first as? MatchTopicController else{ return }
+            let idx = pre.content == "0" ? 1 : 0
+            self.matchSeg.selectedIndex = idx
+            self.matchSeg.special = false
+        }
+    }
 }

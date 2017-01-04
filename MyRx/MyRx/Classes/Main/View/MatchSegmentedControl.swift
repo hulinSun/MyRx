@@ -24,6 +24,8 @@ class MatchSegmentedControl: UIControl {
     let i = UISegmentedControl()
     var titles: [String]!
 
+    var special: Bool = false
+    
     var numberOfSegments: Int{
         return titles.count
     }
@@ -33,6 +35,7 @@ class MatchSegmentedControl: UIControl {
         set{
             if newValue > numberOfSegments { return }
             if let btn = (self.subviews.filter { $0.tag == newValue }.first as? UIButton){
+                special = true
                 tapBtn(btn)
             }
         }
@@ -55,7 +58,7 @@ class MatchSegmentedControl: UIControl {
             let btn = UIButton()
             btn.tag = i
             btn.setTitle(titles[i], for: .normal)
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 13)
             btn.setTitleColor(UIConst.themeColor, for: .normal)
             btn.setTitleColor(.white, for: .selected)
             btn.setBackgroundImage(UIImage.creatImage(with:UIColor(red: 249.0/255.0, green: 249.0/255.0, blue: 249.0/255.0, alpha: 1) ), for: .normal)
@@ -81,10 +84,12 @@ class MatchSegmentedControl: UIControl {
             self.selectedBtn.isSelected = false
         }
         self.selectedBtn = btn
-        self.sendActions(for: .valueChanged)
         
-        /// change the value then output
-        indexChanged.value = self.selectedIndex
+        if special == false {
+            self.sendActions(for: .valueChanged)
+            /// change the value then output
+            indexChanged.value = self.selectedIndex
+        }
         
     }
     override func layoutSubviews() {
