@@ -89,6 +89,8 @@ class TopicViewController: UIViewController {
                 print("点击了 \(indexPath.row) 行")
         }).addDisposableTo(bag)
         
+        // MARK: 本来尝试着用MVVM写一下。无奈思想层面不够。加上再把事件抽离信号，脑子很混乱。所以暂时使用MVC 的方式。 以后再尝试着改一下
+        
         viewModel.sections
             .drive(tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(bag)
