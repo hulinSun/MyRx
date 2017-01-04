@@ -17,7 +17,6 @@ import RxSwift
     private var selectedBtn: UIButton!
     
     let i = UISegmentedControl()
-    
     var titles: [String]!
 
     var numberOfSegments: Int{
@@ -63,12 +62,12 @@ import RxSwift
     }
     
     func tapBtn(_ btn: UIButton) {
-        
         btn.isSelected = true
         if self.selectedBtn != nil {
             self.selectedBtn.isSelected = false
         }
         self.selectedBtn = btn
+        
     }
     override func layoutSubviews() {
         super.layoutSubviews()
