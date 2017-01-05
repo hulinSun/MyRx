@@ -23,6 +23,18 @@ class User: HandyJSON {
     required init() {}
 }
 
+class UserInfo: HandyJSON {
+    var user_id: String?
+    var username: String?
+    var avatar: String?
+    var signature: String?
+    var reason:	String?
+    var sex: String?
+    var relation: String?
+    var role: String?
+    var vip_type: String?
+    required init() {}
+}
 
 class Users: HandyJSON {
     var count: String?
@@ -80,8 +92,13 @@ class Topic: HandyJSON {
     var type: String?
     var lastid: String?
     var info: TopicInfo?
+    
+    // 推荐有的
     var users: Users?
     
+    // 关注有的
+    var user_info: UserInfo?
+    var tru_info: [TopicInfo]?
     
     required init() {}
 }
