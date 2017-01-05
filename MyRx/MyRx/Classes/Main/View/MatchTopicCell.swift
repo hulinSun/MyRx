@@ -71,12 +71,11 @@ class MatchTopicCell: UITableViewCell {
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
-//            photoView.kf.setImage(with: URL(string: org))
             photoView.kf.setImage(with: URL(string: org), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
-                
                 self.photoView.image = img?.kf.resize(to: CGSize(width: UIConst.screenWidth, height:  UIConst.screenWidth))
             })
         }
+        
         if let cot = tp.info?.content {
             descLabel.text = cot.replacingOccurrences(of: "<br>", with: "\n")
         }
