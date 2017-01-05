@@ -46,6 +46,8 @@
 		FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */; };
 		FEB3E4E41E1DF4D000DEAFB1 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */; };
 		FEB3E4E81E1DF8DA00DEAFB1 /* MatchTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4E71E1DF8DA00DEAFB1 /* MatchTopicCell.swift */; };
+		FEB3E4EB1E1E2CCA00DEAFB1 /* MatchAttentionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4E91E1E2CCA00DEAFB1 /* MatchAttentionCell.swift */; };
+		FEB3E4EC1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4EA1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib */; };
 		FEC9B4131E151E1B00D076EF /* JSONTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B4121E151E1B00D076EF /* JSONTool.swift */; };
 		FEED49741E16094D0043DB83 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49731E16094D0043DB83 /* TopicService.swift */; };
 		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
@@ -123,6 +125,8 @@
 		FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendView.xib; sourceTree = "<group>"; };
 		FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		FEB3E4E71E1DF8DA00DEAFB1 /* MatchTopicCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTopicCell.swift; sourceTree = "<group>"; };
+		FEB3E4E91E1E2CCA00DEAFB1 /* MatchAttentionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchAttentionCell.swift; sourceTree = "<group>"; };
+		FEB3E4EA1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchAttentionCell.xib; sourceTree = "<group>"; };
 		FEC9B4121E151E1B00D076EF /* JSONTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTool.swift; sourceTree = "<group>"; };
 		FEED49731E16094D0043DB83 /* TopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
 		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */,
 				FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */,
 				FEB3E4E71E1DF8DA00DEAFB1 /* MatchTopicCell.swift */,
+				FEB3E4E91E1E2CCA00DEAFB1 /* MatchAttentionCell.swift */,
+				FEB3E4EA1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -663,6 +669,7 @@
 				FE9C36781E1B83B3000E73C2 /* TopicSectionHeaderView.xib in Resources */,
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
 				FEED49761E160A570043DB83 /* index in Resources */,
+				FEB3E4EC1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
 				FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */,
 				FEB3E4DE1E1D219C00DEAFB1 /* TopicBottomView.xib in Resources */,
@@ -756,6 +763,7 @@
 				FEB3E4E81E1DF8DA00DEAFB1 /* MatchTopicCell.swift in Sources */,
 				FE2134761E14F9C800C056F5 /* TopicViewController.swift in Sources */,
 				FE2134861E150C8500C056F5 /* MatchModel.swift in Sources */,
+				FEB3E4EB1E1E2CCA00DEAFB1 /* MatchAttentionCell.swift in Sources */,
 				FEED49801E163E070043DB83 /* TopicListViewModel.swift in Sources */,
 				FE9C36741E1B816E000E73C2 /* config.swift in Sources */,
 				FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */,

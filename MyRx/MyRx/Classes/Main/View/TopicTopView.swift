@@ -23,4 +23,11 @@ class TopicTopView: UIView {
     override func awakeFromNib() {
         
     }
+    
+    
+    var topic: Topic?{
+        didSet{
+            // 赋值
+        }
+    }
 }

@@ -10,6 +10,12 @@
 import UIKit
 
 class TopicBottomView: UIView {
-    
 
+    var topic: Topic?{
+        didSet{
+            
+            // 赋值
+            
+        }
+    }
 }

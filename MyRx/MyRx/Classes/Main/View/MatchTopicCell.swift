@@ -38,6 +38,10 @@ class MatchTopicCell: UITableViewCell {
     /// 文本
     fileprivate lazy var descLabel: UILabel = {
         let i = UILabel()
+        i.font = UIFont.systemFont(ofSize: 14)
+        i.textColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)
+        i.numberOfLines = 10
+        i.preferredMaxLayoutWidth = UIConst.screenWidth - 20
         return i
     }()
     /// 底部的view
@@ -50,6 +54,116 @@ class MatchTopicCell: UITableViewCell {
         let i = UIButton()
         return i
     }()
+    
+    
+    var topic: Topic?{
+        didSet{
+            // 赋值
+            bindData()
+            
+            // 布局
+            layoutWithData()
+        }
+    }
+    
+    
+    private func bindData(){
+        
+        guard  let tp = topic else { return }
+        
+        if tp.type == "tr"{ // 推荐
+            recommendLabel.text = tp.users?.rlist?.first?.user_name ?? "推荐了"
+        }
+        topView.topic = tp
+        bottomView.topic = tp
+        if let org = tp.info?.thumb_org { // 有图片
+            photoView.kf.setImage(with: URL(string: org))
+        }
+        if let cot = tp.info?.content {
+            descLabel.text = cot
+        }
+    }
+    
+    private func layoutWithData(){
+        
+        guard  let tp = topic else { return }
+        
+        if tp.type == "tr"{ // 推荐
+            recommendLabel.isHidden = false
+            recommendLabel.snp.makeConstraints { (make) in
+                make.left.equalToSuperview().offset(15)
+                make.top.equalToSuperview().offset(15)
+                make.height.equalTo(20)
+                make.right.equalToSuperview().offset(-15)
+            }
+            
+            topView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(128)
+                make.top.equalTo(recommendLabel.snp.bottom)
+            }
+        }else if tp.type == "th"{ // 正常
+            recommendLabel.isHidden = true
+            topView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(128)
+                make.top.equalToSuperview()
+            }
+        }
+        
+        if tp.info?.thumb_org != nil { // 有图片
+            photoView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(UIConst.screenWidth)
+                make.top.equalTo(topView.snp.bottom)
+            }
+            photoView.isHidden = false
+            
+            if tp.info?.content != nil { // 有文本
+                descLabel.isHidden = false
+                descLabel.snp.makeConstraints { (make) in
+                    make.left.equalToSuperview().offset(10)
+                    make.right.equalToSuperview().offset(-10)
+                    make.top.equalTo(photoView.snp.bottom)
+                }
+                bottomView.snp.makeConstraints { (make) in
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo(50)
+                    make.top.equalTo(descLabel.snp.bottom)
+                }
+            }else{ // 有图片 没文本
+                descLabel.isHidden = true
+                
+                bottomView.snp.makeConstraints { (make) in
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo(50)
+                    make.top.equalTo(photoView.snp.bottom)
+                }
+            }
+        }else{ // 没图片
+            photoView.isHidden = true
+            if tp.info?.content != nil { // 有文本
+                descLabel.isHidden = false
+                descLabel.snp.makeConstraints { (make) in
+                    make.left.equalToSuperview().offset(10)
+                    make.right.equalToSuperview().offset(-10)
+                    make.top.equalTo(topView.snp.bottom)
+                }
+                bottomView.snp.makeConstraints { (make) in
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo(50)
+                    make.top.equalTo(descLabel.snp.bottom)
+                }
+            }else{ // 没文本
+                descLabel.isHidden = true
+                bottomView.snp.makeConstraints { (make) in
+                    make.left.right.equalToSuperview()
+                    make.height.equalTo(50)
+                    make.top.equalTo(topView.snp.bottom)
+                }
+            }
+        }
+    }
     
     private func setupUI(){
         contentView.addSubview(recommendLabel)
