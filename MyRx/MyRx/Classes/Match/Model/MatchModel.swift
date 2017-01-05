@@ -9,6 +9,29 @@
 import UIKit
 import HandyJSON
 
+
+class User: HandyJSON {
+    
+    var lastid: String?
+    var user_id: String?
+    var user_name: String?
+    var avatar:  String?
+    var signature: String?
+    var city:  String?
+    var role:  String?
+    
+    required init() {}
+}
+
+
+class Users: HandyJSON {
+    var count: String?
+    var isself: String?
+    var rlist: [User]?
+    
+    required init() {}
+}
+
 class TopicInfo: HandyJSON {
     
     var voice_sample_rate: Double?
@@ -52,12 +75,13 @@ class TopicInfo: HandyJSON {
     required init() {}
 }
 
-
 class Topic: HandyJSON {
     
     var type: String?
     var lastid: String?
     var info: TopicInfo?
+    var users: Users?
+    
     
     required init() {}
 }
