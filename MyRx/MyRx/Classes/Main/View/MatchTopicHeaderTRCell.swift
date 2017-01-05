@@ -1,5 +1,5 @@
 //
-//  MatchTopicCell.swift
+//  MatchTopicHeaderTRCell.swift
 //  MyRx
 //
 //  Created by Hony on 2017/1/5.
@@ -8,7 +8,13 @@
 
 import UIKit
 
-class MatchTopicCell: UITableViewCell {
+class MatchTopicHeaderTRCell: UITableViewCell {
+
+    /// 头部推荐的label
+    fileprivate lazy var recommendLabel: UILabel = {
+        let i = UILabel()
+        return i
+    }()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,17 +26,17 @@ class MatchTopicCell: UITableViewCell {
     }
     
     /// 头部的view
-     lazy var topView: TopicTopView = {
+    lazy var topView: TopicTopView = {
         let i = TopicTopView.loadFromNib()
         return i
     }()
     /// 图片
-     lazy var photoView: UIImageView = {
+    lazy var photoView: UIImageView = {
         let i = UIImageView()
         return i
     }()
     /// 文本
-     lazy var descLabel: UILabel = {
+    lazy var descLabel: UILabel = {
         let i = UILabel()
         i.font = UIFont.systemFont(ofSize: 14)
         i.textColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)
@@ -39,12 +45,12 @@ class MatchTopicCell: UITableViewCell {
         return i
     }()
     /// 底部的view
-     lazy var bottomView: TopicBottomView = {
+    lazy var bottomView: TopicBottomView = {
         let i = TopicBottomView.loadFromNib()
         return i
     }()
     /// 显示更多 ，收起按钮
-     lazy var openBtn: UIButton = {
+    lazy var openBtn: UIButton = {
         let i = UIButton()
         return i
     }()
@@ -62,11 +68,9 @@ class MatchTopicCell: UITableViewCell {
     }
     
     
-     func bindData(){
+    func bindData(){
         
         guard  let tp = topic else { return }
-        
-//     
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
@@ -75,15 +79,22 @@ class MatchTopicCell: UITableViewCell {
         if let cot = tp.info?.content {
             descLabel.text = cot.replacingOccurrences(of: "<br>", with: "\n")
         }
+        recommendLabel.text = (tp.users?.rlist?.first?.user_name)! + "推荐了"
     }
     
-     func layoutWithData(){
+    func layoutWithData(){
         
         guard  let tp = topic else { return }
+        
+        recommendLabel.snp.makeConstraints { (make) in
+            make.left.top.equalToSuperview().offset(15)
+            make.right.equalToSuperview().offset(-15)
+            make.height.equalTo(20)
+        }
         topView.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview()
             make.height.equalTo(128)
-            make.top.equalToSuperview()
+            make.top.equalTo(recommendLabel.snp.bottom)
         }
         normalLayout(with: tp)
     }
@@ -112,13 +123,6 @@ class MatchTopicCell: UITableViewCell {
                 }
             }else{ // 有图片 没文本
                 descLabel.isHidden = true
-                // 这里没图片，让他的高度约束为0.01
-//                descLabel.snp.makeConstraints{ (make) in
-//                    make.left.equalToSuperview().offset(10)
-//                    make.right.equalToSuperview().offset(-10)
-//                    make.top.equalTo(photoView.snp.bottom)
-//                    make.height.equalTo(0.01)
-//                }
                 bottomView.snp.makeConstraints { (make) in
                     make.left.right.equalToSuperview()
                     make.height.equalTo(50)
@@ -128,11 +132,6 @@ class MatchTopicCell: UITableViewCell {
             }
         }else{ // 没图片
             photoView.isHidden = true
-//            photoView.snp.makeConstraints { (make) in
-//                make.left.right.equalToSuperview()
-//                make.height.equalTo(0.001)
-//                make.top.equalTo(topView.snp.bottom)
-//            }
             if tp.info?.content != nil { // 有文本
                 descLabel.isHidden = false
                 descLabel.snp.makeConstraints { (make) in
@@ -164,7 +163,9 @@ class MatchTopicCell: UITableViewCell {
         }
     }
     
-     func setupUI(){
+    func setupUI(){
+        
+        contentView.addSubview(recommendLabel)
         contentView.addSubview(topView)
         contentView.addSubview(photoView)
         contentView.addSubview(descLabel)

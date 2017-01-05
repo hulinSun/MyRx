@@ -28,6 +28,7 @@ class MatchTopicController: UIViewController {
     struct Reuse {
         static let topicCell = ReusableCell<MatchTopicCell>() // tr th
         static let recommendCell = ReusableCell<RecommendCell>() // tru
+        static let topicTRCell = ReusableCell<MatchTopicHeaderTRCell>() // tru
         static let attentionCell = ReusableCell<MatchAttentionCell>(nibName:  "MatchAttentionCell") // tl
     }
 
@@ -36,6 +37,7 @@ class MatchTopicController: UIViewController {
         i.register(Reuse.topicCell)
         i.register(Reuse.recommendCell)
         i.register(Reuse.attentionCell)
+        i.register(Reuse.topicTRCell)
         i.estimatedRowHeight = 300
         return i
     }()
@@ -61,7 +63,7 @@ class MatchTopicController: UIViewController {
         dataSource.configureCell = { (_, tv, indexPath, element) in
             guard  let elem = element else { return UITableViewCell() }
             
-            if elem.type == "tr" || elem.type == "th"{
+            if elem.type == "th"{
                 let cell = tv.dequeue(Reuse.topicCell, for: indexPath)
                 cell.topic = elem
                 cell.selectionStyle = .none
@@ -73,6 +75,14 @@ class MatchTopicController: UIViewController {
             }else if elem.type == "tru"{
                 let cell = tv.dequeue(Reuse.recommendCell, for: indexPath)
                 cell.selectionStyle = .none
+                return cell
+            }else if elem.type == "tr"{
+//                let cell = tv.dequeue(Reuse.topicTRCell, for: indexPath)
+//                cell.topic = elem
+//                cell.selectionStyle = .none
+//                return cell
+                let cell = UITableViewCell()
+                cell.backgroundColor = .red
                 return cell
             }
             return UITableViewCell()
@@ -98,7 +108,7 @@ class MatchTopicController: UIViewController {
             .subscribe { (e) in
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
-                     print(m.flatMap{ $0?.type })
+//                     print(m.flatMap{ $0?.info?.thumb_org })
                     let sec = MatchTopicSection(model: "", items: m)
                     self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
                 }
@@ -132,14 +142,14 @@ extension MatchTopicController: UITableViewDelegate{
         guard let tp = topics[indexPath.row] else{ return 44 }
         
         var height: CGFloat = 0
-        if tp.type == "tr" || tp.type == "th" {
-//            let cell = tableView.dequeue(Reuse.topicCell, for: indexPath)
-//            height = 600
+        if  tp.type == "th" {
             height = UITableViewAutomaticDimension
         }else if tp.type == "tl"{
             height = 118
         }else if tp.type == "tru"{
             height = 280
+        }else if tp.type == "tr"{
+            height = 44
         }
         return height
     }
