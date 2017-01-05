@@ -37,7 +37,8 @@ class MatchTopicController: UIViewController {
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
                     // MARK : 注意，这里flatMap 返回的值是盒子里的值，返回未包装过的。 如果是map 的话，返回的则是一个盒子，就包装过的、
-                                        print(m.flatMap{ $0?.info?.topic_name })
+//                                        print(m.flatMap{ $0?.info?.topic_type })
+                    print(m.flatMap{$0?.type})
                     
                     //                    for case let topic? in m { // 模式匹配
                     //                        print(topic.info?.content ?? "xixi")

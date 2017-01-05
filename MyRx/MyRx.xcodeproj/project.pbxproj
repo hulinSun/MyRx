@@ -42,6 +42,10 @@
 		FEB3E4DA1E1D1DDC00DEAFB1 /* TopicTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4D91E1D1DDC00DEAFB1 /* TopicTopView.xib */; };
 		FEB3E4DC1E1D218D00DEAFB1 /* TopicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4DB1E1D218D00DEAFB1 /* TopicBottomView.swift */; };
 		FEB3E4DE1E1D219C00DEAFB1 /* TopicBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4DD1E1D219C00DEAFB1 /* TopicBottomView.xib */; };
+		FEB3E4E01E1DEADA00DEAFB1 /* RecommendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4DF1E1DEADA00DEAFB1 /* RecommendView.swift */; };
+		FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */; };
+		FEB3E4E41E1DF4D000DEAFB1 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */; };
+		FEB3E4E61E1DF78B00DEAFB1 /* TopicPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4E51E1DF78B00DEAFB1 /* TopicPhotoCell.swift */; };
 		FEC9B4131E151E1B00D076EF /* JSONTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC9B4121E151E1B00D076EF /* JSONTool.swift */; };
 		FEED49741E16094D0043DB83 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEED49731E16094D0043DB83 /* TopicService.swift */; };
 		FEED49761E160A570043DB83 /* index in Resources */ = {isa = PBXBuildFile; fileRef = FEED49751E160A570043DB83 /* index */; };
@@ -115,6 +119,10 @@
 		FEB3E4D91E1D1DDC00DEAFB1 /* TopicTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicTopView.xib; sourceTree = "<group>"; };
 		FEB3E4DB1E1D218D00DEAFB1 /* TopicBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicBottomView.swift; sourceTree = "<group>"; };
 		FEB3E4DD1E1D219C00DEAFB1 /* TopicBottomView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicBottomView.xib; sourceTree = "<group>"; };
+		FEB3E4DF1E1DEADA00DEAFB1 /* RecommendView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendView.swift; sourceTree = "<group>"; };
+		FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendView.xib; sourceTree = "<group>"; };
+		FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		FEB3E4E51E1DF78B00DEAFB1 /* TopicPhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicPhotoCell.swift; sourceTree = "<group>"; };
 		FEC9B4121E151E1B00D076EF /* JSONTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTool.swift; sourceTree = "<group>"; };
 		FEED49731E16094D0043DB83 /* TopicService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
 		FEED49751E160A570043DB83 /* index */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index; sourceTree = "<group>"; };
@@ -302,6 +310,10 @@
 				FEB3E4D91E1D1DDC00DEAFB1 /* TopicTopView.xib */,
 				FEB3E4DB1E1D218D00DEAFB1 /* TopicBottomView.swift */,
 				FEB3E4DD1E1D219C00DEAFB1 /* TopicBottomView.xib */,
+				FEB3E4DF1E1DEADA00DEAFB1 /* RecommendView.swift */,
+				FEB3E4E11E1DEAED00DEAFB1 /* RecommendView.xib */,
+				FEB3E4E31E1DF4D000DEAFB1 /* RecommendCell.swift */,
+				FEB3E4E51E1DF78B00DEAFB1 /* TopicPhotoCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -652,6 +664,7 @@
 				FE2134401E14E0CF00C056F5 /* Info.plist in Resources */,
 				FEED49761E160A570043DB83 /* index in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
+				FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */,
 				FEB3E4DE1E1D219C00DEAFB1 /* TopicBottomView.xib in Resources */,
 				FE2134841E150AB100C056F5 /* likemomentsad in Resources */,
 				FEB3E4DA1E1D1DDC00DEAFB1 /* TopicTopView.xib in Resources */,
@@ -750,14 +763,17 @@
 				FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */,
 				FEED49831E1665B40043DB83 /* GCD+Extension.swift in Sources */,
 				FEED49891E1665EC0043DB83 /* UIBarButtonItem+category.swift in Sources */,
+				FEB3E4E61E1DF78B00DEAFB1 /* TopicPhotoCell.swift in Sources */,
 				FEED497D1E1634950043DB83 /* TopicTitleCell.swift in Sources */,
 				FE9C36801E1CD59A000E73C2 /* UIImage+Extension.swift in Sources */,
+				FEB3E4E01E1DEADA00DEAFB1 /* RecommendView.swift in Sources */,
 				FE21347C1E1505D500C056F5 /* MatchService.swift in Sources */,
 				FE21347A1E14F9F600C056F5 /* MessageViewController.swift in Sources */,
 				FE9C367C1E1CA6D5000E73C2 /* MatchADView.swift in Sources */,
 				FEED49871E1665E20043DB83 /* String+Extension.swift in Sources */,
 				FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */,
 				FE21344C1E14E20100C056F5 /* String+BoundingRect.swift in Sources */,
+				FEB3E4E41E1DF4D000DEAFB1 /* RecommendCell.swift in Sources */,
 				FEED498B1E1665FB0043DB83 /* UINavigationBar+line.swift in Sources */,
 				FE2134781E14F9DF00C056F5 /* ProfileViewController.swift in Sources */,
 				FEED49741E16094D0043DB83 /* TopicService.swift in Sources */,
