@@ -9,6 +9,7 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import SnapKit
 import HandyJSON
 
 
@@ -55,8 +56,12 @@ class MatchViewController: UIViewController {
         pageController.dataSource = self
         guard let matchVC = viewControllerAtIndex(idx: 0) else {return}
         pageController.setViewControllers([matchVC], direction: .reverse, animated: false, completion: nil)
-        pageController.view.frame = self.view.bounds
         view.addSubview(pageController.view)
+        pageController.view.snp.makeConstraints { (make) in
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(64)
+        }
+        
         addChildViewController(pageController)
     }
     

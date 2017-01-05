@@ -58,6 +58,7 @@ class MatchTopicCell: UITableViewCell {
     
     var topic: Topic?{
         didSet{
+            subviews.forEach{$0.snp.removeConstraints()}
             // 赋值
             bindData()
             
@@ -80,7 +81,7 @@ class MatchTopicCell: UITableViewCell {
             photoView.kf.setImage(with: URL(string: org))
         }
         if let cot = tp.info?.content {
-            descLabel.text = cot
+            descLabel.text = cot.replacingOccurrences(of: "<br>", with: "\n")
         }
     }
     
@@ -104,6 +105,12 @@ class MatchTopicCell: UITableViewCell {
             }
         }else if tp.type == "th"{ // 正常
             recommendLabel.isHidden = true
+            recommendLabel.snp.makeConstraints { (make) in
+                make.left.equalToSuperview()
+                make.top.equalToSuperview()
+                make.height.equalTo(0.01)
+                make.right.equalToSuperview()
+            }
             topView.snp.makeConstraints { (make) in
                 make.left.right.equalToSuperview()
                 make.height.equalTo(128)
@@ -118,7 +125,6 @@ class MatchTopicCell: UITableViewCell {
                 make.top.equalTo(topView.snp.bottom)
             }
             photoView.isHidden = false
-            
             if tp.info?.content != nil { // 有文本
                 descLabel.isHidden = false
                 descLabel.snp.makeConstraints { (make) in
@@ -130,18 +136,32 @@ class MatchTopicCell: UITableViewCell {
                     make.left.right.equalToSuperview()
                     make.height.equalTo(50)
                     make.top.equalTo(descLabel.snp.bottom)
+                    make.bottom.equalToSuperview()
                 }
             }else{ // 有图片 没文本
                 descLabel.isHidden = true
+                    // 这里没图片，让他的高度约束为0.01
+                descLabel.snp.makeConstraints{ (make) in
+                    make.left.equalToSuperview().offset(10)
+                    make.right.equalToSuperview().offset(-10)
+                    make.top.equalTo(photoView.snp.bottom)
+                    make.height.equalTo(0.01)
+                }
                 
                 bottomView.snp.makeConstraints { (make) in
                     make.left.right.equalToSuperview()
                     make.height.equalTo(50)
                     make.top.equalTo(photoView.snp.bottom)
+                    make.bottom.equalToSuperview()
                 }
             }
         }else{ // 没图片
             photoView.isHidden = true
+            photoView.snp.makeConstraints { (make) in
+                make.left.right.equalToSuperview()
+                make.height.equalTo(0.001)
+                make.top.equalTo(topView.snp.bottom)
+            }
             if tp.info?.content != nil { // 有文本
                 descLabel.isHidden = false
                 descLabel.snp.makeConstraints { (make) in
@@ -153,13 +173,21 @@ class MatchTopicCell: UITableViewCell {
                     make.left.right.equalToSuperview()
                     make.height.equalTo(50)
                     make.top.equalTo(descLabel.snp.bottom)
+                    make.bottom.equalToSuperview()
                 }
             }else{ // 没文本
                 descLabel.isHidden = true
+                descLabel.snp.makeConstraints{ (make) in
+                    make.left.equalToSuperview().offset(10)
+                    make.right.equalToSuperview().offset(-10)
+                    make.top.equalTo(photoView.snp.bottom)
+                    make.height.equalTo(0.01)
+                }
                 bottomView.snp.makeConstraints { (make) in
                     make.left.right.equalToSuperview()
                     make.height.equalTo(50)
                     make.top.equalTo(topView.snp.bottom)
+                    make.bottom.equalToSuperview()
                 }
             }
         }

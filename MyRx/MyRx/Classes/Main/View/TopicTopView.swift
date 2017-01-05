@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class TopicTopView: UIView {
 
@@ -28,6 +29,10 @@ class TopicTopView: UIView {
     var topic: Topic?{
         didSet{
             // 赋值
+            guard  let tp = topic else { return }
+            namelabel.text =  tp.info?.topic_name
+            iconView.kf.setImage(with: URL(string: (tp.info?.avatar)!))
+            memoLabel.text = tp.info?.author
         }
     }
 }

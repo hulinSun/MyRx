@@ -26,11 +26,9 @@ class MatchTopicController: UIViewController {
     let dataSource = RxTableViewSectionedReloadDataSource<MatchTopicSection>()
     
     struct Reuse {
-        
         static let topicCell = ReusableCell<MatchTopicCell>() // tr th
         static let recommendCell = ReusableCell<RecommendCell>() // tru
         static let attentionCell = ReusableCell<MatchAttentionCell>(nibName:  "MatchAttentionCell") // tl
-        
     }
 
     fileprivate lazy var tableView: UITableView = {
@@ -38,6 +36,7 @@ class MatchTopicController: UIViewController {
         i.register(Reuse.topicCell)
         i.register(Reuse.recommendCell)
         i.register(Reuse.attentionCell)
+        i.estimatedRowHeight = 300
         return i
     }()
     
@@ -51,11 +50,10 @@ class MatchTopicController: UIViewController {
     
     
     private func setupUI(){
-        
-
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.left.right.bottom.equalToSuperview()
+            make.top.equalToSuperview()
         }
         tableView.delegate = nil
         tableView.dataSource = nil
@@ -65,6 +63,7 @@ class MatchTopicController: UIViewController {
             
             if elem.type == "tr" || elem.type == "th"{
                 let cell = tv.dequeue(Reuse.topicCell, for: indexPath)
+                cell.topic = elem
                 cell.selectionStyle = .none
                 return cell
             }else if elem.type == "tl"{
@@ -133,15 +132,28 @@ extension MatchTopicController: UITableViewDelegate{
         guard let tp = topics[indexPath.row] else{ return 44 }
         
         var height: CGFloat = 0
-        
         if tp.type == "tr" || tp.type == "th" {
 //            let cell = tableView.dequeue(Reuse.topicCell, for: indexPath)
-            height = 400
+//            height = 600
+            height = UITableViewAutomaticDimension
         }else if tp.type == "tl"{
-            height = 200
+            height = 118
         }else if tp.type == "tru"{
-            height = 300
+            height = 280
         }
         return height
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
