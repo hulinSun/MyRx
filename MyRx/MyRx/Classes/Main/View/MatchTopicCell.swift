@@ -22,12 +22,12 @@ class MatchTopicCell: UITableViewCell {
     }
     
     /// 头部的view
-     lazy var topView: TopicTopView = {
+    fileprivate lazy var topView: TopicTopView = {
         let i = TopicTopView.loadFromNib()
         return i
     }()
     /// 图片
-     lazy var photoView: UIImageView = {
+    fileprivate lazy var photoView: UIImageView = {
         let i = UIImageView()
         i.contentMode = .center
         i.clipsToBounds = true
@@ -35,7 +35,7 @@ class MatchTopicCell: UITableViewCell {
     }()
     
     /// 文本
-     lazy var descLabel: UILabel = {
+    fileprivate lazy var descLabel: UILabel = {
         let i = UILabel()
         i.numberOfLines = 10
         i.preferredMaxLayoutWidth = UIConst.screenWidth - 30
@@ -43,7 +43,7 @@ class MatchTopicCell: UITableViewCell {
     }()
     
     /// 文本
-    lazy var recomLabel: UILabel = {
+    fileprivate lazy var recomLabel: UILabel = {
         let i = UILabel()
         i.font = UIFont.systemFont(ofSize: 14)
         i.textColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)
@@ -51,13 +51,13 @@ class MatchTopicCell: UITableViewCell {
     }()
     
     /// 底部的view
-     lazy var bottomView: TopicBottomView = {
+    fileprivate lazy var bottomView: TopicBottomView = {
         let i = TopicBottomView.loadFromNib()
         return i
     }()
     
     /// 显示更多 ，收起按钮
-     lazy var openBtn: UIButton = {
+    fileprivate lazy var openBtn: UIButton = {
         let i = UIButton()
         return i
     }()
@@ -81,20 +81,25 @@ class MatchTopicCell: UITableViewCell {
         
         guard  let tp = topicFrame?.topic else { return }
         if tp.type == "tr"{
-            recomLabel.text = (tp.users?.rlist?.first?.user_name)! + "推荐了"
+            let str =  (tp.users?.rlist?.first?.user_name)! + " 推荐了"
+            let attrStr = NSMutableAttributedString(string: str, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 13),NSForegroundColorAttributeName: UIColor.lightGray])
+            let range = NSRange(location: 0, length: ((tp.users?.rlist?.first?.user_name)! as NSString).length)
+            attrStr.addAttributes([NSForegroundColorAttributeName: UIConst.themeColor], range: range)
+            recomLabel.attributedText = attrStr
         }
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
             photoView.kf.setImage(with: URL(string: org))
         }
-        
         if let cot = tp.info?.content {
             let s = cot.replacingOccurrences(of: "<br>", with: "\n")
-            let attrs = TextAttributes()
-                .font(UIFont.systemFont(ofSize: 15))
-                .foregroundColor(UIConst.themeColor)
-                .lineSpacing(8)
+            let prar = NSMutableParagraphStyle()
+            prar.lineSpacing = 8
+            let attrs = [
+                NSFontAttributeName: UIFont.systemFont(ofSize: 15),NSParagraphStyleAttributeName : prar,
+                NSForegroundColorAttributeName: UIConst.themeColor
+            ]
             descLabel.attributedText = NSAttributedString(string: s, attributes: attrs)
         }
     }
