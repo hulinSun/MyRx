@@ -31,10 +31,11 @@ class TopicTopView: UIView {
             // 赋值
             guard  let tp = topic else { return }
             namelabel.text =  tp.info?.topic_name
-            iconView.kf.setImage(with: URL(string: (tp.info?.avatar)!), placeholder: nil, options: nil, progressBlock: nil) { [weak self] (img, _, _, _) in
-                self?.iconView.image = img?.kf.image(withRoundRadius: 50, fit: CGSize(width: 100, height: 100))
-                
-            }
+//            iconView.kf.setImage(with: URL(string: (tp.info?.avatar)!), placeholder: nil, options: nil, progressBlock: nil) { [weak self] (img, _, _, _) in
+//                self?.iconView.image = img?.kf.image(withRoundRadius: 50, fit: CGSize(width: 100, height: 100))
+//            }
+            
+            iconView.kf.setImage(with: URL(string:  (tp.info?.avatar)!))
             memoLabel.text = tp.info?.author
         }
     }

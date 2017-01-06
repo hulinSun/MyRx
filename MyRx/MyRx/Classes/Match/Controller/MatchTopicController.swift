@@ -24,11 +24,18 @@ class MatchTopicController: UIViewController {
     var sections: Driver<[MatchTopicSection]>!
     let dataSource = RxTableViewSectionedReloadDataSource<MatchTopicSection>()
     
+    
     struct Reuse {
         static let topicCell = ReusableCell<MatchTopicCell>() // tr th
         static let recommendCell = ReusableCell<RecommendCell>() // tru
         static let attentionCell = ReusableCell<MatchAttentionCell>(nibName:  "MatchAttentionCell") // tl
     }
+    
+    
+    fileprivate lazy var rowCache: [String: CGFloat] = {
+        var i = [String:CGFloat]()
+        return i
+    }()
 
     fileprivate lazy var tableView: UITableView = {
         let i = UITableView(frame: CGRect.zero, style: .grouped)
@@ -123,19 +130,29 @@ class MatchTopicController: UIViewController {
 extension MatchTopicController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         // 去出模型
         let frames = dataSource[indexPath.section].items
         let tpFrame = frames[indexPath.row]
         let tp = tpFrame.topic
-        var height: CGFloat = 0
-        if  tp.type == "th" || tp.type == "tr" {
-            height = tpFrame.cellHeight
-        }else if tp.type == "tl"{
-            height = 118
-        }else if tp.type == "tru"{
-            height = 280
+        
+        if let cacheH = rowCache[tp.lastid!]{ // 缓存
+            print("缓存中去")
+            return cacheH
+        }else{ // 计算
+            print("计算")
+            var height: CGFloat = 0
+            if  tp.type == "th" || tp.type == "tr" {
+                height = tpFrame.cellHeight
+            }else if tp.type == "tl"{
+                height = 118
+            }else if tp.type == "tru"{
+                height = 280
+            }
+            rowCache[tp.lastid!] = height
+            return height
         }
-        return height
+       return 0
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

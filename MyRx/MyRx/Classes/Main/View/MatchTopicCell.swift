@@ -37,8 +37,6 @@ class MatchTopicCell: UITableViewCell {
     /// 文本
      lazy var descLabel: UILabel = {
         let i = UILabel()
-        i.font = UIFont.systemFont(ofSize: 14)
-        i.textColor = UIColor(red: 30/255.0, green: 30/255.0, blue: 30/255.0, alpha: 1)
         i.numberOfLines = 10
         i.preferredMaxLayoutWidth = UIConst.screenWidth - 20
         return i
@@ -88,15 +86,13 @@ class MatchTopicCell: UITableViewCell {
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
-            photoView.kf.setImage(with: URL(string: org), placeholder: nil, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
-//                self.photoView.image = img?.kf.resize(to: CGSize(width: UIConst.screenWidth, height:  UIConst.screenWidth))
-            })
+            photoView.kf.setImage(with: URL(string: org))
         }
         
         if let cot = tp.info?.content {
             let s = cot.replacingOccurrences(of: "<br>", with: "\n")
             let attrs = TextAttributes()
-                .font(UIFont.systemFont(ofSize: 14))
+                .font(UIFont.systemFont(ofSize: 15))
                 .foregroundColor(white: 0.2, alpha: 1)
                 .lineSpacing(8)
             descLabel.attributedText = NSAttributedString(string: s, attributes: attrs)

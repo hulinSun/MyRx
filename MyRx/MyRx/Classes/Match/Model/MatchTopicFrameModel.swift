@@ -63,9 +63,9 @@ class MatchTopicFrameModel {
             if let cot = topic.info?.content , cot.characters.count > 1{
                 // 计算文字
                 let str = (topic.info?.content)!.replacingOccurrences(of: "<br>", with: "\n")
-                let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 14), lineSpace: 8)
+                let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
                 
-                descFrame = CGRect(x: margin, y: photoFrame.maxY, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
+                descFrame = CGRect(x: margin, y: photoFrame.maxY + margin, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
                 
                 bottomFrame = CGRect(x: 0, y: descFrame.maxY, width: UIConst.screenWidth, height: 50)
                 
@@ -79,10 +79,10 @@ class MatchTopicFrameModel {
             if let cot = topic.info?.content ,  cot.characters.count > 1 {
                 // 计算文字
                 let str = cot.replacingOccurrences(of: "<br>", with: "\n")
-                let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 14), lineSpace: 8)
+                let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
                 
                 descFrame = CGRect(x: margin, y: topFrame.maxY, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
-                bottomFrame = CGRect(x: 0, y: descFrame.maxY, width: UIConst.screenWidth, height: 50)
+                bottomFrame = CGRect(x: 0, y: descFrame.maxY + margin, width: UIConst.screenWidth, height: 50)
             }else{ // 没有文字
                 descFrame = .zero
                 bottomFrame = CGRect(x: 0, y: topFrame.maxY, width: UIConst.screenWidth, height: 50)
