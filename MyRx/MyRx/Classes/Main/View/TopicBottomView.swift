@@ -27,7 +27,7 @@ class TopicBottomView: UIView {
         let i = CALayer()
         i.backgroundColor = UIColor("#e3e3e5").cgColor
         i.anchorPoint = CGPoint.zero
-        i.bounds = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 0.7)
+        i.bounds = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 0.6)
         return i
     }()
     

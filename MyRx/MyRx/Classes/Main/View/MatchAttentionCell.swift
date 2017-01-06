@@ -40,7 +40,6 @@ class MatchAttentionCell: UITableViewCell {
             creatLabel.textColor = UIColor("#576972")
             creatLabel.font = UIFont.systemFont(ofSize: 12)
             timeLabel.textColor =  UIColor("#576972")
-            //
             if let follow = topic?.topicinfo?.is_follow , follow{
                 plusBtn.setTitle("已关注", for: .normal)
                 plusBtn.setImage(nil, for: .normal)
@@ -65,7 +64,7 @@ class MatchAttentionCell: UITableViewCell {
         let i = CALayer()
         i.backgroundColor = UIColor("#e3e3e5").cgColor
         i.anchorPoint = CGPoint.zero
-        i.bounds = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 0.7)
+        i.bounds = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 0.6)
         return i
     }()
     
