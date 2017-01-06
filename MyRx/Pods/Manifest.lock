@@ -28,7 +28,6 @@ PODS:
     - RxSwift
   - RxSwift (3.1.0)
   - SnapKit (3.1.2)
-  - TextAttributes (1.0)
   - Then (2.1.0)
   - UIColor_Hex_Swift (3.0.2)
 
@@ -45,7 +44,6 @@ DEPENDENCIES:
   - RxOptional (~> 3.1)
   - RxSwift (~> 3.0)
   - SnapKit (~> 3.0)
-  - TextAttributes
   - Then (~> 2.1)
   - UIColor_Hex_Swift (~> 3.0.2)
 
@@ -63,10 +61,9 @@ SPEC CHECKSUMS:
   RxOptional: b97b59183af80d1e729ac9e51d09a10be668d6a8
   RxSwift: 83ff553e7593fdfdcb2562933a64c0284dffdadc
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
-  TextAttributes: 45b2713a1d174c377d320b51129c304eac381638
   Then: 8496793c8fcac95482b943909b440724c7d8d82c
   UIColor_Hex_Swift: 95f718452092a3efc8a827dffd2c04d3237be02d
 
-PODFILE CHECKSUM: ae950d17f89e619ab3deee65b4498c690ff8de11
+PODFILE CHECKSUM: 3550ea2151fb98c5ad6bb9b5c5fc5c19f6f33689
 
 COCOAPODS: 1.0.1
