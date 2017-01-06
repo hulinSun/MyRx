@@ -13,10 +13,8 @@ class MatchTopicFrameModel {
     /// 在初始化方法中设置topic 。不会走didSet 方法
     var topic: Topic{
         didSet{
-            
         }
     }
-    
     
     /// 推荐
     private(set) var recomFrame: CGRect!
@@ -54,26 +52,22 @@ class MatchTopicFrameModel {
             topFrame = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 128)
         }
         
+//        topic.info?.topic_type voice
+        
         // 判断是否有图片
         if let pic = topic.info?.thumb_org , pic.contains("http") { // 有图片的可能
-            
             photoFrame = CGRect(x: 0, y: topFrame.maxY, width: UIConst.screenWidth, height: UIConst.screenWidth)
-            
             // 判断是否有文字
             if let cot = topic.info?.content , cot.characters.count > 1{
                 // 计算文字
                 let str = (topic.info?.content)!.replacingOccurrences(of: "<br>", with: "\n")
                 let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
-                
                 descFrame = CGRect(x: margin * 1.5, y: photoFrame.maxY + margin, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
-                
                 bottomFrame = CGRect(x: 0, y: descFrame.maxY, width: UIConst.screenWidth, height: 50)
-                
             }else{ // 没有文字
                 descFrame = .zero
                 bottomFrame = CGRect(x: 0, y: photoFrame.maxY, width: UIConst.screenWidth, height: 50)
             }
-            
         }else{ // 没图片
             photoFrame = .zero
             if let cot = topic.info?.content ,  cot.characters.count > 1 {

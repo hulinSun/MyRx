@@ -97,14 +97,9 @@ class Topic: HandyJSON {
     
     // 推荐有的
     var users: Users?
-    
     // 关注有的
     var user_info: UserInfo?
     var tru_info: [TopicInfo]?
-    
     var topicinfo : TopicInfo?
-    
-    
-    
     required init() {}
 }

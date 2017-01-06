@@ -70,7 +70,6 @@ class MatchTopicController: UIViewController {
                 return cell
             }else if elem.type == "tl"{
                 let cell = tv.dequeue(Reuse.attentionCell, for: indexPath)
-//                cell.topic = elem
                 Observable.of(elem)
                     .bindTo(cell.rx.topic)
                     .addDisposableTo(self.bag)
