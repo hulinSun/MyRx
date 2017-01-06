@@ -28,7 +28,6 @@ class MatchTopicController: UIViewController {
     struct Reuse {
         static let topicCell = ReusableCell<MatchTopicCell>() // tr th
         static let recommendCell = ReusableCell<RecommendCell>() // tru
-        static let topicTRCell = ReusableCell<MatchTopicHeaderTRCell>() // tru
         static let attentionCell = ReusableCell<MatchAttentionCell>(nibName:  "MatchAttentionCell") // tl
     }
 
@@ -37,7 +36,6 @@ class MatchTopicController: UIViewController {
         i.register(Reuse.topicCell)
         i.register(Reuse.recommendCell)
         i.register(Reuse.attentionCell)
-        i.register(Reuse.topicTRCell)
         i.estimatedRowHeight = 300
         return i
     }()
@@ -48,8 +46,6 @@ class MatchTopicController: UIViewController {
         setupData()
         setupUI()
     }
-    
-    
     
     private func setupUI(){
         view.addSubview(tableView)
@@ -77,10 +73,6 @@ class MatchTopicController: UIViewController {
                 cell.selectionStyle = .none
                 return cell
             }else if elem.type == "tr"{
-//                let cell = tv.dequeue(Reuse.topicTRCell, for: indexPath)
-//                cell.topic = elem
-//                cell.selectionStyle = .none
-//                return cell
                 let cell = UITableViewCell()
                 cell.backgroundColor = .red
                 return cell
