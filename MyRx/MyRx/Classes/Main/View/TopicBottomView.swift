@@ -33,8 +33,6 @@ class TopicBottomView: UIView {
     
     var topic: Topic?{
         didSet{
-
-//            created	String 13:05:47
             timeLabel.text = topic?.info?.created?.subString(from: 11).subString(to: 5)
             if let heart = topic?.info?.heart, Int(heart)! > 0{
                 zanBtn.setTitle(heart, for: .normal)
