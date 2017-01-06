@@ -24,13 +24,11 @@ class MatchTopicController: UIViewController {
     var sections: Driver<[MatchTopicSection]>!
     let dataSource = RxTableViewSectionedReloadDataSource<MatchTopicSection>()
     
-    
     struct Reuse {
         static let topicCell = ReusableCell<MatchTopicCell>() // tr th
         static let recommendCell = ReusableCell<RecommendCell>() // tru
         static let attentionCell = ReusableCell<MatchAttentionCell>(nibName:  "MatchAttentionCell") // tl
     }
-    
     
     fileprivate lazy var rowCache: [String: CGFloat] = {
         var i = [String:CGFloat]()
@@ -62,6 +60,7 @@ class MatchTopicController: UIViewController {
         tableView.delegate = nil
         tableView.dataSource = nil
         tableView.rx.setDelegate(self).addDisposableTo(bag)
+        
         dataSource.configureCell = { (_, tv, indexPath, element) in
             let elem = element.topic
             if elem.type == "th" || elem.type == "tr"{
@@ -71,6 +70,7 @@ class MatchTopicController: UIViewController {
                 return cell
             }else if elem.type == "tl"{
                 let cell = tv.dequeue(Reuse.attentionCell, for: indexPath)
+                cell.topic = elem
                 cell.selectionStyle = .none
                 return cell
             }else if elem.type == "tru"{
@@ -82,7 +82,8 @@ class MatchTopicController: UIViewController {
             return UITableViewCell()
         }
         
-        tableView.rx.itemSelected
+        tableView.rx
+            .itemSelected
             .subscribe(onNext: { indexPath in
                 print("点击了 \(indexPath.row) 行")
             }).addDisposableTo(bag)
@@ -142,7 +143,7 @@ extension MatchTopicController: UITableViewDelegate{
             if  tp.type == "th" || tp.type == "tr" {
                 calucteHeight = tpFrame.cellHeight
             }else if tp.type == "tl"{
-                calucteHeight = 118
+                calucteHeight = 144
             }else if tp.type == "tru"{
                 calucteHeight = 277
             }

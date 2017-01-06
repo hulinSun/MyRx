@@ -82,6 +82,8 @@ class TopicInfo: HandyJSON {
     var is_fav: String?
     var is_like: String?
     var is_follow: Bool?
+    var user_name: String?
+    var intro:	String?
     
     
     required init() {}
@@ -99,6 +101,9 @@ class Topic: HandyJSON {
     // 关注有的
     var user_info: UserInfo?
     var tru_info: [TopicInfo]?
+    
+    var topicinfo : TopicInfo?
+    
     
     
     required init() {}
