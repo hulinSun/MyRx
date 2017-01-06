@@ -39,10 +39,10 @@ class MatchTopicController: UIViewController {
 
     fileprivate lazy var tableView: UITableView = {
         let i = UITableView(frame: CGRect.zero, style: .grouped)
+        i.separatorStyle = .none
         i.register(Reuse.topicCell)
         i.register(Reuse.recommendCell)
         i.register(Reuse.attentionCell)
-        i.estimatedRowHeight = 300
         return i
     }()
     
@@ -75,6 +75,7 @@ class MatchTopicController: UIViewController {
                 return cell
             }else if elem.type == "tru"{
                 let cell = tv.dequeue(Reuse.recommendCell, for: indexPath)
+                cell.topic = elem
                 cell.selectionStyle = .none
                 return cell
             }
@@ -143,7 +144,7 @@ extension MatchTopicController: UITableViewDelegate{
             }else if tp.type == "tl"{
                 calucteHeight = 118
             }else if tp.type == "tru"{
-                calucteHeight = 280
+                calucteHeight = 277
             }
             rowCache[tp.lastid!] = calucteHeight
             height = calucteHeight
