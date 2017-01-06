@@ -15,11 +15,10 @@ import RxDataSources
 
 /// 火柴界面的 一些话题控制器
 
-typealias MatchTopicSection = SectionModel<String, Topic?>
+typealias MatchTopicSection = SectionModel<String, MatchTopicFrameModel>
 
 class MatchTopicController: UIViewController {
 
-    
     var content: String?
     private let bag = DisposeBag()
     var sections: Driver<[MatchTopicSection]>!
@@ -57,11 +56,10 @@ class MatchTopicController: UIViewController {
         tableView.dataSource = nil
         tableView.rx.setDelegate(self).addDisposableTo(bag)
         dataSource.configureCell = { (_, tv, indexPath, element) in
-            guard  let elem = element else { return UITableViewCell() }
-            
-            if elem.type == "th"{
+            let elem = element.topic
+            if elem.type == "th" || elem.type == "tr"{
                 let cell = tv.dequeue(Reuse.topicCell, for: indexPath)
-                cell.topic = elem
+                cell.topicFrame = element
                 cell.selectionStyle = .none
                 return cell
             }else if elem.type == "tl"{
@@ -71,10 +69,6 @@ class MatchTopicController: UIViewController {
             }else if elem.type == "tru"{
                 let cell = tv.dequeue(Reuse.recommendCell, for: indexPath)
                 cell.selectionStyle = .none
-                return cell
-            }else if elem.type == "tr"{
-                let cell = UITableViewCell()
-                cell.backgroundColor = .red
                 return cell
             }
             return UITableViewCell()
@@ -100,8 +94,10 @@ class MatchTopicController: UIViewController {
             .subscribe { (e) in
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
-//                     print(m.flatMap{ $0?.info?.thumb_org })
-                    let sec = MatchTopicSection(model: "", items: m)
+                    let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
+                        return MatchTopicFrameModel(topic: tp!)
+                    })
+                    let sec = MatchTopicSection(model: "", items: models)
                     self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
                 }
             }.addDisposableTo(bag)
@@ -116,9 +112,7 @@ class MatchTopicController: UIViewController {
                 guard let response = e.element else{ return }
                 if let m = response.mapArray(Topic.self, designatedPath: "data"){
                     // MARK : 注意，这里flatMap 返回的值是盒子里的值，返回未包装过的。 如果是map 的话，返回的则是一个盒子，就包装过的、
-                    //                    for case let topic? in m { // 模式匹配
-                    //                        print(topic.info?.content ?? "xixi")
-                    //                    }
+                    // for case let topic? in m { } // 模式匹配
                     print(m.count)
                 }
             }.addDisposableTo(bag)
@@ -130,18 +124,16 @@ extension MatchTopicController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         // 去出模型
-        let topics = dataSource[indexPath.section].items
-        guard let tp = topics[indexPath.row] else{ return 44 }
-        
+        let frames = dataSource[indexPath.section].items
+        let tpFrame = frames[indexPath.row]
+        let tp = tpFrame.topic
         var height: CGFloat = 0
-        if  tp.type == "th" {
-            height = UITableViewAutomaticDimension
+        if  tp.type == "th" || tp.type == "tr" {
+            height = tpFrame.cellHeight
         }else if tp.type == "tl"{
             height = 118
         }else if tp.type == "tru"{
             height = 280
-        }else if tp.type == "tr"{
-            height = 44
         }
         return height
     }

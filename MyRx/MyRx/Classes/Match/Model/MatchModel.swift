@@ -100,9 +100,6 @@ class Topic: HandyJSON {
     var user_info: UserInfo?
     var tru_info: [TopicInfo]?
     
-    var cellHeight: CGFloat{
-      return 320.2
-    }
     
     required init() {}
 }
