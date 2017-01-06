@@ -15,7 +15,12 @@ class TopicTopView: UIView {
 
     @IBOutlet weak var leftBtn: UIButton!
 
-    @IBOutlet weak var iconView: UIImageView!
+    @IBOutlet weak var iconView: UIImageView!{
+        didSet{
+            iconView.layer.cornerRadius = 25
+            iconView.clipsToBounds = true
+        }
+    }
     
     @IBOutlet weak var memoLabel: UILabel!
     

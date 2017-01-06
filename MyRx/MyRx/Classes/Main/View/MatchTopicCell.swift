@@ -38,7 +38,7 @@ class MatchTopicCell: UITableViewCell {
      lazy var descLabel: UILabel = {
         let i = UILabel()
         i.numberOfLines = 10
-        i.preferredMaxLayoutWidth = UIConst.screenWidth - 20
+        i.preferredMaxLayoutWidth = UIConst.screenWidth - 30
         return i
     }()
     
@@ -93,7 +93,7 @@ class MatchTopicCell: UITableViewCell {
             let s = cot.replacingOccurrences(of: "<br>", with: "\n")
             let attrs = TextAttributes()
                 .font(UIFont.systemFont(ofSize: 15))
-                .foregroundColor(white: 0.2, alpha: 1)
+                .foregroundColor(UIConst.themeColor)
                 .lineSpacing(8)
             descLabel.attributedText = NSAttributedString(string: s, attributes: attrs)
         }

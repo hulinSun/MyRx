@@ -65,7 +65,7 @@ class MatchTopicFrameModel {
                 let str = (topic.info?.content)!.replacingOccurrences(of: "<br>", with: "\n")
                 let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
                 
-                descFrame = CGRect(x: margin, y: photoFrame.maxY + margin, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
+                descFrame = CGRect(x: margin * 1.5, y: photoFrame.maxY + margin, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
                 
                 bottomFrame = CGRect(x: 0, y: descFrame.maxY, width: UIConst.screenWidth, height: 50)
                 
@@ -81,7 +81,7 @@ class MatchTopicFrameModel {
                 let str = cot.replacingOccurrences(of: "<br>", with: "\n")
                 let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
                 
-                descFrame = CGRect(x: margin, y: topFrame.maxY, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
+                descFrame = CGRect(x: margin * 1.5, y: topFrame.maxY, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
                 bottomFrame = CGRect(x: 0, y: descFrame.maxY + margin, width: UIConst.screenWidth, height: 50)
             }else{ // 没有文字
                 descFrame = .zero
@@ -89,7 +89,7 @@ class MatchTopicFrameModel {
             }
         }
         
-        cellHeight = bottomFrame.maxY + margin
+        cellHeight = bottomFrame.maxY
     }
     
     private func attrStringSize( string: String,  font: UIFont, lineSpace: CGFloat) ->CGSize{
@@ -100,7 +100,7 @@ class MatchTopicFrameModel {
         
         // 高度
         let strSize = attStr.boundingRect(with:
-            CGSize(width: UIConst.screenWidth - 20, height: 10000), options: .usesLineFragmentOrigin, context: nil).size
+            CGSize(width: UIConst.screenWidth - 30, height: 10000), options: .usesLineFragmentOrigin, context: nil).size
         
         return strSize
     }

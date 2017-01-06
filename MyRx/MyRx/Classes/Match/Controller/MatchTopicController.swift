@@ -109,8 +109,6 @@ class MatchTopicController: UIViewController {
                 }
             }.addDisposableTo(bag)
         
-        
-        
         provider
             .request(.likemomentsad)
             .filterSuccessfulStatusCodes()
@@ -131,28 +129,26 @@ extension MatchTopicController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        // 去出模型
         let frames = dataSource[indexPath.section].items
         let tpFrame = frames[indexPath.row]
         let tp = tpFrame.topic
         
-        if let cacheH = rowCache[tp.lastid!]{ // 缓存
-            print("缓存中去")
-            return cacheH
+        var height:CGFloat = 0
+        if let cacheH = rowCache[tp.lastid!]{
+            height = cacheH
         }else{ // 计算
-            print("计算")
-            var height: CGFloat = 0
+            var calucteHeight: CGFloat = 0
             if  tp.type == "th" || tp.type == "tr" {
-                height = tpFrame.cellHeight
+                calucteHeight = tpFrame.cellHeight
             }else if tp.type == "tl"{
-                height = 118
+                calucteHeight = 118
             }else if tp.type == "tru"{
-                height = 280
+                calucteHeight = 280
             }
-            rowCache[tp.lastid!] = height
-            return height
+            rowCache[tp.lastid!] = calucteHeight
+            height = calucteHeight
         }
-       return 0
+       return height
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
