@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchRecordingController" customModule="MyRx" customModuleProvider="target">
+            <connections>
+                <outlet property="doneBtn" destination="ilg-un-X5n" id="iWs-2a-ltq"/>
+                <outlet property="playBtn" destination="gJ0-Ww-fYd" id="M3i-bu-ctM"/>
+                <outlet property="recordBtn" destination="icC-BV-idu" id="YHO-ZL-1Ps"/>
+                <outlet property="timeLabel" destination="eCI-zW-pPb" id="VK3-yV-t1M"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLt-gc-mbM">
+                    <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCI-zW-pPb">
+                            <rect key="frame" x="30" y="20" width="315" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="YB5-5c-MIw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="-60" translatesAutoresizingMaskIntoConstraints="NO" id="jIB-HH-lNT">
+                            <rect key="frame" x="60" y="65" width="255" height="135"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ0-Ww-fYd">
+                                    <rect key="frame" x="0.0" y="52.5" width="46" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icC-BV-idu">
+                                    <rect key="frame" x="112" y="52.5" width="46" height="30"/>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-un-X5n">
+                                    <rect key="frame" x="224" y="52.5" width="31" height="30"/>
+                                    <state key="normal" title="完成"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="jIB-HH-lNT" firstAttribute="top" secondItem="eCI-zW-pPb" secondAttribute="bottom" constant="20" id="5AF-ht-U3C"/>
+                        <constraint firstAttribute="trailing" secondItem="jIB-HH-lNT" secondAttribute="trailing" constant="60" id="Geu-2J-A3d"/>
+                        <constraint firstAttribute="trailing" secondItem="eCI-zW-pPb" secondAttribute="trailing" constant="30" id="OAZ-ML-LCi"/>
+                        <constraint firstAttribute="height" constant="200" id="Twn-zP-D2f"/>
+                        <constraint firstAttribute="bottom" secondItem="jIB-HH-lNT" secondAttribute="bottom" id="cQw-ke-FGD"/>
+                        <constraint firstItem="jIB-HH-lNT" firstAttribute="leading" secondItem="bLt-gc-mbM" secondAttribute="leading" constant="60" id="g3e-9m-wYE"/>
+                        <constraint firstItem="eCI-zW-pPb" firstAttribute="top" secondItem="bLt-gc-mbM" secondAttribute="top" constant="20" id="giH-C6-DDF"/>
+                        <constraint firstItem="eCI-zW-pPb" firstAttribute="leading" secondItem="bLt-gc-mbM" secondAttribute="leading" constant="30" id="hLG-y0-CSh"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="0.68855794270833337" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bLt-gc-mbM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5De-dC-ETb"/>
+                <constraint firstAttribute="bottom" secondItem="bLt-gc-mbM" secondAttribute="bottom" id="Egk-rl-eFQ"/>
+                <constraint firstAttribute="trailing" secondItem="bLt-gc-mbM" secondAttribute="trailing" id="Qh0-MQ-s3Y"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

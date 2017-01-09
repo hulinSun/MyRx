@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MatchTopicCell: UITableViewCell {
     
@@ -101,6 +102,7 @@ class MatchTopicCell: UITableViewCell {
         if let org = tp.info?.thumb_org { // 有图片
             photoView.kf.setImage(with: URL(string: org))
         }
+        
         if let cot = tp.info?.content {
             let s = cot.replacingOccurrences(of: "<br>", with: "\n")
             let prar = NSMutableParagraphStyle()

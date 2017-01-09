@@ -66,6 +66,13 @@ class MatchViewController: UIViewController {
     }
     
     func setupUI()  {
+        
+        leftBtn.rx.tap
+            .subscribe {[unowned self] _ in
+                let recordVC = MainNavigationController(rootViewController: MatchRecordingController())
+                
+                self.present(recordVC, animated: true, completion: nil)
+            }.addDisposableTo(bag)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftBtn)
         navigationItem.rightBarButtonItem = UIBarButtonItem(imageName: "topicSegmentSearch", target: self,  action: "searchClick")
         leftBtn.snp.makeConstraints { (make) in

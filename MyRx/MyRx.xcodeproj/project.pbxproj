@@ -36,6 +36,8 @@
 		FE891C291E237B5200F55500 /* MatchVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C281E237B5200F55500 /* MatchVoiceView.swift */; };
 		FE891C2B1E237B5900F55500 /* MatchVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE891C2A1E237B5900F55500 /* MatchVoiceView.xib */; };
 		FE891C2D1E23903300F55500 /* Raduis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C2C1E23903300F55500 /* Raduis.swift */; };
+		FE891C301E2399AC00F55500 /* MatchRecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C2E1E2399AC00F55500 /* MatchRecordingController.swift */; };
+		FE891C311E2399AC00F55500 /* MatchRecordingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE891C2F1E2399AC00F55500 /* MatchRecordingController.xib */; };
 		FE9C36741E1B816E000E73C2 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36731E1B816E000E73C2 /* config.swift */; };
 		FE9C36761E1B8398000E73C2 /* TopicSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */; };
 		FE9C36781E1B83B3000E73C2 /* TopicSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */; };
@@ -120,6 +122,8 @@
 		FE891C281E237B5200F55500 /* MatchVoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchVoiceView.swift; sourceTree = "<group>"; };
 		FE891C2A1E237B5900F55500 /* MatchVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchVoiceView.xib; sourceTree = "<group>"; };
 		FE891C2C1E23903300F55500 /* Raduis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raduis.swift; sourceTree = "<group>"; };
+		FE891C2E1E2399AC00F55500 /* MatchRecordingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchRecordingController.swift; sourceTree = "<group>"; };
+		FE891C2F1E2399AC00F55500 /* MatchRecordingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchRecordingController.xib; sourceTree = "<group>"; };
 		FE9C36731E1B816E000E73C2 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicSectionHeaderView.swift; sourceTree = "<group>"; };
 		FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			children = (
 				FE2134731E14F9B000C056F5 /* MatchViewController.swift */,
 				FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */,
+				FE891C2E1E2399AC00F55500 /* MatchRecordingController.swift */,
+				FE891C2F1E2399AC00F55500 /* MatchRecordingController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
 				FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */,
 				FEB3E4DE1E1D219C00DEAFB1 /* TopicBottomView.xib in Resources */,
+				FE891C311E2399AC00F55500 /* MatchRecordingController.xib in Resources */,
 				FE2134841E150AB100C056F5 /* likemomentsad in Resources */,
 				FEB3E4DA1E1D1DDC00DEAFB1 /* TopicTopView.xib in Resources */,
 			);
@@ -793,6 +800,7 @@
 				FEB3E4EB1E1E2CCA00DEAFB1 /* MatchAttentionCell.swift in Sources */,
 				FEED49801E163E070043DB83 /* TopicListViewModel.swift in Sources */,
 				FE9C36741E1B816E000E73C2 /* config.swift in Sources */,
+				FE891C301E2399AC00F55500 /* MatchRecordingController.swift in Sources */,
 				FE2134551E14EE6600C056F5 /* MainTabbarController.swift in Sources */,
 				FE9C36761E1B8398000E73C2 /* TopicSectionHeaderView.swift in Sources */,
 				FE2134721E14F99700C056F5 /* BoxViewController.swift in Sources */,
