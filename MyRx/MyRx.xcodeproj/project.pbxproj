@@ -252,6 +252,7 @@
 		FE2134341E14E0CF00C056F5 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				FEF10D4B1E2377EF009AD4C6 /* Helper */,
 				FE2134511E14EE4800C056F5 /* Controller */,
 				FE2134521E14EE4800C056F5 /* Model */,
 				FE2134531E14EE4800C056F5 /* View */,
@@ -503,6 +504,13 @@
 				FEED49731E16094D0043DB83 /* TopicService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		FEF10D4B1E2377EF009AD4C6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		FEF8289A1E0CB96F0002E09C = {
