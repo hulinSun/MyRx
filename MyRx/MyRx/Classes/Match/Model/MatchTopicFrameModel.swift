@@ -25,6 +25,9 @@ class MatchTopicFrameModel {
     /// 图片
     private(set) var photoFrame: CGRect!
     
+    /// 声音
+    private(set) var voiceFrame: CGRect!
+    
     /// 描述
     private(set) var descFrame: CGRect!
     
@@ -41,8 +44,10 @@ class MatchTopicFrameModel {
         }
     }
     
+    let margin: CGFloat = 10
+    
     private func caluateFrames(with topic: Topic){
-        let margin: CGFloat = 10
+        
         // 判断类型
         if topic.type == "tr" { // 推荐
             recomFrame = CGRect(x: margin, y: margin, width: 200, height: 20)
@@ -52,7 +57,36 @@ class MatchTopicFrameModel {
             topFrame = CGRect(x: 0, y: 0, width: UIConst.screenWidth, height: 128)
         }
         
-//        topic.info?.topic_type voice
+        
+        if let type = topic.info?.topic_type{
+            if type == "voice" { // 语音
+                photoFrame = .zero
+                
+                voiceFrame = CGRect(x: 0, y: topFrame.maxY + margin, width: UIConst.screenWidth, height: 140)
+                
+                // 判断是否有文字
+                if let cot = topic.info?.content ,  cot.characters.count > 1 {
+                    // 计算文字
+                    let str = cot.replacingOccurrences(of: "<br>", with: "\n")
+                    let strSize = attrStringSize(string: str, font: UIFont.systemFont(ofSize: 15), lineSpace: 8)
+                    
+                    descFrame = CGRect(x: margin * 1.5, y: voiceFrame.maxY, width: UIConst.screenWidth - 2 * margin, height: strSize.height)
+                    bottomFrame = CGRect(x: 0, y: descFrame.maxY + margin, width: UIConst.screenWidth, height: 50)
+                }else{ // 没有文字
+                    descFrame = .zero
+                    bottomFrame = CGRect(x: 0, y: voiceFrame.maxY, width: UIConst.screenWidth, height: 50)
+                }
+            }else{ // 图文
+                voiceFrame = .zero
+                self.caluatePhotoType(with: topic)
+            }
+            cellHeight = bottomFrame.maxY
+        }
+    }
+    
+    
+    /// 图文格式
+    private func caluatePhotoType(with topic: Topic){
         
         // 判断是否有图片
         if let pic = topic.info?.thumb_org , pic.contains("http") { // 有图片的可能
@@ -82,8 +116,6 @@ class MatchTopicFrameModel {
                 bottomFrame = CGRect(x: 0, y: topFrame.maxY, width: UIConst.screenWidth, height: 50)
             }
         }
-        
-        cellHeight = bottomFrame.maxY
     }
     
     private func attrStringSize( string: String,  font: UIFont, lineSpace: CGFloat) ->CGSize{

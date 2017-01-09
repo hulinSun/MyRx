@@ -33,6 +33,8 @@
 		FE2134861E150C8500C056F5 /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134851E150C8500C056F5 /* MatchModel.swift */; };
 		FE4EA23F1E1F31F90063411A /* MatchTopicFrameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE4EA23E1E1F31F90063411A /* MatchTopicFrameModel.swift */; };
 		FE891C271E23789300F55500 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C261E23789300F55500 /* AudioManager.swift */; };
+		FE891C291E237B5200F55500 /* MatchVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C281E237B5200F55500 /* MatchVoiceView.swift */; };
+		FE891C2B1E237B5900F55500 /* MatchVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE891C2A1E237B5900F55500 /* MatchVoiceView.xib */; };
 		FE9C36741E1B816E000E73C2 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36731E1B816E000E73C2 /* config.swift */; };
 		FE9C36761E1B8398000E73C2 /* TopicSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */; };
 		FE9C36781E1B83B3000E73C2 /* TopicSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */; };
@@ -114,6 +116,8 @@
 		FE2134851E150C8500C056F5 /* MatchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		FE4EA23E1E1F31F90063411A /* MatchTopicFrameModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTopicFrameModel.swift; sourceTree = "<group>"; };
 		FE891C261E23789300F55500 /* AudioManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		FE891C281E237B5200F55500 /* MatchVoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchVoiceView.swift; sourceTree = "<group>"; };
+		FE891C2A1E237B5900F55500 /* MatchVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchVoiceView.xib; sourceTree = "<group>"; };
 		FE9C36731E1B816E000E73C2 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicSectionHeaderView.swift; sourceTree = "<group>"; };
 		FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 				FEB3E4E71E1DF8DA00DEAFB1 /* MatchTopicCell.swift */,
 				FEB3E4E91E1E2CCA00DEAFB1 /* MatchAttentionCell.swift */,
 				FEB3E4EA1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib */,
+				FE891C281E237B5200F55500 /* MatchVoiceView.swift */,
+				FE891C2A1E237B5900F55500 /* MatchVoiceView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -678,6 +684,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEED497E1E1634950043DB83 /* TopicTitleCell.xib in Resources */,
+				FE891C2B1E237B5900F55500 /* MatchVoiceView.xib in Resources */,
 				FE2134441E14E0CF00C056F5 /* Assets.xcassets in Resources */,
 				FE2134801E150A3500C056F5 /* momentsad in Resources */,
 				FE9C36781E1B83B3000E73C2 /* TopicSectionHeaderView.xib in Resources */,
@@ -764,6 +771,7 @@
 				FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */,
 				FEB3E4D81E1D1DD100DEAFB1 /* TopicTopView.swift in Sources */,
 				FE4EA23F1E1F31F90063411A /* MatchTopicFrameModel.swift in Sources */,
+				FE891C291E237B5200F55500 /* MatchVoiceView.swift in Sources */,
 				FEED49851E1665C20043DB83 /* String+Directionary.swift in Sources */,
 				FE2134741E14F9B000C056F5 /* MatchViewController.swift in Sources */,
 				FE21345B1E14F04700C056F5 /* UIColor+random.swift in Sources */,

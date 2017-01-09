@@ -25,6 +25,13 @@ class MatchTopicCell: UITableViewCell {
         let i = TopicTopView.loadFromNib()
         return i
     }()
+    
+    /// 声音的View ( 高度 140)
+    fileprivate lazy var voiceView: MatchVoiceView = {
+        let i = MatchVoiceView.loadFromNib()
+        return i
+    }()
+    
     /// 图片
     fileprivate lazy var photoView: UIImageView = {
         let i = UIImageView()
@@ -62,6 +69,7 @@ class MatchTopicCell: UITableViewCell {
     }()
     
     
+    //MARK: 之前有一个问题是，为什么我的约束都设置正确了。还是报约束冲突的问题。原因是一开始添加子控件的时候同意全部添加了子控件。在更具数据控制UI显示的时候，UI 不显示了。但是约束还在。
     var topicFrame: MatchTopicFrameModel?{
         didSet{
             // 赋值
@@ -72,6 +80,8 @@ class MatchTopicCell: UITableViewCell {
             photoView.frame = tpFrame.photoFrame
             descLabel.frame = tpFrame.descFrame
             bottomView.frame = tpFrame.bottomFrame
+            tpFrame.voiceFrame.height == 0 ? (voiceView.isHidden = true) : (voiceView.isHidden = false)
+            voiceView.frame = tpFrame.voiceFrame
         }
     }
     
@@ -107,6 +117,7 @@ class MatchTopicCell: UITableViewCell {
         contentView.addSubview(recomLabel)
         contentView.addSubview(topView)
         contentView.addSubview(photoView)
+        contentView.addSubview(voiceView)
         contentView.addSubview(descLabel)
         contentView.addSubview(openBtn)
         contentView.addSubview(bottomView)
