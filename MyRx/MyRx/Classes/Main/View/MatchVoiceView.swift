@@ -10,7 +10,12 @@ import UIKit
 
 class MatchVoiceView: UIView {
     
-    @IBOutlet weak var realView: UIView!
+    @IBOutlet weak var realView: UIView!{
+        didSet{
+            realView.layer.cornerRadius = 4
+            realView.clipsToBounds = true
+        }
+    }
 
     @IBOutlet weak var iconView: UIImageView!
 
