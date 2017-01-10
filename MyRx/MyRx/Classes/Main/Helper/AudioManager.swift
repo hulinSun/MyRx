@@ -11,9 +11,6 @@ import AVFoundation
 import RxSwift
 import RxCocoa
 
-
-
-
 /// 同步函数用异常机制处理错误
 /// 异步函数用<泛型> 枚举 处理错误
 
@@ -72,6 +69,8 @@ class AudioManager: NSObject {
         ]
     
     var delegate: AudioManagerDelegate?
+    
+    let tt: Variable<String> = Variable("")
     
     var isRecording: Bool {
         if recorder == nil{ return false}
@@ -150,7 +149,6 @@ class AudioManager: NSObject {
         }catch{
             print(error)
         }
-        
     }
     
     
@@ -159,10 +157,8 @@ class AudioManager: NSObject {
         recorder.updateMeters()
         //取得第一个通道的音频，注意音频强度范围时-160到0
         let power = recorder.averagePower(forChannel: 0)
-        let progress = (1.0/160.0) * (power + 160.0);
-        
-        durationDriver = Observable.of(duration).asDriver(onErrorJustReturn: 0.0)
-        print(progress)
+        _ = (1.0/160.0) * (power + 160.0);
+        tt.value = "\(duration)"
     }
     
     /************* 播放 *****************/
@@ -200,7 +196,6 @@ extension AudioManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate{
     
     /// 结束录制的时候
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
-        
     }
     
     /// 播放完毕的时候

@@ -55,13 +55,14 @@ class MatchRecordingController: UIViewController {
                 self.recordBtn.isSelected = !self.recordBtn.isSelected
             }.addDisposableTo(bag)
         
-        
-        
         doneBtn.rx.tap
             .subscribe { [unowned self] _ in
                 self.mgr.stopRecord()
                 self.mgr.initPlayer()
             }.addDisposableTo(bag)
+        
+        self.mgr.tt.asObservable().bindTo(self.timeLabel.rx.text)
+  
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
