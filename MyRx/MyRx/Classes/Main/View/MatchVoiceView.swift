@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import AVFoundation
 
 class MatchVoiceView: UIView {
     
@@ -15,6 +18,28 @@ class MatchVoiceView: UIView {
             realView.layer.cornerRadius = 4
             realView.clipsToBounds = true
         }
+    }
+    fileprivate lazy var player: AVPlayer = {
+        let item = AVPlayerItem(url: URL(string: "http://audio.huochaihe.com/f0ZhdfBuStBT1zwU3OUQUMDT9tQ=/FpS6E4WtxeLxvXrxFjFO5DkkUx8a")!)
+        let play = AVPlayer(playerItem: item)
+        return play
+    }()
+    
+    override func awakeFromNib() {
+        
+        let tap = UITapGestureRecognizer()
+        _ = tap.rx.event.subscribe { (e) in
+            print("tap")
+            self.player.play()
+        }
+        self.addGestureRecognizer(tap)
+        
+//        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapme))
+//        self.addGestureRecognizer(tap)
+    }
+    
+    func tapme() {
+        self.player.play()
     }
 
     @IBOutlet weak var iconView: UIImageView!
