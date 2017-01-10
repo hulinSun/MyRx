@@ -8,6 +8,9 @@
 
 import UIKit
 import AVFoundation
+import RxSwift
+import RxCocoa
+
 
 
 
@@ -43,20 +46,21 @@ extension RecorderError{
 }*/
 
 @objc protocol AudioManagerDelegate: NSObjectProtocol {
-    
 }
 
-class AudioManager {
+class AudioManager: NSObject {
     
     // 单例
     static let sharedManager = AudioManager()
-    private init(){}
+    override private init(){
+        super.init()
+        self.initRecord()
+    }
     
     /// 音频会话
     let session = AVAudioSession.sharedInstance()
     // 录音文件路径
-    private let file = "recodr.wav".cacheFileData()
-//    private let url: URL = URL(fileURLWithPath: file)
+    private let audilFile = "recodr.wav".cacheFileData()
     
     // 参数配置
     let setting: [String: NSNumber] = [
@@ -76,15 +80,21 @@ class AudioManager {
     
     /// 定时器
     fileprivate lazy var timer: Timer = {
-        let i = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateMetre), userInfo: nil, repeats: true)
+        let i = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(audioPowerChange), userInfo: nil, repeats: true)
         RunLoop.current.add(i, forMode: .commonModes)
         return i
     }()
     
+    /// 录音时长
+    private(set) var duration: Double = 0
+    
+    var durationDriver: Driver<Double>!
+    
     var recorder: AVAudioRecorder!
     
+    var player: AVAudioPlayer!
+    
     private func requestRecordPermission(callback: @escaping (Bool) -> Void){
-        
         // 授权状态
         // TODO:  返回的不应该是枚举吗？为什么返回的却是一个结构体。结构体还有一个rawValue,真瓜皮
         session.requestRecordPermission { (granted) in
@@ -92,14 +102,111 @@ class AudioManager {
         }
     }
     
-    func beginRecord() {
-        requestRecordPermission { (granted) in
-            print("gram = \(granted)")
+    func initRecord() {
+        requestRecordPermission { [unowned self] (granted) in
+            if granted{
+                let url: URL = URL(fileURLWithPath: self.audilFile)
+                do{
+                    // 会话设置
+                    try self.session.setActive(true)
+                    try self.session.setCategory(AVAudioSessionCategoryPlayAndRecord)
+                    self.recorder = try AVAudioRecorder(url: url, settings: self.setting)
+                    self.recorder.delegate = self
+                    self.recorder.isMeteringEnabled = true
+                    self.recorder.prepareToRecord()
+                }catch{
+                    print("error\(error)")
+                }
+            }
         }
     }
     
-    @objc func updateMetre() {
-        print("---")
+    /// 录音
+    func record()  {
+        if !recorder.isRecording{
+            recorder.record()
+            timer.fireDate = NSDate.distantPast
+        }
     }
+    
+    /// 暂停录音
+    func pause()  {
+        print("pause \(duration)")
+        if recorder.isRecording{
+            recorder.pause()
+            timer.fireDate = NSDate.distantFuture
+        }
+    }
+    
+    /// 停止录音
+    func stopRecord() {
+        duration = 0.0
+        print("stopRecord \(duration)")
+        recorder.stop()
+        timer.fireDate = NSDate.distantFuture
+        do{
+            _ = try session.setCategory(AVAudioSessionCategoryPlayback)
+            try session.setActive(true)
+        }catch{
+            print(error)
+        }
+        
+    }
+    
+    
+    @objc func audioPowerChange() {
+        duration += 0.1
+        recorder.updateMeters()
+        //取得第一个通道的音频，注意音频强度范围时-160到0
+        let power = recorder.averagePower(forChannel: 0)
+        let progress = (1.0/160.0) * (power + 160.0);
+        
+        durationDriver = Observable.of(duration).asDriver(onErrorJustReturn: 0.0)
+        print(progress)
+    }
+    
+    /************* 播放 *****************/
+    
+    func initPlayer()  {
+        do{
+            player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: self.audilFile))
+            player.delegate = self
+            player.numberOfLoops = 3
+            player.prepareToPlay()
+        }catch{
+            print(error)
+        }
+    }
+    
+    func play()  {
+        if !player.isPlaying{
+            player.play()
+        }
+    }
+    
+    func pausePlay()  {
+        if player.isPlaying {
+            player.pause()
+        }
+    }
+    
+    func stopPlay() {
+        player.stop()
+    }
+    
 }
 
+extension AudioManager: AVAudioRecorderDelegate, AVAudioPlayerDelegate{
+    
+    /// 结束录制的时候
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+        
+    }
+    
+    /// 播放完毕的时候
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        if flag{
+            stopPlay()
+        }
+    }
+}

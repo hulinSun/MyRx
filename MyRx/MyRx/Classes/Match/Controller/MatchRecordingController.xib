@@ -12,8 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MatchRecordingController" customModule="MyRx" customModuleProvider="target">
             <connections>
                 <outlet property="doneBtn" destination="ilg-un-X5n" id="iWs-2a-ltq"/>
-                <outlet property="playBtn" destination="gJ0-Ww-fYd" id="M3i-bu-ctM"/>
-                <outlet property="recordBtn" destination="icC-BV-idu" id="YHO-ZL-1Ps"/>
+                <outlet property="playBtn" destination="icC-BV-idu" id="VC6-zh-9b8"/>
+                <outlet property="recordBtn" destination="gJ0-Ww-fYd" id="dzM-U5-rVL"/>
                 <outlet property="timeLabel" destination="eCI-zW-pPb" id="VK3-yV-t1M"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,10 +24,28 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLt-gc-mbM">
-                    <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                    <rect key="frame" x="0.0" y="407" width="375" height="260"/>
                     <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ0-Ww-fYd">
+                            <rect key="frame" x="145" y="124" width="86" height="86"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="86" id="ELG-Oo-7AI"/>
+                                <constraint firstAttribute="width" constant="86" id="QkC-1A-BTW"/>
+                            </constraints>
+                            <state key="normal" image="dialing"/>
+                            <state key="selected" image="disconnect"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icC-BV-idu">
+                            <rect key="frame" x="65" y="142" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="MOw-iO-FZb"/>
+                                <constraint firstAttribute="width" constant="50" id="NGa-eR-Hgb"/>
+                            </constraints>
+                            <state key="normal" image="play_audio"/>
+                            <state key="selected" image="stop_audio"/>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCI-zW-pPb">
-                            <rect key="frame" x="30" y="20" width="315" height="25"/>
+                            <rect key="frame" x="30" y="35" width="315" height="25"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="25" id="YB5-5c-MIw"/>
                             </constraints>
@@ -35,34 +53,29 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="center" distribution="equalSpacing" alignment="center" spacing="-60" translatesAutoresizingMaskIntoConstraints="NO" id="jIB-HH-lNT">
-                            <rect key="frame" x="60" y="65" width="255" height="135"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJ0-Ww-fYd">
-                                    <rect key="frame" x="0.0" y="52.5" width="46" height="30"/>
-                                    <state key="normal" title="Button"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icC-BV-idu">
-                                    <rect key="frame" x="112" y="52.5" width="46" height="30"/>
-                                    <state key="normal" title="Button"/>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-un-X5n">
-                                    <rect key="frame" x="224" y="52.5" width="31" height="30"/>
-                                    <state key="normal" title="完成"/>
-                                </button>
-                            </subviews>
-                        </stackView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilg-un-X5n">
+                            <rect key="frame" x="256" y="142" width="50" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="3ap-kg-ylj"/>
+                                <constraint firstAttribute="height" constant="50" id="m5k-J0-sXq"/>
+                            </constraints>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="jIB-HH-lNT" firstAttribute="top" secondItem="eCI-zW-pPb" secondAttribute="bottom" constant="20" id="5AF-ht-U3C"/>
-                        <constraint firstAttribute="trailing" secondItem="jIB-HH-lNT" secondAttribute="trailing" constant="60" id="Geu-2J-A3d"/>
                         <constraint firstAttribute="trailing" secondItem="eCI-zW-pPb" secondAttribute="trailing" constant="30" id="OAZ-ML-LCi"/>
-                        <constraint firstAttribute="height" constant="200" id="Twn-zP-D2f"/>
-                        <constraint firstAttribute="bottom" secondItem="jIB-HH-lNT" secondAttribute="bottom" id="cQw-ke-FGD"/>
-                        <constraint firstItem="jIB-HH-lNT" firstAttribute="leading" secondItem="bLt-gc-mbM" secondAttribute="leading" constant="60" id="g3e-9m-wYE"/>
-                        <constraint firstItem="eCI-zW-pPb" firstAttribute="top" secondItem="bLt-gc-mbM" secondAttribute="top" constant="20" id="giH-C6-DDF"/>
+                        <constraint firstItem="gJ0-Ww-fYd" firstAttribute="leading" secondItem="icC-BV-idu" secondAttribute="trailing" constant="30" id="OnP-5M-29x"/>
+                        <constraint firstAttribute="height" constant="260" id="Twn-zP-D2f"/>
+                        <constraint firstItem="ilg-un-X5n" firstAttribute="centerY" secondItem="gJ0-Ww-fYd" secondAttribute="centerY" id="V7n-q9-qqt"/>
+                        <constraint firstItem="eCI-zW-pPb" firstAttribute="top" secondItem="bLt-gc-mbM" secondAttribute="top" constant="35" id="giH-C6-DDF"/>
                         <constraint firstItem="eCI-zW-pPb" firstAttribute="leading" secondItem="bLt-gc-mbM" secondAttribute="leading" constant="30" id="hLG-y0-CSh"/>
+                        <constraint firstItem="gJ0-Ww-fYd" firstAttribute="centerX" secondItem="bLt-gc-mbM" secondAttribute="centerX" id="hZf-qn-9Qc"/>
+                        <constraint firstAttribute="bottom" secondItem="gJ0-Ww-fYd" secondAttribute="bottom" constant="50" id="iiU-bl-Ufd"/>
+                        <constraint firstItem="icC-BV-idu" firstAttribute="centerY" secondItem="gJ0-Ww-fYd" secondAttribute="centerY" id="nmt-yh-IlX"/>
+                        <constraint firstItem="ilg-un-X5n" firstAttribute="leading" secondItem="gJ0-Ww-fYd" secondAttribute="trailing" constant="25" id="v7z-1H-Oiu"/>
                     </constraints>
                 </view>
             </subviews>
@@ -72,6 +85,13 @@
                 <constraint firstAttribute="bottom" secondItem="bLt-gc-mbM" secondAttribute="bottom" id="Egk-rl-eFQ"/>
                 <constraint firstAttribute="trailing" secondItem="bLt-gc-mbM" secondAttribute="trailing" id="Qh0-MQ-s3Y"/>
             </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="dialing" width="86" height="86"/>
+        <image name="disconnect" width="86" height="86"/>
+        <image name="play_audio" width="50" height="50"/>
+        <image name="stop_audio" width="50" height="50"/>
+    </resources>
 </document>
