@@ -28,6 +28,9 @@ class MatchRecordingController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         dismiss(animated: true, completion: nil)
+        
+        let mgr = AudioManager.sharedManager
+        _ = mgr.beginRecord()
     }
 
 }
