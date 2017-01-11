@@ -97,8 +97,6 @@ class MatchTopicController: UIViewController {
     
     func setupData() {
         
-        let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
-        
         HttpService.getHomeMomentSad { (m) in
             // 缓存图片。异步绘图
             let xx = m.flatMap{$0?.info}
@@ -106,7 +104,6 @@ class MatchTopicController: UIViewController {
                 .map{$0.thumb_org}
                 .filter{($0?.characters.count)! > 3}
                 .flatMap{$0}
-            
             MatchDrawImageTool.asyncCacheImage(with: xx){
                 let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
                     return MatchTopicFrameModel(topic: tp!)
@@ -119,6 +116,8 @@ class MatchTopicController: UIViewController {
             }
         }
         
+        
+        let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
         provider
             .request(.likemomentsad)
             .filterSuccessfulStatusCodes()

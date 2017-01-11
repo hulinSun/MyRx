@@ -100,11 +100,10 @@ class MatchTopicCell: UITableViewCell {
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
-            //MARK: 优先使用内存缓存。内存缓存更加快一点，少了一些文件的操作。这样不会影响滑动的fps，做一点小小的优化
-            
-            if let menoryImage = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle"){
-                self.photoView.image = menoryImage
-            }
+//            if let menoryImage = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle"){
+//                self.photoView.image = menoryImage
+//            }
+           self.photoView.image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: org + "handle")
         }
         
         if let cot = tp.info?.content {
