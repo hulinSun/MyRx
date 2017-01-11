@@ -101,10 +101,16 @@ class MatchTopicController: UIViewController {
         
         HttpService.getHomeMomentSad { (m) in
             // 缓存图片。异步绘图
-            // tr th imagetext
-            for case let tp? in m{
-                print("\(tp.info?.topic_type) , type = \(tp.type)")
-            }
+            
+//            for case let tp? in m{
+//                print("\(tp.info?.topic_type) , type = \(tp.type)")
+//            }
+            
+            let xx = m.flatMap{$0?.info}
+                .filter{ $0.topic_type == "imagetext"}
+                .map{$0.thumb_org}
+                .filter{($0?.characters.count)! > 3}
+                .flatMap{$0}
             
             let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
                 return MatchTopicFrameModel(topic: tp!)
