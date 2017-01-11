@@ -38,6 +38,8 @@
 		FE891C2D1E23903300F55500 /* Raduis.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C2C1E23903300F55500 /* Raduis.swift */; };
 		FE891C301E2399AC00F55500 /* MatchRecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C2E1E2399AC00F55500 /* MatchRecordingController.swift */; };
 		FE891C311E2399AC00F55500 /* MatchRecordingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE891C2F1E2399AC00F55500 /* MatchRecordingController.xib */; };
+		FE891C361E25E00300F55500 /* HttpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C351E25E00300F55500 /* HttpService.swift */; };
+		FE891C381E25E2C900F55500 /* MatchDrawImageTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE891C371E25E2C900F55500 /* MatchDrawImageTool.swift */; };
 		FE9C36741E1B816E000E73C2 /* config.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36731E1B816E000E73C2 /* config.swift */; };
 		FE9C36761E1B8398000E73C2 /* TopicSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */; };
 		FE9C36781E1B83B3000E73C2 /* TopicSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */; };
@@ -124,6 +126,8 @@
 		FE891C2C1E23903300F55500 /* Raduis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Raduis.swift; sourceTree = "<group>"; };
 		FE891C2E1E2399AC00F55500 /* MatchRecordingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchRecordingController.swift; sourceTree = "<group>"; };
 		FE891C2F1E2399AC00F55500 /* MatchRecordingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MatchRecordingController.xib; sourceTree = "<group>"; };
+		FE891C351E25E00300F55500 /* HttpService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpService.swift; sourceTree = "<group>"; };
+		FE891C371E25E2C900F55500 /* MatchDrawImageTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchDrawImageTool.swift; sourceTree = "<group>"; };
 		FE9C36731E1B816E000E73C2 /* config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = config.swift; sourceTree = "<group>"; };
 		FE9C36751E1B8398000E73C2 /* TopicSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicSectionHeaderView.swift; sourceTree = "<group>"; };
 		FE9C36771E1B83B3000E73C2 /* TopicSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicSectionHeaderView.xib; sourceTree = "<group>"; };
@@ -258,6 +262,7 @@
 			children = (
 				FEC9B4121E151E1B00D076EF /* JSONTool.swift */,
 				FE9C36731E1B816E000E73C2 /* config.swift */,
+				FE891C371E25E2C900F55500 /* MatchDrawImageTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -519,6 +524,7 @@
 			children = (
 				FE21347B1E1505D500C056F5 /* MatchService.swift */,
 				FEED49731E16094D0043DB83 /* TopicService.swift */,
+				FE891C351E25E00300F55500 /* HttpService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -793,6 +799,7 @@
 				FEED498D1E1666090043DB83 /* UIView+Nib.swift in Sources */,
 				FE891C2D1E23903300F55500 /* Raduis.swift in Sources */,
 				FEB3E4DC1E1D218D00DEAFB1 /* TopicBottomView.swift in Sources */,
+				FE891C381E25E2C900F55500 /* MatchDrawImageTool.swift in Sources */,
 				FE2134421E14E0CF00C056F5 /* BanTModel.swift in Sources */,
 				FEB3E4E81E1DF8DA00DEAFB1 /* MatchTopicCell.swift in Sources */,
 				FE2134761E14F9C800C056F5 /* TopicViewController.swift in Sources */,
@@ -807,6 +814,7 @@
 				FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */,
 				FEED49831E1665B40043DB83 /* GCD+Extension.swift in Sources */,
 				FEED49891E1665EC0043DB83 /* UIBarButtonItem+category.swift in Sources */,
+				FE891C361E25E00300F55500 /* HttpService.swift in Sources */,
 				FEED497D1E1634950043DB83 /* TopicTitleCell.swift in Sources */,
 				FE9C36801E1CD59A000E73C2 /* UIImage+Extension.swift in Sources */,
 				FEB3E4E01E1DEADA00DEAFB1 /* RecommendView.swift in Sources */,

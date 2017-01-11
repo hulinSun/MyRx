@@ -98,20 +98,20 @@ class MatchTopicController: UIViewController {
     func setupData() {
         
         let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
-        provider
-            .request(.momentsad)
-            .filterSuccessfulStatusCodes()
-            .observeOn(.main)
-            .subscribe { (e) in
-                guard let response = e.element else{ return }
-                if let m = response.mapArray(Topic.self, designatedPath: "data"){
-                    let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
-                        return MatchTopicFrameModel(topic: tp!)
-                    })
-                    let sec = MatchTopicSection(model: "", items: models)
-                    self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
-                }
-            }.addDisposableTo(bag)
+        
+        HttpService.getHomeMomentSad { (m) in
+            // 缓存图片。异步绘图
+            // tr th imagetext
+            for case let tp? in m{
+                print("\(tp.info?.topic_type) , type = \(tp.type)")
+            }
+            
+            let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
+                return MatchTopicFrameModel(topic: tp!)
+            })
+            let sec = MatchTopicSection(model: "", items: models)
+            self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
+        }
         
         provider
             .request(.likemomentsad)
