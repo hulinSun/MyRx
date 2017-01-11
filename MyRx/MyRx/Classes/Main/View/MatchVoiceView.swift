@@ -29,13 +29,9 @@ class MatchVoiceView: UIView {
         
         let tap = UITapGestureRecognizer()
         _ = tap.rx.event.subscribe { (e) in
-            print("tap")
             self.player.play()
         }
         self.addGestureRecognizer(tap)
-        
-//        let tap = UITapGestureRecognizer.init(target: self, action: #selector(tapme))
-//        self.addGestureRecognizer(tap)
     }
     
     func tapme() {
