@@ -23,6 +23,8 @@ class MatchDrawImageTool: NSObject {
                 group.leave()
             })
         }
+        
+        
         group.notify(queue: DispatchQueue.main) { 
             // 回调
             callback()
