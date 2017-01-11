@@ -11,17 +11,22 @@ import Kingfisher
 
 /// 异步绘图
 class MatchDrawImageTool: NSObject {
-    class func asyncCacheImage(with images:[String]){
+    class func asyncCacheImage(with images:[String] , callback: @escaping ()-> Void){
         
         let group = DispatchGroup()
         for imageUrl in images {
             group.enter()
-            KingfisherManager.shared.downloader.downloadImage(with: URL(string: imageUrl, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
+            KingfisherManager.shared.downloader.downloadImage(with: URL(string: imageUrl)!, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
                 guard let i = img else{return}
                 let real = UIImage.handleImage(originalImage: i, size: CGSize(width: UIConst.screenWidth, height: UIConst.screenWidth))
                 KingfisherManager.shared.cache.store(real, forKey: imageUrl + "handle")
                 group.leave()
             })
         }
+        group.notify(queue: DispatchQueue.main) { 
+            // 回调
+            callback()
+        }
+        
     }
 }

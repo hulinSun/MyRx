@@ -25,7 +25,7 @@ extension UIImage{
     
     class func handleImage(originalImage: UIImage,size: CGSize)-> UIImage{
         let originalsize = originalImage.size
-        print("改变前图片尺寸\(originalsize)")
+        
         if (originalsize.width < size.width) && (originalsize.height < size.height){
             return originalImage
         }else if (originalsize.width > size.width) && (originalsize.height > size.height){
@@ -47,7 +47,6 @@ extension UIImage{
             ctx?.scaleBy(x: 1.0, y: -1.0)
             ctx?.draw(imgRef, in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
             let standardImage = UIGraphicsGetImageFromCurrentImageContext()
-            print("改变后图片宽度\(standardImage?.size)")
             UIGraphicsEndImageContext()
             return standardImage!
         }else if (originalsize.height > size.height) || (originalsize.width > size.width){
@@ -71,6 +70,5 @@ extension UIImage{
         }else{
             return originalImage
         }
-        return originalImage
     }
 }

@@ -90,9 +90,9 @@ class MatchTopicController: UIViewController {
                 print("点击了 \(indexPath.row) 行")
             }).addDisposableTo(bag)
         
-        sections
-            .drive(tableView.rx.items(dataSource: dataSource))
-            .addDisposableTo(bag)
+//        sections
+//            .drive(tableView.rx.items(dataSource: dataSource))
+//            .addDisposableTo(bag)
     }
     
     func setupData() {
@@ -101,22 +101,22 @@ class MatchTopicController: UIViewController {
         
         HttpService.getHomeMomentSad { (m) in
             // 缓存图片。异步绘图
-            
-//            for case let tp? in m{
-//                print("\(tp.info?.topic_type) , type = \(tp.type)")
-//            }
-            
             let xx = m.flatMap{$0?.info}
                 .filter{ $0.topic_type == "imagetext"}
                 .map{$0.thumb_org}
                 .filter{($0?.characters.count)! > 3}
                 .flatMap{$0}
             
-            let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
-                return MatchTopicFrameModel(topic: tp!)
-            })
-            let sec = MatchTopicSection(model: "", items: models)
-            self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
+            MatchDrawImageTool.asyncCacheImage(with: xx){
+                let models = m.flatMap({ (tp) -> MatchTopicFrameModel in
+                    return MatchTopicFrameModel(topic: tp!)
+                })
+                let sec = MatchTopicSection(model: "", items: models)
+                self.sections = Observable.of([sec]).asDriver(onErrorJustReturn: [])
+                self.sections
+                    .drive(self.tableView.rx.items(dataSource: self.dataSource))
+                    .addDisposableTo(self.bag)
+            }
         }
         
         provider
