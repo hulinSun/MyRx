@@ -9,18 +9,65 @@
 import UIKit
 import ReusableKit
 import SnapKit
+import RxSwift
+import RxCocoa
+import RxDataSources
+
+
 
 /// 盒子控制器
 class BoxViewController: UIViewController {
+    
+   private class BoxLayout: UICollectionViewFlowLayout {
+        override func prepare() {
+            super.prepare()
+            self.itemSize = CGSize(width: UIConst.screenWidth, height: UIConst.screenHeight - 64 - 49)
+            self.scrollDirection = .horizontal
+            self.minimumLineSpacing = 0
+            self.minimumInteritemSpacing = 0
+        }
+    }
     
     struct Reuse {
         static let musicCell = ReusableCell<BoxMusicCell>(nibName: "BoxMusicCell")
     }
     
+    
+    fileprivate lazy var collectionView: UICollectionView = {
+        let rect = CGRect(x: 0, y: 64, width: UIConst.screenWidth, height: UIConst.screenHeight - 64 - 49)
+        let i = UICollectionView(frame: rect, collectionViewLayout: BoxLayout())
+        i.register(Reuse.musicCell)
+        i.showsVerticalScrollIndicator = false
+        i.showsHorizontalScrollIndicator = false
+        i.isPagingEnabled = true
+        return i
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "柴扉"
-        HttpService.getHomeMusic { (e) in
+        self.automaticallyAdjustsScrollViewInsets = false
+        view.addSubview(collectionView)
+        collectionView.backgroundColor = .white
+        setupData()
+    }
+
+    /// 简单样式
+    var easyDatas = Variable([Music]())
+    
+    private func setupData(){
+        HttpService.getHomeMusic { [unowned self] (e) in
+            
+            let s = e.map{$0.infos?.thumb}.flatMap{$0}
+            let size = CGSize.init(width: UIConst.screenWidth - CGFloat(2 * 18), height:  CGFloat(390))
+            // 缓存图片
+            MatchDrawImageTool.asyncCacheImage(with: s, size: size, callback: {
+                self.easyDatas.value = e
+                _ = self.easyDatas.asObservable().bindTo(self.collectionView.rx.items(cellIdentifier: "BoxMusicCell", cellType: BoxMusicCell.self)){ row, music , cell in
+                    
+                    cell.config(with: music)
+                }
+            })
         }
     }
 

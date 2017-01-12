@@ -102,7 +102,7 @@ class MatchTopicCell: UITableViewCell {
         if let org = tp.info?.thumb_org { // 有图片
             self.photoView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
 //           self.photoView.image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: org + "handle")
-            self.photoView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
+//            self.photoView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
         }
         
         if let cot = tp.info?.content {
