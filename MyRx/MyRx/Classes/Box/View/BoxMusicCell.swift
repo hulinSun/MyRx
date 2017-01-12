@@ -32,7 +32,8 @@ class BoxMusicCell: UICollectionViewCell {
     func config(with data: Music)  {
         self.memoLabel.text = data.infos?.author ?? "😝"
         self.nameLabel.text = data.infos?.title ?? "😝"
-        
+        self.zanBtn.setTitle(data.infos?.heart ?? "😝", for: .normal)
+        self.retBtn.setTitle(data.infos?.forward ?? "😝", for: .normal)
         if let org = data.infos?.thumb {
             self.imgView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
         }

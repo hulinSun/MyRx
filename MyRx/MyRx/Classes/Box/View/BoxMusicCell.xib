@@ -59,21 +59,23 @@
                             <constraint firstAttribute="height" constant="2" id="02V-jb-jsL"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-Od-X9Z">
-                        <rect key="frame" x="70" y="494" width="58" height="22"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-Od-X9Z">
+                        <rect key="frame" x="90" y="494" width="80" height="18"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="FAn-XH-ei5"/>
-                            <constraint firstAttribute="width" constant="58" id="SIG-TU-cXd"/>
+                            <constraint firstAttribute="height" constant="18" id="FAn-XH-ei5"/>
+                            <constraint firstAttribute="width" constant="80" id="SIG-TU-cXd"/>
                         </constraints>
-                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="2" maxX="0.0" maxY="0.0"/>
                         <state key="normal" title="3" image="chaifei_like">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgl-mU-kz3">
-                        <rect key="frame" x="203" y="494" width="58" height="22"/>
-                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        <state key="normal" title="3" image="chaifei_like">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgl-mU-kz3">
+                        <rect key="frame" x="245" y="494" width="80" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="4" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="3" image="chaifei_Share">
                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
@@ -89,7 +91,7 @@
                 <constraint firstItem="Fgl-mU-kz3" firstAttribute="leading" secondItem="4Rj-Od-X9Z" secondAttribute="trailing" constant="75" id="D2n-tG-xgu"/>
                 <constraint firstItem="Fgl-mU-kz3" firstAttribute="bottom" secondItem="4Rj-Od-X9Z" secondAttribute="bottom" id="GrQ-0V-DF2"/>
                 <constraint firstItem="0GA-Jy-9kp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="L3P-C9-1S8"/>
-                <constraint firstItem="4Rj-Od-X9Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="70" id="Mpc-Fc-dmi"/>
+                <constraint firstItem="4Rj-Od-X9Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="90" id="Mpc-Fc-dmi"/>
                 <constraint firstItem="U5R-Je-MI9" firstAttribute="leading" secondItem="2kT-iz-kbW" secondAttribute="leading" constant="3" id="NnW-4z-NcU"/>
                 <constraint firstItem="lby-GX-ISY" firstAttribute="trailing" secondItem="2kT-iz-kbW" secondAttribute="trailing" id="Nui-7d-lUy"/>
                 <constraint firstItem="4Rj-Od-X9Z" firstAttribute="top" secondItem="0GA-Jy-9kp" secondAttribute="bottom" constant="17" id="RsL-Ln-qcr"/>
@@ -114,6 +116,7 @@
     </objects>
     <resources>
         <image name="System_MusicPlay" width="30" height="30"/>
+        <image name="chaifei_Share" width="20" height="20"/>
         <image name="chaifei_like" width="20" height="20"/>
     </resources>
 </document>
