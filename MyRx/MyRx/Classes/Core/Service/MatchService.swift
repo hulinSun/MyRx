@@ -26,7 +26,7 @@ import Moya
  }
  https://soa.ihuochaihe.com:442/v1/thread/momentsad // 主页 好友界面接口
  https://soa.ihuochaihe.com:442/v1/thread/likemomentsad 主页 欢喜界面接口
- 
+ https:soa.ihuochaihe.com:442/fei/index/index // 柴扉
  
  你会发现未授权 = =
 */
@@ -38,6 +38,7 @@ enum MatchService: String {
     
     case momentsad //好友界面
     case likemomentsad //欢喜界面
+    case index // 柴扉
     
     
 }
@@ -53,11 +54,13 @@ extension MatchService: TargetType {
             
         case .likemomentsad:
             return "/v1/thread/likemomentsad"
+        case .index:
+            return "/fei/index/index"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .momentsad, .likemomentsad:
+        case .momentsad, .likemomentsad , .index:
             return .post
         }
     }

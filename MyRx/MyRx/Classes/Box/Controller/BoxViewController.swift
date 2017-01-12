@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import ReusableKit
+import SnapKit
 
 /// 盒子控制器
 class BoxViewController: UIViewController {
-
+    
+    struct Reuse {
+        static let cell = ReusableCell<UITableViewCell>() // tr th
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "柴扉"
     }
 
     override func didReceiveMemoryWarning() {

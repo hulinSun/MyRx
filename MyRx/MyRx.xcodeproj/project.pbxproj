@@ -10,6 +10,7 @@
 		49F7178906D90E965521E456 /* Pods_MyRx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CE59E88E4072A808EE0F619 /* Pods_MyRx.framework */; };
 		FE0434FF1E2639E7005E9902 /* OcPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = FE0434FE1E2639E7005E9902 /* OcPerson.m */; };
 		FE0709461E272A3C0012705E /* ScrollVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0709451E272A3C0012705E /* ScrollVoiceView.swift */; };
+		FE0709481E2762760012705E /* chaifei in Resources */ = {isa = PBXBuildFile; fileRef = FE0709471E2762760012705E /* chaifei */; };
 		FE21343E1E14E0CF00C056F5 /* Response+HandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134321E14E0CF00C056F5 /* Response+HandyJSON.swift */; };
 		FE21343F1E14E0CF00C056F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2134351E14E0CF00C056F5 /* AppDelegate.swift */; };
 		FE2134401E14E0CF00C056F5 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE2134361E14E0CF00C056F5 /* Info.plist */; };
@@ -102,6 +103,7 @@
 		FE0434FD1E2639E7005E9902 /* OcPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OcPerson.h; sourceTree = "<group>"; };
 		FE0434FE1E2639E7005E9902 /* OcPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OcPerson.m; sourceTree = "<group>"; };
 		FE0709451E272A3C0012705E /* ScrollVoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollVoiceView.swift; sourceTree = "<group>"; };
+		FE0709471E2762760012705E /* chaifei */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chaifei; sourceTree = "<group>"; };
 		FE2134321E14E0CF00C056F5 /* Response+HandyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+HandyJSON.swift"; sourceTree = "<group>"; };
 		FE2134351E14E0CF00C056F5 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE2134361E14E0CF00C056F5 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Main/Info.plist; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 				FE21347F1E150A3500C056F5 /* momentsad */,
 				FE2134831E150AB100C056F5 /* likemomentsad */,
 				FEED49751E160A570043DB83 /* index */,
+				FE0709471E2762760012705E /* chaifei */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -718,6 +721,7 @@
 				FEED49761E160A570043DB83 /* index in Resources */,
 				FEB3E4EC1E1E2CCA00DEAFB1 /* MatchAttentionCell.xib in Resources */,
 				FE2134501E14E28E00C056F5 /* welcomeVideo.mp4 in Resources */,
+				FE0709481E2762760012705E /* chaifei in Resources */,
 				FEB3E4E21E1DEAED00DEAFB1 /* RecommendView.xib in Resources */,
 				FEB3E4DE1E1D219C00DEAFB1 /* TopicBottomView.xib in Resources */,
 				FE891C311E2399AC00F55500 /* MatchRecordingController.xib in Resources */,
