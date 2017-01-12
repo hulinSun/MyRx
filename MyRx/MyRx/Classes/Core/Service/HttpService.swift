@@ -34,7 +34,7 @@ class HttpService: NSObject {
     class func getHomeMusic(callback: @escaping (([Music]) -> Void)){
         let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
         provider
-            .request(.index)
+            .request(.chaifei)
             .filterSuccessfulStatusCodes()
             .observeOn(.main)
             .subscribe { (e) in

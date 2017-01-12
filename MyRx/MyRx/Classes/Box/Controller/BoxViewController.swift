@@ -56,15 +56,13 @@ class BoxViewController: UIViewController {
     var easyDatas = Variable([Music]())
     
     private func setupData(){
+        
         HttpService.getHomeMusic { [unowned self] (e) in
-            
-            let s = e.map{$0.infos?.thumb}.flatMap{$0}
-            let size = CGSize.init(width: UIConst.screenWidth - CGFloat(2 * 18), height:  CGFloat(390))
-            // 缓存图片
-            MatchDrawImageTool.asyncCacheImage(with: s, size: size, callback: {
+            let musics = e.map{$0.infos?.thumb}.flatMap{$0}
+            let imageSize = CGSize(width: UIConst.screenWidth - CGFloat(2 * 18), height:  CGFloat(390))
+            MatchDrawImageTool.asyncCacheImage(with: musics, size: imageSize, callback: {
                 self.easyDatas.value = e
                 _ = self.easyDatas.asObservable().bindTo(self.collectionView.rx.items(cellIdentifier: "BoxMusicCell", cellType: BoxMusicCell.self)){ row, music , cell in
-                    
                     cell.config(with: music)
                 }
             })

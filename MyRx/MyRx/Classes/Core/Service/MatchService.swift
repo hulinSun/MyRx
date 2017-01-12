@@ -38,7 +38,7 @@ enum MatchService: String {
     
     case momentsad //好友界面
     case likemomentsad //欢喜界面
-    case index // 柴扉
+    case chaifei // 柴扉
     
     
 }
@@ -54,13 +54,13 @@ extension MatchService: TargetType {
             
         case .likemomentsad:
             return "/v1/thread/likemomentsad"
-        case .index:
+        case .chaifei:
             return "/fei/index/index"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .momentsad, .likemomentsad , .index:
+        case .momentsad, .likemomentsad , .chaifei:
             return .post
         }
     }
