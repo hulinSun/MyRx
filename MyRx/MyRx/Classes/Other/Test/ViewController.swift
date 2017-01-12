@@ -23,13 +23,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let arr = UIConst.str.components(separatedBy: ",")
         
+        let arr = UIConst.str.components(separatedBy: ",")
         let scroll = ScrollVoiceView(frame:CGRect(x: 0, y: 200, width: UIConst.screenWidth, height: 100) , datas: arr)
         view.addSubview(scroll)
+        view.backgroundColor = UIColor.random()
+        
+
+        let l = CALayer()
+        l.backgroundColor = UIColor.red.cgColor
+        l.bounds = CGRect(x: 10, y: 10, width: 10, height: 200)
+        l.position = CGPoint(x: 1, y: 24)
+        l.anchorPoint = .zero
+        scroll.layer.addSublayer(l)
+        scroll.layer.mask = l
+        scroll.layer.masksToBounds = false
+        
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (t) in
+            let s = l.bounds.width
+            
+            if s < UIConst.screenWidth / 2{
+                l.bounds = CGRect(x: 10, y: 10, width: CGFloat(s + 5), height: 200)
+            }else{
+                let w = scroll.scrollView.contentOffset.x < UIConst.screenWidth / 2 ?  UIConst.screenWidth / 2 : scroll.scrollView.contentOffset.x
+                scroll.scrollView.setContentOffset(CGPoint.init(x: w + 5, y: 0), animated: true)
+            }
+        }
     }
-    
-    
     func then() {
         
         let i = UILabel().then{

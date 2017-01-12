@@ -13,11 +13,12 @@ import UIColor_Hex_Swift
 
 class ScrollVoiceView: UIView {
     
-    fileprivate lazy var scrollView: UIScrollView = {
+    lazy var scrollView: UIScrollView = {
         let i = UIScrollView()
         i.bounces = false
         i.showsVerticalScrollIndicator = false
         i.showsHorizontalScrollIndicator = false
+        i.isScrollEnabled = false
         return i
     }()
     
