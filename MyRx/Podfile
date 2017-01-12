@@ -15,6 +15,7 @@ target 'MyRx' do
   pod 'RxAlamofire'
   pod 'Kingfisher', '~> 3.0'
   pod 'HandyJSON', '~> 1.4.0'
+ pod 'EZAudio', '~> 1.1.4' 
 
   # UI
   pod 'SnapKit', '~> 3.0'

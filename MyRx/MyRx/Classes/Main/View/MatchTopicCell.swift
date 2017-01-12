@@ -100,10 +100,9 @@ class MatchTopicCell: UITableViewCell {
         topView.topic = tp
         bottomView.topic = tp
         if let org = tp.info?.thumb_org { // 有图片
-//            if let menoryImage = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle"){
-//                self.photoView.image = menoryImage
-//            }
-           self.photoView.image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: org + "handle")
+            self.photoView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
+//           self.photoView.image = KingfisherManager.shared.cache.retrieveImageInDiskCache(forKey: org + "handle")
+            self.photoView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
         }
         
         if let cot = tp.info?.content {

@@ -25,13 +25,23 @@ class MatchVoiceView: UIView {
         return play
     }()
     
+    
+    fileprivate lazy var scrollVoice: ScrollVoiceView = {
+        let arr = UIConst.str.components(separatedBy: ",")
+        let i = ScrollVoiceView(frame:CGRect(x: 120, y: 0, width: UIConst.screenWidth - 2 * 10 - 120, height: 120)
+, datas: arr)
+        return i
+    }()
+    
     override func awakeFromNib() {
         
         let tap = UITapGestureRecognizer()
         _ = tap.rx.event.subscribe { (e) in
             self.player.play()
         }
+        realView.addSubview(scrollVoice)
         self.addGestureRecognizer(tap)
+        
     }
     
     func tapme() {
@@ -39,12 +49,12 @@ class MatchVoiceView: UIView {
     }
 
     @IBOutlet weak var iconView: UIImageView!
-
     override func layoutSubviews() {
         super.layoutSubviews()
         let margin: CGFloat = 10
         let padding: CGFloat = 13
         realView.frame = CGRect(x: padding, y: margin, width: UIConst.screenWidth - 2 * padding, height: 120)
         iconView.frame = CGRect(x: 0, y: 0, width: 120, height: 120)
+        scrollVoice.frame = CGRect(x: 120, y: 0, width: realView.frame.width - 120, height: 120)
     }
 }

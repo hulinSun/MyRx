@@ -16,6 +16,7 @@ extension AppDelegate{
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = MainTabbarController()
+//        self.window?.rootViewController = ViewController()
         
     }
 }

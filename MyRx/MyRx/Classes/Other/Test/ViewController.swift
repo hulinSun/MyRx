@@ -23,8 +23,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        then()
-        moyaTest()
+        let arr = UIConst.str.components(separatedBy: ",")
+        
+        let scroll = ScrollVoiceView(frame:CGRect(x: 0, y: 200, width: UIConst.screenWidth, height: 100) , datas: arr)
+        view.addSubview(scroll)
     }
     
     
