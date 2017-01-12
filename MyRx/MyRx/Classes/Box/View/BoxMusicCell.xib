@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BoxMusicCell" id="gTV-IL-0wX" customClass="BoxMusicCell" customModule="MyRx" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="341" height="528"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="341" height="528"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2kT-iz-kbW">
+                        <rect key="frame" x="22" y="10" width="297" height="390"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="390" id="uF1-tY-gHi"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5R-Je-MI9">
+                        <rect key="frame" x="25" y="417" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="5sa-e5-5XJ"/>
+                            <constraint firstAttribute="height" constant="32" id="nDb-XD-omp"/>
+                        </constraints>
+                        <state key="normal" image="System_MusicPlay"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lby-GX-ISY">
+                        <rect key="frame" x="119" y="415" width="200" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="0aS-Lt-ILU"/>
+                            <constraint firstAttribute="height" constant="21" id="ir7-FX-xeQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1m-vh-S8g">
+                        <rect key="frame" x="119" y="438" width="200" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="Iyd-yr-CPY"/>
+                            <constraint firstAttribute="height" constant="20" id="cli-LG-ZhN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0GA-Jy-9kp">
+                        <rect key="frame" x="15" y="468" width="311" height="2"/>
+                        <color key="backgroundColor" red="0.19607843137254902" green="0.2627450980392157" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="2" id="02V-jb-jsL"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rj-Od-X9Z">
+                        <rect key="frame" x="70" y="487" width="58" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="FAn-XH-ei5"/>
+                            <constraint firstAttribute="width" constant="58" id="SIG-TU-cXd"/>
+                        </constraints>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="3" image="chaifei_like">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fgl-mU-kz3">
+                        <rect key="frame" x="203" y="487" width="58" height="22"/>
+                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="3" image="chaifei_like">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="0GA-Jy-9kp" firstAttribute="top" secondItem="b1m-vh-S8g" secondAttribute="bottom" constant="10" id="1eK-iu-pUP"/>
+                <constraint firstAttribute="trailing" secondItem="0GA-Jy-9kp" secondAttribute="trailing" constant="15" id="1hm-cp-XEv"/>
+                <constraint firstItem="Fgl-mU-kz3" firstAttribute="width" secondItem="4Rj-Od-X9Z" secondAttribute="width" id="4x0-7X-qfX"/>
+                <constraint firstItem="2kT-iz-kbW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="80S-ww-yFp"/>
+                <constraint firstItem="U5R-Je-MI9" firstAttribute="top" secondItem="2kT-iz-kbW" secondAttribute="bottom" constant="17" id="Acq-Pl-cZ4"/>
+                <constraint firstItem="Fgl-mU-kz3" firstAttribute="leading" secondItem="4Rj-Od-X9Z" secondAttribute="trailing" constant="75" id="D2n-tG-xgu"/>
+                <constraint firstItem="Fgl-mU-kz3" firstAttribute="bottom" secondItem="4Rj-Od-X9Z" secondAttribute="bottom" id="GrQ-0V-DF2"/>
+                <constraint firstItem="0GA-Jy-9kp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="L3P-C9-1S8"/>
+                <constraint firstItem="4Rj-Od-X9Z" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="70" id="Mpc-Fc-dmi"/>
+                <constraint firstItem="U5R-Je-MI9" firstAttribute="leading" secondItem="2kT-iz-kbW" secondAttribute="leading" constant="3" id="NnW-4z-NcU"/>
+                <constraint firstItem="lby-GX-ISY" firstAttribute="trailing" secondItem="2kT-iz-kbW" secondAttribute="trailing" id="Nui-7d-lUy"/>
+                <constraint firstItem="4Rj-Od-X9Z" firstAttribute="top" secondItem="0GA-Jy-9kp" secondAttribute="bottom" constant="17" id="RsL-Ln-qcr"/>
+                <constraint firstItem="b1m-vh-S8g" firstAttribute="trailing" secondItem="lby-GX-ISY" secondAttribute="trailing" id="S0K-OA-jLo"/>
+                <constraint firstItem="Fgl-mU-kz3" firstAttribute="top" secondItem="4Rj-Od-X9Z" secondAttribute="top" id="S6l-DC-er2"/>
+                <constraint firstItem="lby-GX-ISY" firstAttribute="top" secondItem="2kT-iz-kbW" secondAttribute="bottom" constant="15" id="bNE-yb-m8X"/>
+                <constraint firstItem="b1m-vh-S8g" firstAttribute="top" secondItem="lby-GX-ISY" secondAttribute="bottom" constant="2" id="hax-oY-fmT"/>
+                <constraint firstAttribute="trailing" secondItem="2kT-iz-kbW" secondAttribute="trailing" constant="22" id="vcW-7j-xaL"/>
+                <constraint firstItem="2kT-iz-kbW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="zQc-Gd-FWZ"/>
+            </constraints>
+            <size key="customSize" width="311" height="378"/>
+            <connections>
+                <outlet property="imgView" destination="2kT-iz-kbW" id="2KI-7m-8xW"/>
+                <outlet property="memoLabel" destination="b1m-vh-S8g" id="W4e-Cq-hcB"/>
+                <outlet property="nameLabel" destination="lby-GX-ISY" id="apU-WR-MST"/>
+                <outlet property="playBtn" destination="U5R-Je-MI9" id="Q4S-iA-f83"/>
+                <outlet property="retBtn" destination="Fgl-mU-kz3" id="mFR-qX-e37"/>
+                <outlet property="zanBtn" destination="4Rj-Od-X9Z" id="PJO-1H-ES8"/>
+            </connections>
+            <point key="canvasLocation" x="-13.5" y="-7"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="System_MusicPlay" width="30" height="30"/>
+        <image name="chaifei_like" width="20" height="20"/>
+    </resources>
+</document>

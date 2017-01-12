@@ -14,12 +14,14 @@ import SnapKit
 class BoxViewController: UIViewController {
     
     struct Reuse {
-        static let cell = ReusableCell<UITableViewCell>() // tr th
+        static let musicCell = ReusableCell<BoxMusicCell>(nibName: "BoxMusicCell")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "柴扉"
+        HttpService.getHomeMusic { (e) in
+        }
     }
 
     override func didReceiveMemoryWarning() {

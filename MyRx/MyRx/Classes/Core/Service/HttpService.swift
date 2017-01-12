@@ -30,4 +30,19 @@ class HttpService: NSObject {
                 }
             }.addDisposableTo(bag)
     }
+    
+    class func getHomeMusic(callback: @escaping (([Music]) -> Void)){
+        let provider = RxMoyaProvider<MatchService>(stubClosure: MoyaProvider.immediatelyStub)
+        provider
+            .request(.index)
+            .filterSuccessfulStatusCodes()
+            .observeOn(.main)
+            .subscribe { (e) in
+                guard let response = e.element else{ return }
+                if let m = response.mapArray(Music.self, designatedPath: "data"){
+                    let s = m.flatMap{$0}.filter{$0.type == "music"}
+                    callback(s)
+                }
+            }.addDisposableTo(bag)
+    }
 }
