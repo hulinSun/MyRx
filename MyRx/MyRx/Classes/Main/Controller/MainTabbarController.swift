@@ -23,9 +23,9 @@ class MainTabbarController: UITabBarController {
     let items: [TabbarItemModel] = [
         TabbarItemModel(name: "火柴", image: "Social_One", selectedImage: "Social_One_Select" ,className: "MatchViewController"),
         TabbarItemModel(name: "话题", image: "Social_Topic", selectedImage: "Social_Topic_Select",className: "TopicViewController"),
-        TabbarItemModel(name: "消息", image: "Social_Messages", selectedImage: "Social_Messages_Select",className: "MessageViewController"),
+//        TabbarItemModel(name: "消息", image: "Social_Messages", selectedImage: "Social_Messages_Select",className: "MessageViewController"),
         TabbarItemModel(name: "盒子", image: "Social_Box", selectedImage: "Social_Box_Select",className: "BoxViewController"),
-        TabbarItemModel(name: "我", image: "Social_Private", selectedImage: "Social_Private_Select" ,className: "ProfileViewController")
+//        TabbarItemModel(name: "我", image: "Social_Private", selectedImage: "Social_Private_Select" ,className: "ProfileViewController")
                                     ]
     
     override func viewDidLoad() {
