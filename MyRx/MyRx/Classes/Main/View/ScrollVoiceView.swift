@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UIColor_Hex_Swift
 
 @IBDesignable
 
@@ -14,6 +15,7 @@ class ScrollVoiceView: UIView {
     
     fileprivate lazy var scrollView: UIScrollView = {
         let i = UIScrollView()
+        i.bounces = false
         i.showsVerticalScrollIndicator = false
         i.showsHorizontalScrollIndicator = false
         return i
@@ -38,11 +40,11 @@ class ScrollVoiceView: UIView {
         // 添加scrollView
         self.addSubview(scrollView)
         backgroundColor = .white
-        scrollView.backgroundColor = .random()
+        scrollView.backgroundColor = .white
         // 添加图层
         for _ in 0..<datas.count - 1{
             let layer = CALayer()
-            layer.backgroundColor = UIColor.random().cgColor
+            layer.backgroundColor = UIColor("#d3d3d1").cgColor
             layer.anchorPoint = CGPoint.zero
             scrollView.layer.addSublayer(layer)
             items.append(layer)

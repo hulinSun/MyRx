@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import AVFoundation
+import UIColor_Hex_Swift
 
 class MatchVoiceView: UIView {
     
@@ -41,6 +42,8 @@ class MatchVoiceView: UIView {
         }
         realView.addSubview(scrollVoice)
         self.addGestureRecognizer(tap)
+        realView.layer.borderColor = UIColor("#d3d3d1").cgColor
+        realView.layer.borderWidth = 1
         
     }
     
