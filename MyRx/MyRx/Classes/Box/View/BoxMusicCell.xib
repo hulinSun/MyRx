@@ -31,6 +31,7 @@
                             <constraint firstAttribute="height" constant="32" id="nDb-XD-omp"/>
                         </constraints>
                         <state key="normal" image="System_MusicPlay"/>
+                        <state key="selected" image="chaifei_music_stop"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lby-GX-ISY">
                         <rect key="frame" x="123" y="422" width="200" height="21"/>
@@ -118,5 +119,6 @@
         <image name="System_MusicPlay" width="30" height="30"/>
         <image name="chaifei_Share" width="20" height="20"/>
         <image name="chaifei_like" width="20" height="20"/>
+        <image name="chaifei_music_stop" width="30" height="30"/>
     </resources>
 </document>

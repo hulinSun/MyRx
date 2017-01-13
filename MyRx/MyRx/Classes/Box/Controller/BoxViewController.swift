@@ -28,6 +28,9 @@ class BoxViewController: UIViewController {
         }
     }
     
+    // MARK: 这个播放器需要持有。不然会被释放。那么久不会播放音乐了
+    var musicPlayer: MusicPlayer!
+    
     struct Reuse {
         static let musicCell = ReusableCell<BoxMusicCell>(nibName: "BoxMusicCell")
     }
@@ -64,6 +67,9 @@ class BoxViewController: UIViewController {
                 self.easyDatas.value = e
                 _ = self.easyDatas.asObservable().bindTo(self.collectionView.rx.items(cellIdentifier: "BoxMusicCell", cellType: BoxMusicCell.self)){ row, music , cell in
                     cell.config(with: music)
+                    cell.btnClick = {
+                        self.musicPlayer = MusicPlayer(musics: e, index: 2)
+                    }
                 }
             })
         }

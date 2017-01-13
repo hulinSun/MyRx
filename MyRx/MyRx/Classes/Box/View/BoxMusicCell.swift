@@ -8,15 +8,18 @@
 
 import UIKit
 import Kingfisher
+import RxCocoa
+import RxSwift
 
 class BoxMusicCell: UICollectionViewCell {
-    
     
     @IBOutlet weak var retBtn: UIButton!
     @IBOutlet weak var zanBtn: UIButton!
     @IBOutlet weak var memoLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var playBtn: UIButton!
+    var btnClick: BtnClick?
+    
     @IBOutlet weak var imgView: UIImageView!{
         didSet{
             imgView.layer.cornerRadius = 2
@@ -24,10 +27,18 @@ class BoxMusicCell: UICollectionViewCell {
         }
     }
     
+    typealias BtnClick = ()-> Void
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        playBtn.addTarget(self, action: #selector(playBtnClick), for: .touchUpInside)
     }
     
+    func playBtnClick()  {
+        playBtn.isSelected = !playBtn.isSelected
+        // 回调
+        btnClick?()
+    }
     
     func config(with data: Music)  {
         self.memoLabel.text = data.infos?.author ?? "😝"
@@ -38,4 +49,6 @@ class BoxMusicCell: UICollectionViewCell {
             self.imgView.image = KingfisherManager.shared.cache.retrieveImageInMemoryCache(forKey: org + "handle")
         }
     }
+    
+    
 }
