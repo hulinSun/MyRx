@@ -33,12 +33,11 @@ class MusicPlayer: NSObject {
         // 当前的歌曲
         let initMusic = musics[index]
         guard  let u = initMusic.infos?.mp3 else { return }
-        print(u)
         let s = u.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
         if let url = URL.init(string: s!){
-//            let item = AVPlayerItem(url: url)
-//            currentPlayItem = item
-            player = AVPlayer(url: url)
+            let item = AVPlayerItem(url: url)
+            player = AVPlayer(playerItem: item)
+            currentPlayItem = item
             player.play()
         }
     }
