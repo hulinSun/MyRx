@@ -54,6 +54,7 @@
 		FE9C367E1E1CD0BC000E73C2 /* MatchSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C367D1E1CD0BC000E73C2 /* MatchSegmentedControl.swift */; };
 		FE9C36801E1CD59A000E73C2 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C367F1E1CD59A000E73C2 /* UIImage+Extension.swift */; };
 		FE9C36821E1CEC44000E73C2 /* MatchTopicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */; };
+		FEA58DD31E2878A60062C0A9 /* HUDTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEA58DD21E2878A60062C0A9 /* HUDTool.swift */; };
 		FEB3E4D81E1D1DD100DEAFB1 /* TopicTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4D71E1D1DD100DEAFB1 /* TopicTopView.swift */; };
 		FEB3E4DA1E1D1DDC00DEAFB1 /* TopicTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEB3E4D91E1D1DDC00DEAFB1 /* TopicTopView.xib */; };
 		FEB3E4DC1E1D218D00DEAFB1 /* TopicBottomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E4DB1E1D218D00DEAFB1 /* TopicBottomView.swift */; };
@@ -151,6 +152,7 @@
 		FE9C367D1E1CD0BC000E73C2 /* MatchSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchSegmentedControl.swift; sourceTree = "<group>"; };
 		FE9C367F1E1CD59A000E73C2 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FE9C36811E1CEC44000E73C2 /* MatchTopicController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchTopicController.swift; sourceTree = "<group>"; };
+		FEA58DD21E2878A60062C0A9 /* HUDTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HUDTool.swift; sourceTree = "<group>"; };
 		FEB3E4D71E1D1DD100DEAFB1 /* TopicTopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTopView.swift; sourceTree = "<group>"; };
 		FEB3E4D91E1D1DDC00DEAFB1 /* TopicTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopicTopView.xib; sourceTree = "<group>"; };
 		FEB3E4DB1E1D218D00DEAFB1 /* TopicBottomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicBottomView.swift; sourceTree = "<group>"; };
@@ -558,6 +560,7 @@
 			children = (
 				FE891C261E23789300F55500 /* AudioManager.swift */,
 				FE0E46B71E27860B0093D51E /* MusicPlayer.swift */,
+				FEA58DD21E2878A60062C0A9 /* HUDTool.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -815,6 +818,7 @@
 				FE2134591E14EEAE00C056F5 /* Appdelegate+Extension.swift in Sources */,
 				FEB3E4D81E1D1DD100DEAFB1 /* TopicTopView.swift in Sources */,
 				FE4EA23F1E1F31F90063411A /* MatchTopicFrameModel.swift in Sources */,
+				FEA58DD31E2878A60062C0A9 /* HUDTool.swift in Sources */,
 				FE07094B1E2763BC0012705E /* BoxMusicCell.swift in Sources */,
 				FE891C291E237B5200F55500 /* MatchVoiceView.swift in Sources */,
 				FEED49851E1665C20043DB83 /* String+Directionary.swift in Sources */,
