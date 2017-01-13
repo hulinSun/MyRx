@@ -34,7 +34,7 @@ class BoxViewController: UIViewController {
     struct Reuse {
         static let musicCell = ReusableCell<BoxMusicCell>(nibName: "BoxMusicCell")
     }
-    
+    let imageSize = CGSize(width: UIConst.screenWidth - CGFloat(2 * 18), height:  CGFloat(390))
     
     fileprivate lazy var collectionView: UICollectionView = {
         let rect = CGRect(x: 0, y: 64, width: UIConst.screenWidth, height: UIConst.screenHeight - 64 - 49)
@@ -61,14 +61,15 @@ class BoxViewController: UIViewController {
     private func setupData(){
         
         HttpService.getHomeMusic { [unowned self] (e) in
+            
+            self.musicPlayer = MusicPlayer(musics: e) // 播放器
             let musics = e.map{$0.infos?.thumb}.flatMap{$0}
-            let imageSize = CGSize(width: UIConst.screenWidth - CGFloat(2 * 18), height:  CGFloat(390))
-            MatchDrawImageTool.asyncCacheImage(with: musics, size: imageSize, callback: {
+            MatchDrawImageTool.asyncCacheImage(with: musics, size: self.imageSize, callback: {
                 self.easyDatas.value = e
                 _ = self.easyDatas.asObservable().bindTo(self.collectionView.rx.items(cellIdentifier: "BoxMusicCell", cellType: BoxMusicCell.self)){ row, music , cell in
                     cell.config(with: music)
                     cell.btnClick = {
-                        self.musicPlayer = MusicPlayer(musics: e, index: 2)
+                        self.musicPlayer.play(music: music)
                     }
                 }
             })

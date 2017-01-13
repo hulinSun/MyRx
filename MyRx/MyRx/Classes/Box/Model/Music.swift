@@ -31,4 +31,10 @@ class Music: HandyJSON {
     var typename:String?
     var infos: MusicInfo?
     required init() {}
+    
+//    static func ==(lhs: Music, rhs: Music) -> Bool {
+//        return lhs.infos?.mp3 == rhs.infos?.mp3
+//    }
 }
+
+
