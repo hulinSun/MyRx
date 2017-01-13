@@ -20,12 +20,14 @@ class MusicPlayer: NSObject {
     var  player: AVPlayer!
     var currentPlayItem: AVPlayerItem!
     var first: Bool = true /// 标记第一次添加的通知。第一次没播放的不添加通知
+    var timerReturn: Any!
     
     /// 初始化方法
     init(musics: [Music]) {
         self.musics = musics
         super.init()
         setupPlayer()
+        addPlayEndObserve() // 播放结束的通知
     }
     
     /// 默认播放的是第一首歌
@@ -117,17 +119,16 @@ class MusicPlayer: NSObject {
     }
     
     /// 添加播放结束通知
-    private func playEndObserve()  {
-        let end = Notification.Name.AVPlayerItemDidPlayToEndTime
-        NotificationCenter.default.rx.notification(end)
-            .subscribe { (e) in
-                // 播放下一个
-                self.next()
-            }.addDisposableTo(bag)
+    private func addPlayEndObserve()  {
+        NotificationCenter.default.addObserver(self, selector: #selector(playend), name: Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
+    }
+    
+    func playend()  {
+        self.next()
     }
     
     /// 移除通知
-    private func removeObser(){
+    private func removePlayEndObser(){
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -135,7 +136,8 @@ class MusicPlayer: NSObject {
     private func progressObser(){
         if let playItem = player.currentItem{
             let time = CMTime(value: CMTimeValue(1.0), timescale: CMTimeScale(1.0))
-            player.addPeriodicTimeObserver(forInterval: time, queue: DispatchQueue.main, using: { (t) in
+            // FIXME: 这里返回的是AVPeriodicTimebaseObserver 私有类，需要移除这个监听
+         timerReturn = player.addPeriodicTimeObserver(forInterval: time, queue: DispatchQueue.main, using: { (t) in
                 let current = CMTimeGetSeconds(t)
                 let total = CMTimeGetSeconds(playItem.duration)
                 print("当前\(current) 总时长\(total)")
@@ -145,7 +147,8 @@ class MusicPlayer: NSObject {
     
     /// 移除播放进度通知
     private func removeprogressObser(){
-        player.removeTimeObserver(self)
+        //MARK: 注意这里的释放方法，一定要释放。不然那个方法会走很多次
+        player.removeTimeObserver(timerReturn)
     }
     
     /// 计算缓冲时长
@@ -192,11 +195,11 @@ class MusicPlayer: NSObject {
     
     deinit {
         removeAllObser()
+        NotificationCenter.default.removeObserver(self, name:  Notification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
     /// 添加所有通知
     private func addAllObser(){
-        playEndObserve() // 播放结束的通知
         progressObser() // 进度
         if let item = player.currentItem{
             addobserToItem(playItem: item) // kvo
@@ -205,7 +208,6 @@ class MusicPlayer: NSObject {
     
     /// 移除所有通知
     private func removeAllObser(){
-        removeObser()
         removeprogressObser()
         if let item = player.currentItem{
             removeObserToitem(playItem: item)
@@ -225,3 +227,4 @@ private extension String{
         }
     }
 }
+    
