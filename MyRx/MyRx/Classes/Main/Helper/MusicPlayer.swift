@@ -26,6 +26,7 @@ class MusicPlayer: NSObject {
     init(musics: [Music]) {
         self.musics = musics
         super.init()
+        configPlayback()
         setupPlayer()
         addPlayEndObserve() // 播放结束的通知
     }
@@ -42,7 +43,7 @@ class MusicPlayer: NSObject {
     }
     
     /// 播放第几个歌曲 ---> 这里才是真正的播放.所以在这里做KVO操作
-    func play(at idx: Int){
+    private func play(at idx: Int){
         let initMusic = musics[idx]
         index = idx
         guard let mp3 = initMusic.infos?.mp3 else { return }
@@ -214,6 +215,16 @@ class MusicPlayer: NSObject {
         }
     }
     
+    /// 设置后台播放
+    private func configPlayback(){
+        let session = AVAudioSession.sharedInstance()
+        do{
+            try session.setActive(true)
+            try session.setCategory(AVAudioSessionCategoryPlayback)
+        }catch{
+            print(error)
+        }
+    }
 }
 
 private extension String{

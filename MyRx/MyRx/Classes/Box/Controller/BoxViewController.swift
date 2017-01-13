@@ -61,7 +61,6 @@ class BoxViewController: UIViewController {
     private func setupData(){
         
         HttpService.getHomeMusic { [unowned self] (e) in
-            
             self.musicPlayer = MusicPlayer(musics: e) // 播放器
             let musics = e.map{$0.infos?.thumb}.flatMap{$0}
             MatchDrawImageTool.asyncCacheImage(with: musics, size: self.imageSize, callback: {
