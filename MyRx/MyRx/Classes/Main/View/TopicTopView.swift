@@ -11,9 +11,17 @@ import Kingfisher
 
 class TopicTopView: UIView {
 
-    @IBOutlet weak var namelabel: UILabel!
+    @IBOutlet weak var namelabel: UILabel!{
+        didSet{
+            namelabel.backgroundColor = .white
+        }
+    }
 
-    @IBOutlet weak var leftBtn: UIButton!
+    @IBOutlet weak var leftBtn: UIButton!{
+        didSet{
+            leftBtn.backgroundColor = .white
+        }
+    }
 
     @IBOutlet weak var iconView: UIImageView!{
         didSet{
@@ -22,9 +30,17 @@ class TopicTopView: UIView {
         }
     }
     
-    @IBOutlet weak var memoLabel: UILabel!
+    @IBOutlet weak var memoLabel: UILabel!{
+        didSet{
+            memoLabel.backgroundColor = .white
+        }
+    }
     
-    @IBOutlet weak var rightBtn: UIButton!
+    @IBOutlet weak var rightBtn: UIButton!{
+        didSet{
+            rightBtn.backgroundColor = .white
+        }
+    }
 
     override func awakeFromNib() {
         

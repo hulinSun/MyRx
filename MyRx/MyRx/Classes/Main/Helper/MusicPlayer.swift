@@ -51,6 +51,7 @@ class MusicPlayer: NSObject {
             if !first{ removeAllObser()}
             player.replaceCurrentItem(with: item)
             player.play()
+            configNowPlayingCenterInfo()
             print("播放歌曲名\(initMusic.infos?.title)")
             first = false // 第一次没有了 = =
             addAllObser()
@@ -224,6 +225,11 @@ class MusicPlayer: NSObject {
         }catch{
             print(error)
         }
+    }
+    
+    /// 配置锁屏状态下的数据
+    private func configNowPlayingCenterInfo(){
+        
     }
 }
 

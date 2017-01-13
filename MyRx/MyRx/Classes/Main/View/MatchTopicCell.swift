@@ -24,6 +24,7 @@ class MatchTopicCell: UITableViewCell {
     /// 头部的view
     fileprivate lazy var topView: TopicTopView = {
         let i = TopicTopView.loadFromNib()
+        i.backgroundColor = .white
         return i
     }()
     
@@ -83,6 +84,9 @@ class MatchTopicCell: UITableViewCell {
             bottomView.frame = tpFrame.bottomFrame
             tpFrame.voiceFrame.height == 0 ? (voiceView.isHidden = true) : (voiceView.isHidden = false)
             voiceView.frame = tpFrame.voiceFrame
+            self.contentView.backgroundColor = .white
+            photoView.backgroundColor = self.contentView.backgroundColor
+            self.descLabel.backgroundColor = self.contentView.backgroundColor
         }
     }
     
