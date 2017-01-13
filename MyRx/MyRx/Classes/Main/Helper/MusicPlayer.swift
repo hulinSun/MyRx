@@ -20,26 +20,23 @@ class MusicPlayer: NSObject {
     var index: Int = 0 // 当前播放的歌曲索引
     var  player: AVPlayer!
     var currentPlayItem: AVPlayerItem!
+    var first: Bool = true /// 标记第一次添加的通知。第一次没播放的不添加通知
     
     /// 初始化方法
     init(musics: [Music]) {
         self.musics = musics
         super.init()
-        playEndObserve()
         setupPlayer()
     }
     
     /// 默认播放的是第一首歌
     private func setupPlayer(){
-        // 当前的歌曲
-        
         // MARK: 这里默认去第一个的目的是先让aplayer 有值
         index = 0
         let initMusic = musics[index]
         guard  let mp3 = initMusic.infos?.mp3 else { return }
         if let item = mp3.playItem(){
             player = AVPlayer(playerItem: item)
-//            currentPlayItem = item
         }
     }
     
@@ -49,10 +46,20 @@ class MusicPlayer: NSObject {
         index = idx
         guard let mp3 = initMusic.infos?.mp3 else { return }
         if let item = mp3.playItem(){
+            
+            removeObser() // 移除之前的通知
+            // 移除之前item的监听 ,并且不是第一次的哪个没播放的通知
+            if let lastItem = player.currentItem {
+                if !first{ // 不是第一次
+                    removeObserToitem(playItem: lastItem) // 移除之前的kvo
+                }
+            }
             player.replaceCurrentItem(with: item)
             player.play()
-            progressObser()
-            addobserToItem(playItem: item)
+            first = false // 第一次没有了 = =
+            playEndObserve() // 播放结束的通知
+            progressObser() // 进度
+            addobserToItem(playItem: item) // kvo
         }
     }
     
@@ -80,7 +87,13 @@ class MusicPlayer: NSObject {
         playItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackBufferEmpty), options: NSKeyValueObservingOptions.new, context: nil)
         // 缓冲区有足够数据可以播放了
         playItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp), options: NSKeyValueObservingOptions.new, context: nil)
-        
+    }
+    
+    private func removeObserToitem(playItem: AVPlayerItem){
+        playItem.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
+        playItem.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.loadedTimeRanges))
+        playItem.removeObserver(self, forKeyPath:  #keyPath(AVPlayerItem.isPlaybackBufferEmpty))
+        playItem.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.isPlaybackLikelyToKeepUp))
     }
     
     
@@ -90,7 +103,6 @@ class MusicPlayer: NSObject {
         guard  let key = keyPath , let changeValue = change else { return }
         let new = changeValue[.newKey]
         switch key {
-            
         case "status":
             if let status = new as? AVPlayerStatus, status == AVPlayerStatus.readyToPlay{
                 print("正在播放\(CMTimeGetSeconds(item.duration))")
@@ -99,18 +111,13 @@ class MusicPlayer: NSObject {
         case "loadedTimeRanges":
             // 计算缓冲进度
             if let timeInterVarl    = self.availableDuration() {
-                // 总时长
-                let duration        = item.duration
-                let totalDuration   = CMTimeGetSeconds(duration)
-                print("time = \(timeInterVarl) , total = \(totalDuration)")
+                print("缓冲\(timeInterVarl)")
             }
             
         case "playbackBufferEmpty":
             print("playbackBufferEmpty \(new!)")
-            
         case "playbackLikelyToKeepUp":
             print("playbackLikelyToKeepUp \(new!)")
-            
         default:
             print("--")
         }
@@ -142,8 +149,8 @@ class MusicPlayer: NSObject {
         }
     }
     
+    /// 计算缓冲时长
     fileprivate func availableDuration() -> TimeInterval? {
-        
         if let loadedTimeRanges = player.currentItem?.loadedTimeRanges,
             let first = loadedTimeRanges.first {
             let timeRange = first.timeRangeValue // 本次缓冲时长
@@ -185,6 +192,9 @@ class MusicPlayer: NSObject {
     
     deinit {
         removeObser()
+        if let item = player.currentItem{
+            removeObserToitem(playItem: item)
+        }
     }
     
 }
