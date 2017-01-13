@@ -12,7 +12,6 @@ import AVFoundation
 import RxSwift
 import RxCocoa
 
-/// 这里不把他设计成单例的原因是，这个工具类牵扯
 class MusicPlayer: NSObject {
 
     let bag = DisposeBag()
@@ -46,20 +45,14 @@ class MusicPlayer: NSObject {
         index = idx
         guard let mp3 = initMusic.infos?.mp3 else { return }
         if let item = mp3.playItem(){
-            
-            removeObser() // 移除之前的通知
-            // 移除之前item的监听 ,并且不是第一次的哪个没播放的通知
-            if let lastItem = player.currentItem {
-                if !first{ // 不是第一次
-                    removeObserToitem(playItem: lastItem) // 移除之前的kvo
-                }
-            }
+            if !first{ removeAllObser()}
             player.replaceCurrentItem(with: item)
             player.play()
+            print("播放歌曲名\(initMusic.infos?.title)")
             first = false // 第一次没有了 = =
-            playEndObserve() // 播放结束的通知
-            progressObser() // 进度
-            addobserToItem(playItem: item) // kvo
+            addAllObser()
+        }else{
+            print("初始化item 失败")
         }
     }
     
@@ -128,7 +121,8 @@ class MusicPlayer: NSObject {
         let end = Notification.Name.AVPlayerItemDidPlayToEndTime
         NotificationCenter.default.rx.notification(end)
             .subscribe { (e) in
-                print("播放到结束了")
+                // 播放下一个
+                self.next()
             }.addDisposableTo(bag)
     }
     
@@ -147,6 +141,11 @@ class MusicPlayer: NSObject {
                 print("当前\(current) 总时长\(total)")
             })
         }
+    }
+    
+    /// 移除播放进度通知
+    private func removeprogressObser(){
+        player.removeTimeObserver(self)
     }
     
     /// 计算缓冲时长
@@ -169,7 +168,8 @@ class MusicPlayer: NSObject {
             // 播放第一首
             play(at: 0)
         }else{
-            play(at: index + 1)
+            let i = index + 1
+            play(at: i )
         }
     }
     /// 上一首
@@ -177,7 +177,8 @@ class MusicPlayer: NSObject {
         if index == 0{
          play(at: musics.count - 1)
         }else{
-            play(at: index - 1)
+            let i = index - 1
+            play(at: i)
         }
     }
     /// 暂停
@@ -189,9 +190,23 @@ class MusicPlayer: NSObject {
         // 继续播放
     }
     
-    
     deinit {
+        removeAllObser()
+    }
+    
+    /// 添加所有通知
+    private func addAllObser(){
+        playEndObserve() // 播放结束的通知
+        progressObser() // 进度
+        if let item = player.currentItem{
+            addobserToItem(playItem: item) // kvo
+        }
+    }
+    
+    /// 移除所有通知
+    private func removeAllObser(){
         removeObser()
+        removeprogressObser()
         if let item = player.currentItem{
             removeObserToitem(playItem: item)
         }
