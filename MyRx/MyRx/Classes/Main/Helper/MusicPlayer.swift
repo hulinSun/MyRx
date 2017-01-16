@@ -11,6 +11,8 @@ import UIKit
 import AVFoundation
 import RxSwift
 import RxCocoa
+import MediaPlayer
+import Kingfisher
 
 class MusicPlayer: NSObject {
 
@@ -51,7 +53,7 @@ class MusicPlayer: NSObject {
             if !first{ removeAllObser()}
             player.replaceCurrentItem(with: item)
             player.play()
-            configNowPlayingCenterInfo()
+            configNowPlayingCenterInfo(with: initMusic)
             print("播放歌曲名\(initMusic.infos?.title)")
             first = false // 第一次没有了 = =
             addAllObser()
@@ -73,7 +75,6 @@ class MusicPlayer: NSObject {
     
     /// kvo监听item改变
     private func addobserToItem(playItem: AVPlayerItem){
-        
         // 播放状态
         playItem.addObserver(self, forKeyPath: #keyPath(AVPlayerItem.status), options: NSKeyValueObservingOptions.new, context: nil)
         
@@ -228,8 +229,25 @@ class MusicPlayer: NSObject {
     }
     
     /// 配置锁屏状态下的数据
-    private func configNowPlayingCenterInfo(){
+    private func configNowPlayingCenterInfo(with music: Music){
+        guard let mp3 = music.infos?.mp3 else { return }
         
+        var dict = [String: Any]()
+        if let urlStr = mp3.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr){
+            let audioAsset = AVURLAsset(url: url, options: nil)
+            let audioDurationSeconds = CMTimeGetSeconds(audioAsset.duration)
+            dict[MPMediaItemPropertyTitle] = music.infos?.title ?? "标题"
+            dict[MPMediaItemPropertyArtist] = music.infos?.author ?? "作者"
+            dict[MPMediaItemPropertyAlbumTitle] = "相册的名字"
+            dict[MPMediaItemPropertyPlaybackDuration] = "\(audioDurationSeconds)"
+            // 下载图片
+            KingfisherManager.shared.downloader.downloadImage(with: URL(string: (music.infos?.thumb)!)!, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
+                let artwork = MPMediaItemArtwork(image: img!)
+                dict[MPMediaItemPropertyArtwork] = artwork
+                MPNowPlayingInfoCenter.default().nowPlayingInfo = dict
+            })
+            
+        }
     }
 }
 

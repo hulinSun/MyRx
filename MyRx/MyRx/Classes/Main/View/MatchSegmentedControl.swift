@@ -19,11 +19,8 @@ class MatchSegmentedControl: UIControl {
     
     // 这样，就可以事件传出去了。不在以来代理这些东西
     let indexChanged: Variable<Int> = Variable(0)
-    
     var titles: [String]!
-
     var special: Bool = false
-    
     var numberOfSegments: Int{
         return titles.count
     }
@@ -84,8 +81,8 @@ class MatchSegmentedControl: UIControl {
             /// change the value then output
             indexChanged.value = self.selectedIndex
         }
-        
     }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         self.layer.cornerRadius = self.height * 0.5
