@@ -11,17 +11,15 @@ import RxCocoa
 import RxSwift
 
 
-// 只是简单的做一个小封装。基本够用,细节方面没有做过多的把控
+// 只是简单的做一个小封装。基本够用,细节方面没有做过多的调整
 class MatchSegmentedControl: UIControl {
     
     private let bag = DisposeBag()
-    
     private var selectedBtn: UIButton!
     
     // 这样，就可以事件传出去了。不在以来代理这些东西
     let indexChanged: Variable<Int> = Variable(0)
     
-    let i = UISegmentedControl()
     var titles: [String]!
 
     var special: Bool = false
@@ -51,7 +49,6 @@ class MatchSegmentedControl: UIControl {
      init(items: [String]?) {
         
         titles = items
-        
         super.init(frame: .zero)
         for i in 0..<titles.count{
             // 创建按钮
@@ -72,8 +69,6 @@ class MatchSegmentedControl: UIControl {
     }
     
     func tapBtn(_ btn: UIButton) {
-        
-        
         /// 去掉相同的情况
         if let selBtn = self.selectedBtn, selBtn.tag == btn.tag {
             return
@@ -84,7 +79,6 @@ class MatchSegmentedControl: UIControl {
             self.selectedBtn.isSelected = false
         }
         self.selectedBtn = btn
-        
         if special == false {
             self.sendActions(for: .valueChanged)
             /// change the value then output

@@ -234,7 +234,6 @@ class MusicPlayer: NSObject {
 }
 
 private extension String{
-    
     func playItem() -> AVPlayerItem? {
         if self.isEmpty { return nil }
         if let urlString = self.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) , let url = URL.init(string: urlString){
