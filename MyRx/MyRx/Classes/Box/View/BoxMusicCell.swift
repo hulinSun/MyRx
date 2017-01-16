@@ -40,7 +40,9 @@ class BoxMusicCell: UICollectionViewCell {
         btnClick?()
     }
     
+    
     func config(with data: Music)  {
+ 
         self.memoLabel.text = data.infos?.author ?? "😝"
         self.nameLabel.text = data.infos?.title ?? "😝"
         self.zanBtn.setTitle(data.infos?.heart ?? "😝", for: .normal)

@@ -31,6 +31,8 @@ class BoxViewController: UIViewController {
     // MARK: 这个播放器需要持有。不然会被释放。那么久不会播放音乐了
     var musicPlayer: MusicPlayer!
     
+    var selctedPath: Int? // 标记上次的播放
+    
     struct Reuse {
         static let musicCell = ReusableCell<BoxMusicCell>(nibName: "BoxMusicCell")
     }

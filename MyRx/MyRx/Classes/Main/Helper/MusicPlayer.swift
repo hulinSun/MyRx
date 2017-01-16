@@ -22,6 +22,8 @@ class MusicPlayer: NSObject {
     var currentPlayItem: AVPlayerItem!
     var first: Bool = true /// 标记第一次添加的通知。第一次没播放的不添加通知
     var timerReturn: Any!
+    var currentTime: Float64! = 0
+    var allTime: Float64! = 0
     
     /// 初始化方法
     init(musics: [Music]) {
@@ -46,6 +48,8 @@ class MusicPlayer: NSObject {
     
     /// 播放第几个歌曲 ---> 这里才是真正的播放.所以在这里做KVO操作
     private func play(at idx: Int){
+        currentTime = 0
+        allTime = 0
         let initMusic = musics[idx]
         index = idx
         guard let mp3 = initMusic.infos?.mp3 else { return }
@@ -144,6 +148,8 @@ class MusicPlayer: NSObject {
                 let current = CMTimeGetSeconds(t)
                 let total = CMTimeGetSeconds(playItem.duration)
                 print("当前 \(current) 总时长 \(total)")
+                self.currentTime = current
+                self.allTime = total
             })
         }
     }
