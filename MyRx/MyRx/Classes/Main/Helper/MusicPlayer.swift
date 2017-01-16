@@ -28,6 +28,7 @@ class MusicPlayer: NSObject {
     init(musics: [Music]) {
         self.musics = musics
         super.init()
+        remoteControl()
         configPlayback()
         setupPlayer()
         addPlayEndObserve() // 播放结束的通知
@@ -53,10 +54,10 @@ class MusicPlayer: NSObject {
             if !first{ removeAllObser()}
             player.replaceCurrentItem(with: item)
             player.play()
-            configNowPlayingCenterInfo(with: initMusic)
             print("播放歌曲名\(initMusic.infos?.title)")
             first = false // 第一次没有了 = =
             addAllObser()
+            configNowPlayingCenterInfo(with: initMusic)
         }else{
             print("初始化item 失败")
         }
@@ -141,9 +142,9 @@ class MusicPlayer: NSObject {
             let time = CMTime(value: CMTimeValue(1.0), timescale: CMTimeScale(1.0))
             // FIXME: 这里返回的是AVPeriodicTimebaseObserver 私有类，需要移除这个监听
          timerReturn = player.addPeriodicTimeObserver(forInterval: time, queue: DispatchQueue.main, using: { (t) in
-                let current = CMTimeGetSeconds(t)
-                let total = CMTimeGetSeconds(playItem.duration)
-                print("当前\(current) 总时长\(total)")
+//                let current = CMTimeGetSeconds(t)
+//                let total = CMTimeGetSeconds(playItem.duration)
+//                print("当前\(current) 总时长\(total)")
             })
         }
     }
@@ -194,6 +195,7 @@ class MusicPlayer: NSObject {
     /// 继续播放
     func resumu(){
         // 继续播放
+        self.player.play()
     }
     
     deinit {
@@ -238,15 +240,45 @@ class MusicPlayer: NSObject {
             let audioDurationSeconds = CMTimeGetSeconds(audioAsset.duration)
             dict[MPMediaItemPropertyTitle] = music.infos?.title ?? "标题"
             dict[MPMediaItemPropertyArtist] = music.infos?.author ?? "作者"
-            dict[MPMediaItemPropertyAlbumTitle] = "相册的名字"
+//            dict[MPMediaItemPropertyAlbumTitle] = "相册的名字"
             dict[MPMediaItemPropertyPlaybackDuration] = "\(audioDurationSeconds)"
-            // 下载图片
-            KingfisherManager.shared.downloader.downloadImage(with: URL(string: (music.infos?.thumb)!)!, options: nil, progressBlock: nil, completionHandler: { (img, _, _, _) in
-                let artwork = MPMediaItemArtwork(image: img!)
-                dict[MPMediaItemPropertyArtwork] = artwork
-                MPNowPlayingInfoCenter.default().nowPlayingInfo = dict
-            })
-            
+            let work = MPMediaItemArtwork(image:  UIImage(named: "d3")!)
+            dict[MPMediaItemPropertyArtwork] = work
+            MPNowPlayingInfoCenter.default().nowPlayingInfo = dict
+        }
+    }
+    
+    /// 远程事件
+    private func remoteControl(){
+        /// MARK: 这句话一定要写,不然锁屏状态下不会显示图片
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+        
+        /// 播放事件
+        MPRemoteCommandCenter.shared().playCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            print("点击了播放")
+            self.resumu()
+            return .success
+        }
+        
+        /// 暂停事件
+        MPRemoteCommandCenter.shared().pauseCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            print("点击了暂停")
+            self.pause()
+            return .success
+        }
+        
+        /// 下一首
+        MPRemoteCommandCenter.shared().nextTrackCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            self.next()
+            print("点击了下一首")
+            return .success
+        }
+        
+        /// 上一首
+        MPRemoteCommandCenter.shared().previousTrackCommand.addTarget { (event) -> MPRemoteCommandHandlerStatus in
+            print("点击了上一首")
+            self.previous()
+            return .success
         }
     }
 }
