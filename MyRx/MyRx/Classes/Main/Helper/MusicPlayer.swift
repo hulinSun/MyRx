@@ -12,7 +12,6 @@ import AVFoundation
 import RxSwift
 import RxCocoa
 import MediaPlayer
-import Kingfisher
 
 class MusicPlayer: NSObject {
 
@@ -142,9 +141,9 @@ class MusicPlayer: NSObject {
             let time = CMTime(value: CMTimeValue(1.0), timescale: CMTimeScale(1.0))
             // FIXME: 这里返回的是AVPeriodicTimebaseObserver 私有类，需要移除这个监听
          timerReturn = player.addPeriodicTimeObserver(forInterval: time, queue: DispatchQueue.main, using: { (t) in
-//                let current = CMTimeGetSeconds(t)
-//                let total = CMTimeGetSeconds(playItem.duration)
-//                print("当前\(current) 总时长\(total)")
+                let current = CMTimeGetSeconds(t)
+                let total = CMTimeGetSeconds(playItem.duration)
+                print("当前 \(current) 总时长 \(total)")
             })
         }
     }
@@ -242,10 +241,16 @@ class MusicPlayer: NSObject {
             dict[MPMediaItemPropertyArtist] = music.infos?.author ?? "作者"
 //            dict[MPMediaItemPropertyAlbumTitle] = "相册的名字"
             dict[MPMediaItemPropertyPlaybackDuration] = "\(audioDurationSeconds)"
-            let work = MPMediaItemArtwork(image:  UIImage(named: "d3")!)
+            let work = MPMediaItemArtwork(image: randomImage())
             dict[MPMediaItemPropertyArtwork] = work
             MPNowPlayingInfoCenter.default().nowPlayingInfo = dict
         }
+    }
+    
+    private func randomImage()-> UIImage{
+        let i = arc4random_uniform(6) + 1
+        let imgName = "d\(i)"
+        return UIImage(named: imgName)!
     }
     
     /// 远程事件
