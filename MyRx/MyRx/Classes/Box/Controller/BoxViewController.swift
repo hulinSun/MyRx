@@ -28,6 +28,7 @@ class BoxViewController: UIViewController {
         }
     }
     
+    
     // MARK: 这个播放器需要持有。不然会被释放。那么久不会播放音乐了
     var musicPlayer: MusicPlayer!
     

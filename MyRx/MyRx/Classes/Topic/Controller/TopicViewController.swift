@@ -146,6 +146,7 @@ class TopicViewController: UIViewController {
 extension TopicViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
         let sectionHeader = tableView.dequeue(Reuse.header)
         sectionHeader?.config(group: dataSource[section].model)
         return sectionHeader
