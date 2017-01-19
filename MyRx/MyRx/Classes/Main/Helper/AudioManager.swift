@@ -46,7 +46,6 @@ extension RecorderError{
 }
 
 class AudioManager: NSObject {
-    
     // 单例
     static let sharedManager = AudioManager()
     override private init(){
@@ -70,19 +69,22 @@ class AudioManager: NSObject {
     
     var delegate: AudioManagerDelegate?
     
-    let tt: Variable<String> = Variable("")
+    
     
     var isRecording: Bool {
         if recorder == nil{ return false}
         return self.recorder.isRecording
     }
     
+    let tt: Variable<String> = Variable("")
     /// 定时器
     fileprivate lazy var timer: Timer = {
         let i = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(audioPowerChange), userInfo: nil, repeats: true)
         RunLoop.current.add(i, forMode: .commonModes)
         return i
     }()
+    
+    
     
     /// 录音时长
     private(set) var duration: Double = 0

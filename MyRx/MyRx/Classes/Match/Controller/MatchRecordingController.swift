@@ -61,7 +61,7 @@ class MatchRecordingController: UIViewController {
                 self.mgr.initPlayer()
             }.addDisposableTo(bag)
         
-        self.mgr.tt.asObservable().bindTo(self.timeLabel.rx.text)
+        self.mgr.tt.asObservable().bindTo(self.timeLabel.rx.text).addDisposableTo(bag)
   
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
