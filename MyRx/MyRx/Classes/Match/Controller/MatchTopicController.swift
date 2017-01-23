@@ -142,7 +142,6 @@ extension MatchTopicController: UITableViewDelegate{
         let frames = dataSource[indexPath.section].items
         let tpFrame = frames[indexPath.row]
         let tp = tpFrame.topic
-        
         var height:CGFloat = 0
         if let cacheH = rowCache[tp.lastid!]{
             height = cacheH
