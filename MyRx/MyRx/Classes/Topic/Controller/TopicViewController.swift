@@ -19,6 +19,7 @@ import Moya
 class TopicViewController: UIViewController {
 
     let bag = DisposeBag()
+    
     var sections: Driver<[TopicListSection]>!
     var banners: Variable<[TopicBanner]>!
     

@@ -122,7 +122,9 @@ open class AnimatedImageView: UIImageView {
         } else {
             displayLink.isPaused = false
         }
+        
     }
+    
     
     /// Stops the animation.
     override open func stopAnimating() {
