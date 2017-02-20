@@ -48,6 +48,8 @@ class TopicViewController: UIViewController {
     
     fileprivate lazy var rightBtn: UIButton = {
         let i = UIButton()
+        
+        
         i.setTitle("分类", for: .normal)
         i.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         i.setTitleColor(UIColor("#3daafc"), for: .normal)
@@ -63,6 +65,7 @@ class TopicViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupUI()
+        
     }
     
     private func setupUI(){
