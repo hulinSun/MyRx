@@ -13,7 +13,7 @@ class TopicTopView: UIView {
 
     @IBOutlet weak var namelabel: UILabel!{
         didSet{
-            namelabel.backgroundColor = .white
+            namelabel.backgroundColor = .white;
         }
     }
 
@@ -45,7 +45,6 @@ class TopicTopView: UIView {
     override func awakeFromNib() {
         
     }
-    
     
     var topic: Topic?{
         didSet{

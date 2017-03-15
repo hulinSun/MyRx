@@ -17,7 +17,6 @@ extension AppDelegate{
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = MainTabbarController()
 //        self.window?.rootViewController = ViewController()
-        
     }
 }
 
