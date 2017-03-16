@@ -42,9 +42,7 @@ class TopicTopView: UIView {
         }
     }
 
-    override func awakeFromNib() {
-        
-    }
+    override func awakeFromNib() {}
     
     var topic: Topic?{
         didSet{
