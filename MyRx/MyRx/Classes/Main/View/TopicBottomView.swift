@@ -18,7 +18,6 @@ class TopicBottomView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         lay.position = CGPoint(x: 0, y: 49.3)
         self.layer.addSublayer(lay)
     }
